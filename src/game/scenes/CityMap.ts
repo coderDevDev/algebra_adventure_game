@@ -3,6 +3,15 @@ import { EventBus } from "../EventBus";
 import { GameStateManager } from "../../utils/GameStateManager";
 import CollisionService from "../../services/CollisionService";
 
+/**
+ * CityMap - Level 2 (Missions 11-20)
+ * 
+ * 🎯 AUTO-LOADED: This scene automatically loads when the player completes
+ * all 10 Barangay missions (Level 1). The transition happens automatically
+ * after displaying a level-up celebration notification.
+ * 
+ * Contains advanced algebra challenges for intermediate players.
+ */
 export class CityMap extends Scene {
     // 🎨 DEBUG MODE: Set to false to hide collision boundaries in production
     private readonly DEBUG_SHOW_COLLISIONS: boolean = false;

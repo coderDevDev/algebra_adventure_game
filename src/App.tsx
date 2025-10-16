@@ -401,7 +401,13 @@ function App() {
                             // Play level up sound effect
                             audioManager.playEffect("level-up");
 
-                            // Show level up notification and transition to new scene
+                            // Update game info level immediately to prevent duplicate transitions
+                            setGameInfo((prev) => ({
+                                ...prev,
+                                level: progress.level,
+                            }));
+
+                            // Show level up notification
                             setTimeout(() => {
                                 showGameNotification({
                                     type: "success",
@@ -410,38 +416,32 @@ function App() {
                                         progress.level
                                     }! ${
                                         progress.level === 2
-                                            ? "You've mastered basic algebra and are now ready for intermediate challenges! Welcome to the city with advanced math problems!"
+                                            ? "You've mastered basic algebra and are now ready for intermediate challenges! Automatically transitioning to the City..."
                                             : "You've completed all math challenges with excellent accuracy and are ready for the next level. Great job, math champion!"
                                     }`,
                                     icon: "🎓",
-                                    actions: [
-                                        {
-                                            label:
-                                                progress.level === 2
-                                                    ? "Enter City Math Zone!"
-                                                    : "Continue!",
-                                            action: () => {
-                                                closeNotification();
-                                                // Transition to appropriate scene based on new level
-                                                if (
-                                                    phaserRef.current?.game &&
-                                                    progress.level === 2
-                                                ) {
-                                                    console.log(
-                                                        "Transitioning to CityMap for Level 2..."
-                                                    );
-                                                    audioManager.crossfadeToLevel(
-                                                        "CityMap"
-                                                    );
-                                                    phaserRef.current.game.scene.start(
-                                                        "CityMap"
-                                                    );
-                                                }
-                                            },
-                                            style: "primary",
-                                        },
-                                    ],
+                                    actions: [],
                                 });
+
+                                // Automatically transition to CityMap after level up to Level 2
+                                if (
+                                    phaserRef.current?.game &&
+                                    progress.level === 2
+                                ) {
+                                    setTimeout(() => {
+                                        console.log(
+                                            "🎉 All Barangay missions completed! Auto-transitioning to CityMap for Level 2..."
+                                        );
+                                        closeNotification();
+                                        audioManager.crossfadeToLevel("CityMap");
+                                        phaserRef.current.game.scene.stop(
+                                            "BarangayMap"
+                                        );
+                                        phaserRef.current.game.scene.start(
+                                            "CityMap"
+                                        );
+                                    }, 3000); // Auto-transition after 3 seconds
+                                }
                             }, 2000); // Show after mission completion notification
                         }
 

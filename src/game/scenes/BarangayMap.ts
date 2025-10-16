@@ -4,6 +4,16 @@ import { GameStateManager } from "../../utils/GameStateManager";
 import SecretQuestService from "../../services/SecretQuestService";
 import CollisionService from "../../services/CollisionService";
 
+/**
+ * BarangayMap - Level 1 (Missions 1-10)
+ * 
+ * 🎯 AUTO-PROGRESSION: When all 10 Barangay missions are completed,
+ * the game automatically transitions to CityMap (Level 2) after showing
+ * a level-up notification. No manual action required from the player.
+ * 
+ * Progression logic is handled in App.tsx when mission completion
+ * triggers a level-up event.
+ */
 export class BarangayMap extends Scene {
     // 🎨 DEBUG MODE: Set to false to hide collision boundaries in production
     private readonly DEBUG_SHOW_COLLISIONS: boolean = false;
