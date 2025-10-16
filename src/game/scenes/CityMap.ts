@@ -5,11 +5,11 @@ import CollisionService from "../../services/CollisionService";
 
 /**
  * CityMap - Level 2 (Missions 11-20)
- * 
+ *
  * 🎯 AUTO-LOADED: This scene automatically loads when the player completes
  * all 10 Barangay missions (Level 1). The transition happens automatically
  * after displaying a level-up celebration notification.
- * 
+ *
  * Contains advanced algebra challenges for intermediate players.
  */
 export class CityMap extends Scene {
@@ -141,8 +141,8 @@ export class CityMap extends Scene {
             name: "Material Calculation",
             npc: "Engineer Sarah",
             missionId: 19,
-            percentX: 41, // Background-relative percentage X
-            percentY: 24, // Background-relative percentage Y
+            percentX: 27, // Background-relative percentage X
+            percentY: 27, // Background-relative percentage Y
         },
         {
             x: 16,
@@ -832,7 +832,7 @@ export class CityMap extends Scene {
                 : "student-front-1";
 
             const npc = this.physics.add.sprite(worldX, worldY, finalImageKey);
-            npc.setScale(0.18); // Same scale as player for consistent sizing
+            npc.setScale(0.3); // Same scale as player for consistent sizing
             npc.setInteractive();
 
             // Set up collision body for NPC
@@ -1653,12 +1653,13 @@ export class CityMap extends Scene {
                 title: "Exponential Growth & Decay",
                 description:
                     "Master exponential functions to model population growth and resource depletion in urban planning.",
-                quizOverview: "Solve problems involving exponential growth and decay. Learn to work with exponential equations, compound interest, and population modeling using base-e and other exponential functions.",
+                quizOverview:
+                    "Solve problems involving exponential growth and decay. Learn to work with exponential equations, compound interest, and population modeling using base-e and other exponential functions.",
                 realLifeTrivia: [
                     "Population Planning: Model city population growth using P(t) = P₀e^(rt) to plan infrastructure needs",
                     "Investment Returns: Calculate compound interest for city bonds and municipal investments",
                     "Radioactive Decay: Model half-life in environmental monitoring and medical waste management",
-                    "Viral Spread: Predict epidemic patterns using exponential models for public health planning"
+                    "Viral Spread: Predict epidemic patterns using exponential models for public health planning",
                 ],
                 npc: "City Statistician Dr. Chen",
                 location: "City Planning Office",
@@ -1669,12 +1670,13 @@ export class CityMap extends Scene {
                 title: "Logarithms & Applications",
                 description:
                     "Use logarithms to solve complex equations in finance, science, and data analysis.",
-                quizOverview: "Master logarithmic functions, properties of logs, and solving logarithmic equations. Learn to convert between exponential and logarithmic forms and apply logs to real-world problems.",
+                quizOverview:
+                    "Master logarithmic functions, properties of logs, and solving logarithmic equations. Learn to convert between exponential and logarithmic forms and apply logs to real-world problems.",
                 realLifeTrivia: [
                     "Sound Levels: Measure noise pollution using decibels (logarithmic scale) for city ordinances",
                     "pH Measurement: Monitor water quality using logarithmic pH scale in environmental testing",
                     "Earthquake Magnitude: Understand Richter scale (logarithmic) for disaster preparedness",
-                    "Financial Analysis: Calculate time needed for investments to reach goals using log formulas"
+                    "Financial Analysis: Calculate time needed for investments to reach goals using log formulas",
                 ],
                 npc: "Senior Analyst Maria Santos",
                 location: "Data Analytics Center",
@@ -1685,12 +1687,13 @@ export class CityMap extends Scene {
                 title: "Advanced Quadratic Applications",
                 description:
                     "Apply advanced quadratic modeling to optimize city infrastructure and resource allocation.",
-                quizOverview: "Solve complex quadratic optimization problems. Find maximum and minimum values, analyze vertex form, and apply quadratics to area, projectile, and profit maximization scenarios.",
+                quizOverview:
+                    "Solve complex quadratic optimization problems. Find maximum and minimum values, analyze vertex form, and apply quadratics to area, projectile, and profit maximization scenarios.",
                 realLifeTrivia: [
                     "Bridge Design: Calculate optimal parabolic arch shapes for maximum strength and efficiency",
                     "Revenue Optimization: Find ticket prices that maximize city event revenue using quadratic models",
                     "Traffic Flow: Model vehicle trajectories and optimize traffic light timing",
-                    "Park Design: Calculate optimal fountain spray patterns and landscaping curves"
+                    "Park Design: Calculate optimal fountain spray patterns and landscaping curves",
                 ],
                 npc: "Chief Engineer Rodriguez",
                 location: "Infrastructure Planning",
@@ -1701,12 +1704,13 @@ export class CityMap extends Scene {
                 title: "Rational Expressions & Equations",
                 description:
                     "Master rational expressions to solve rate, work, and mixture problems in city operations.",
-                quizOverview: "Simplify complex rational expressions, solve rational equations, and work with direct/inverse variation. Apply to rate problems, work problems, and combined operations scenarios.",
+                quizOverview:
+                    "Simplify complex rational expressions, solve rational equations, and work with direct/inverse variation. Apply to rate problems, work problems, and combined operations scenarios.",
                 realLifeTrivia: [
                     "Work Rates: Calculate project completion times when multiple city crews work together",
                     "Mixture Problems: Determine chemical concentrations for water treatment facilities",
                     "Speed & Distance: Optimize delivery routes and calculate average speeds for city services",
-                    "Electrical Circuits: Calculate resistance in parallel circuits for city lighting systems"
+                    "Electrical Circuits: Calculate resistance in parallel circuits for city lighting systems",
                 ],
                 npc: "Operations Manager Lin",
                 location: "City Operations Center",
@@ -1715,13 +1719,15 @@ export class CityMap extends Scene {
             15: {
                 id: "15",
                 title: "Sequences & Series",
-                description: "Use arithmetic and geometric sequences to model patterns in urban development and finance.",
-                quizOverview: "Work with arithmetic sequences, geometric sequences, and their sums. Calculate terms, find patterns, and apply sequences to savings, depreciation, and growth scenarios.",
+                description:
+                    "Use arithmetic and geometric sequences to model patterns in urban development and finance.",
+                quizOverview:
+                    "Work with arithmetic sequences, geometric sequences, and their sums. Calculate terms, find patterns, and apply sequences to savings, depreciation, and growth scenarios.",
                 realLifeTrivia: [
                     "Depreciation: Calculate declining value of city vehicles and equipment over time",
                     "Budget Planning: Model annual budget increases or decreases using arithmetic sequences",
                     "Loan Payments: Calculate mortgage and bond payments using geometric series",
-                    "Construction Phases: Plan multi-phase projects with sequential timelines and costs"
+                    "Construction Phases: Plan multi-phase projects with sequential timelines and costs",
                 ],
                 npc: "Financial Advisor Thompson",
                 location: "Municipal Finance Office",
@@ -1732,12 +1738,13 @@ export class CityMap extends Scene {
                 title: "Absolute Value & Piecewise Functions",
                 description:
                     "Master absolute value equations and piecewise functions for modeling real-world constraints.",
-                quizOverview: "Solve absolute value equations and inequalities. Work with piecewise-defined functions, analyze graphs with breaks, and apply to scenarios with different rules for different ranges.",
+                quizOverview:
+                    "Solve absolute value equations and inequalities. Work with piecewise-defined functions, analyze graphs with breaks, and apply to scenarios with different rules for different ranges.",
                 realLifeTrivia: [
                     "Tax Brackets: Model progressive tax rates using piecewise functions",
                     "Utility Pricing: Calculate tiered electricity costs (different rates for different usage levels)",
                     "Parking Fees: Model parking charges that vary by time of day using piecewise functions",
-                    "Temperature Control: Maintain acceptable ranges using absolute value constraints"
+                    "Temperature Control: Maintain acceptable ranges using absolute value constraints",
                 ],
                 npc: "Policy Analyst Reyes",
                 location: "Policy Development Office",
@@ -1748,12 +1755,13 @@ export class CityMap extends Scene {
                 title: "Matrix Operations & Systems",
                 description:
                     "Use matrices to solve large systems of equations for resource allocation and network analysis.",
-                quizOverview: "Perform matrix operations (addition, multiplication, inverse). Solve systems of equations using matrices, understand determinants, and apply to multi-variable optimization problems.",
+                quizOverview:
+                    "Perform matrix operations (addition, multiplication, inverse). Solve systems of equations using matrices, understand determinants, and apply to multi-variable optimization problems.",
                 realLifeTrivia: [
                     "Supply Chain: Organize and calculate city inventory across multiple warehouses",
                     "Network Analysis: Model traffic flow through intersections using matrix systems",
                     "Budget Allocation: Distribute funds across departments with multiple constraints",
-                    "Computer Graphics: Transform and render city planning visualizations using matrices"
+                    "Computer Graphics: Transform and render city planning visualizations using matrices",
                 ],
                 npc: "Systems Engineer Park",
                 location: "Technology Center",
@@ -1764,12 +1772,13 @@ export class CityMap extends Scene {
                 title: "Trigonometry Fundamentals",
                 description:
                     "Apply trigonometric ratios and the unit circle to solve measurement and navigation problems.",
-                quizOverview: "Master sine, cosine, tangent and their applications. Work with right triangles, the unit circle, and basic trig identities. Solve problems involving angles, heights, and distances.",
+                quizOverview:
+                    "Master sine, cosine, tangent and their applications. Work with right triangles, the unit circle, and basic trig identities. Solve problems involving angles, heights, and distances.",
                 realLifeTrivia: [
                     "Surveying: Calculate distances and elevations for construction projects using trig ratios",
                     "Navigation: Determine bearings and distances for city transportation routes",
                     "Architecture: Calculate roof slopes, ramp angles, and accessible design requirements",
-                    "Solar Panels: Optimize panel angles based on sun position using trigonometry"
+                    "Solar Panels: Optimize panel angles based on sun position using trigonometry",
                 ],
                 npc: "Surveyor Johnson",
                 location: "Land Survey Office",
@@ -1780,12 +1789,13 @@ export class CityMap extends Scene {
                 title: "Advanced Statistics & Probability",
                 description:
                     "Analyze city data using statistical measures and probability to inform policy decisions.",
-                quizOverview: "Calculate mean, median, mode, standard deviation, and variance. Understand probability rules, expected value, and data distributions. Analyze and interpret statistical data.",
+                quizOverview:
+                    "Calculate mean, median, mode, standard deviation, and variance. Understand probability rules, expected value, and data distributions. Analyze and interpret statistical data.",
                 realLifeTrivia: [
                     "Public Health: Analyze disease rates and vaccination effectiveness using statistics",
                     "Crime Analysis: Use probability to predict crime hotspots and allocate police resources",
                     "Quality Control: Test water quality and infrastructure using statistical sampling",
-                    "Election Polling: Analyze survey data and margins of error for civic engagement"
+                    "Election Polling: Analyze survey data and margins of error for civic engagement",
                 ],
                 npc: "Data Scientist Dr. Kim",
                 location: "Research & Analytics Lab",
@@ -1796,12 +1806,13 @@ export class CityMap extends Scene {
                 title: "Comprehensive Algebra Mastery",
                 description:
                     "Integrate all advanced algebra concepts to solve complex city planning challenges.",
-                quizOverview: "Apply multiple advanced algebra concepts in comprehensive problems. Combine functions, systems, optimization, and modeling to solve real-world scenarios requiring integrated mathematical thinking.",
+                quizOverview:
+                    "Apply multiple advanced algebra concepts in comprehensive problems. Combine functions, systems, optimization, and modeling to solve real-world scenarios requiring integrated mathematical thinking.",
                 realLifeTrivia: [
                     "Smart City Planning: Use exponentials, optimization, and statistics to design efficient urban systems",
                     "Climate Modeling: Integrate multiple functions to predict and plan for environmental changes",
                     "Economic Development: Combine financial math, statistics, and optimization for growth strategies",
-                    "Infrastructure Investment: Use comprehensive math analysis to prioritize city projects with limited budgets"
+                    "Infrastructure Investment: Use comprehensive math analysis to prioritize city projects with limited budgets",
                 ],
                 npc: "City Director Hon. Mayor Garcia",
                 location: "Executive Office",
@@ -1813,12 +1824,14 @@ export class CityMap extends Scene {
             cityMissions[missionId as keyof typeof cityMissions] || {
                 id: missionId.toString(),
                 title: "Advanced City Mission",
-                description: "A challenging mission to help improve city operations.",
-                quizOverview: "Complete this advanced quiz to test your higher-level algebra skills and help the city.",
+                description:
+                    "A challenging mission to help improve city operations.",
+                quizOverview:
+                    "Complete this advanced quiz to test your higher-level algebra skills and help the city.",
                 realLifeTrivia: [
                     "Advanced math helps solve complex real-world problems",
                     "Cities rely on mathematical analysis for planning and decision-making",
-                    "Strong algebra skills open doors to STEM careers"
+                    "Strong algebra skills open doors to STEM careers",
                 ],
                 npc: "City Official",
                 location: "City Hall",

@@ -73,12 +73,12 @@ export const MainMenu: React.FC<MainMenuProps> = ({
                         </button>
 
                         {/* Continue Button */}
-                        <button
+                        {/* <button
                             onClick={handleLoadGame}
                             className="w-full bg-blue-500 text-white py-3 rounded-xl font-medium shadow-soft hover:shadow-lg transition-all duration-200 hover:scale-[1.02]"
                         >
                             💾 Continue
-                        </button>
+                        </button> */}
 
                         {/* Settings */}
                         <button
@@ -89,12 +89,12 @@ export const MainMenu: React.FC<MainMenuProps> = ({
                         </button>
 
                         {/* Leaderboard */}
-                        {/* <button
+                        <button
                             onClick={() => onShowLeaderboard?.()}
                             className="w-full bg-amber-500 text-white py-3 rounded-xl font-medium shadow-soft hover:shadow-lg transition-all duration-200 hover:scale-[1.02]"
                         >
                             🏆 Leaderboard
-                        </button> */}
+                        </button>
 
                         {/* Extras */}
                         {/* <button

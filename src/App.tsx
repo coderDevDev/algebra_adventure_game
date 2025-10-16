@@ -433,7 +433,9 @@ function App() {
                                             "🎉 All Barangay missions completed! Auto-transitioning to CityMap for Level 2..."
                                         );
                                         closeNotification();
-                                        audioManager.crossfadeToLevel("CityMap");
+                                        audioManager.crossfadeToLevel(
+                                            "CityMap"
+                                        );
                                         phaserRef.current.game.scene.stop(
                                             "BarangayMap"
                                         );
@@ -580,8 +582,7 @@ function App() {
                 ],
             },
             "2": {
-                question:
-                    "Simplify: 3x + 5x - 2x",
+                question: "Simplify: 3x + 5x - 2x",
                 options: ["6x", "10x", "8x", "5x"],
                 correctAnswer: 0,
                 explanation:
@@ -619,7 +620,8 @@ function App() {
                 ],
             },
             "4": {
-                question: "A delivery truck can carry max 500 kg. It has 180 kg loaded. Each box weighs 40 kg. How many more boxes can fit?",
+                question:
+                    "A delivery truck can carry max 500 kg. It has 180 kg loaded. Each box weighs 40 kg. How many more boxes can fit?",
                 options: ["7 boxes", "8 boxes", "9 boxes", "10 boxes"],
                 correctAnswer: 1,
                 explanation:
@@ -661,7 +663,12 @@ function App() {
             "6": {
                 question:
                     "A rectangular garden has area x² + 7x + 12 m². Factor to find possible dimensions.",
-                options: ["(x + 3) by (x + 4)", "(x + 2) by (x + 6)", "(x + 1) by (x + 12)", "(x - 3) by (x - 4)"],
+                options: [
+                    "(x + 3) by (x + 4)",
+                    "(x + 2) by (x + 6)",
+                    "(x + 1) by (x + 12)",
+                    "(x - 3) by (x - 4)",
+                ],
                 correctAnswer: 0,
                 explanation:
                     "Factor x² + 7x + 12: find two numbers that multiply to 12 and add to 7. Those are 3 and 4, giving (x + 3)(x + 4). These represent possible length and width. Factoring helps design spaces with specific areas.",
@@ -681,7 +688,12 @@ function App() {
             "7": {
                 question:
                     "A basketball's height is h = -5t² + 10t + 2 meters. At what time does it reach maximum height?",
-                options: ["0.5 seconds", "1 second", "1.5 seconds", "2 seconds"],
+                options: [
+                    "0.5 seconds",
+                    "1 second",
+                    "1.5 seconds",
+                    "2 seconds",
+                ],
                 correctAnswer: 1,
                 explanation:
                     "For quadratic h = at² + bt + c, maximum at t = -b/(2a). Here a = -5, b = 10, so t = -10/(2×-5) = -10/-10 = 1 second. Athletes and coaches use quadratics to analyze shot trajectories and optimize performance.",
@@ -699,7 +711,8 @@ function App() {
                 ],
             },
             "8": {
-                question: "Stock price function: P(d) = 2d + 50 pesos. What's the price after 7 days?",
+                question:
+                    "Stock price function: P(d) = 2d + 50 pesos. What's the price after 7 days?",
                 options: ["₱56", "₱60", "₱64", "₱70"],
                 correctAnswer: 2,
                 explanation:
@@ -780,8 +793,7 @@ function App() {
                 ],
             },
             "12": {
-                question:
-                    "If log₁₀(x) = 3, what is x?",
+                question: "If log₁₀(x) = 3, what is x?",
                 options: ["30", "100", "1,000", "10,000"],
                 correctAnswer: 2,
                 explanation:
@@ -921,7 +933,12 @@ function App() {
             "19": {
                 question:
                     "City disease rates per 1000: Area A=15, B=22, C=18, D=25, E=20. Find mean rate for public health planning.",
-                options: ["18 per 1000", "20 per 1000", "22 per 1000", "25 per 1000"],
+                options: [
+                    "18 per 1000",
+                    "20 per 1000",
+                    "22 per 1000",
+                    "25 per 1000",
+                ],
                 correctAnswer: 1,
                 explanation:
                     "Mean = (15 + 22 + 18 + 25 + 20) ÷ 5 = 100 ÷ 5 = 20 per 1000. The mean helps identify which areas need more health resources. Statistics guide public health policy.",
@@ -1399,7 +1416,7 @@ function App() {
                                         >
                                             🏆 Leaderboard
                                         </button>
-                                        <button
+                                        {/* <button
                                             onClick={() => {
                                                 setShowPauseMenu(false);
                                                 setShowCollisionEditor(true);
@@ -1407,7 +1424,7 @@ function App() {
                                             className="w-full bg-indigo-500 hover:bg-indigo-600 text-white py-3 px-4 rounded-xl font-medium shadow-soft hover:shadow-lg transition-all duration-200 hover:scale-[1.02]"
                                         >
                                             🎨 Collision Editor
-                                        </button>
+                                        </button> */}
                                         <button
                                             onClick={() => {
                                                 // Switch between BarangayMap and CityMap
@@ -1440,6 +1457,33 @@ function App() {
                                                 : "Switch Map"}
                                         </button>
                                         <button
+                                            onClick={() => {
+                                                // Return to main menu
+                                                setShowPauseMenu(false);
+                                                setShowMainMenu(true);
+                                                // Stop current scene
+                                                if (phaserRef.current?.game) {
+                                                    phaserRef.current.game.scene.scenes.forEach(
+                                                        (scene) => {
+                                                            if (
+                                                                scene.scene
+                                                                    .isActive()
+                                                            ) {
+                                                                scene.scene.stop();
+                                                            }
+                                                        }
+                                                    );
+                                                }
+                                                // Switch to main menu music
+                                                audioManager.crossfadeToLevel(
+                                                    "MainMenu"
+                                                );
+                                            }}
+                                            className="w-full bg-gray-500 hover:bg-gray-600 text-white py-3 px-4 rounded-xl font-medium shadow-soft hover:shadow-lg transition-all duration-200 hover:scale-[1.02]"
+                                        >
+                                            🏠 Back to Main Menu
+                                        </button>
+                                        <button
                                             onClick={() =>
                                                 window.location.reload()
                                             }
@@ -1456,146 +1500,139 @@ function App() {
                         {showQuestLog && (
                             <div className="absolute inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center pointer-events-auto p-4">
                                 <div className="bg-white rounded-3xl shadow-lg p-6 w-full max-w-2xl mx-4 max-h-[90vh] overflow-y-auto custom-scrollbar">
-                                        <button
-                                            onClick={() =>
-                                                setShowQuestLog(false)
-                                            }
-                                            className="absolute top-4 right-4 w-10 h-10 bg-red-500 hover:bg-red-600 rounded-full flex items-center justify-center text-white shadow-soft transition-all duration-200 hover:scale-110 z-20"
-                                        >
-                                            ✕
-                                        </button>
+                                    <button
+                                        onClick={() => setShowQuestLog(false)}
+                                        className="absolute top-4 right-4 w-10 h-10 bg-red-500 hover:bg-red-600 rounded-full flex items-center justify-center text-white shadow-soft transition-all duration-200 hover:scale-110 z-20"
+                                    >
+                                        ✕
+                                    </button>
 
-                                        <h2 className="text-2xl font-bold text-gray-800 mb-6 text-center">
-                                            📋 Quest Log
-                                        </h2>
-                                        <div className="space-y-4">
-                                            <div className="rounded-xl p-4 border-2 border-blue-200 bg-blue-50">
-                                                <h3 className="text-lg font-bold text-gray-800 mb-2 flex items-center space-x-2">
-                                                    <span>🎯</span>
-                                                    <span>Main Objective</span>
-                                                </h3>
-                                                <p className="text-gray-700">
+                                    <h2 className="text-2xl font-bold text-gray-800 mb-6 text-center">
+                                        📋 Quest Log
+                                    </h2>
+                                    <div className="space-y-4">
+                                        <div className="rounded-xl p-4 border-2 border-blue-200 bg-blue-50">
+                                            <h3 className="text-lg font-bold text-gray-800 mb-2 flex items-center space-x-2">
+                                                <span>🎯</span>
+                                                <span>Main Objective</span>
+                                            </h3>
+                                            <p className="text-gray-700">
+                                                {gameInfo.level === 1
+                                                    ? "Complete 10 barangay math challenges to unlock city-level intermediate algebra problems and become a math expert!"
+                                                    : gameInfo.level === 2
+                                                    ? "Complete 10 city math challenges to master intermediate algebra and unlock advanced topics!"
+                                                    : "You've mastered all algebra challenges! Continue practicing to maintain your math excellence."}
+                                            </p>
+                                        </div>
+                                        <div className="rounded-xl p-4 border-2 border-green-200 bg-green-50">
+                                            <h3 className="text-lg font-bold text-gray-800 mb-2 flex items-center space-x-2">
+                                                <span>📊</span>
+                                                <span>Progress</span>
+                                            </h3>
+                                            <p className="text-gray-700 mb-3">
+                                                {gameInfo.level === 1
+                                                    ? "Basic Math Achievements"
+                                                    : "Intermediate Achievements"}{" "}
+                                                Earned:{" "}
+                                                <span className="font-bold text-green-600">
                                                     {gameInfo.level === 1
-                                                        ? "Complete 10 barangay math challenges to unlock city-level intermediate algebra problems and become a math expert!"
-                                                        : gameInfo.level === 2
-                                                        ? "Complete 10 city math challenges to master intermediate algebra and unlock advanced topics!"
-                                                        : "You've mastered all algebra challenges! Continue practicing to maintain your math excellence."}
-                                                </p>
-                                            </div>
-                                            <div className="rounded-xl p-4 border-2 border-green-200 bg-green-50">
-                                                <h3 className="text-lg font-bold text-gray-800 mb-2 flex items-center space-x-2">
-                                                    <span>📊</span>
-                                                    <span>Progress</span>
-                                                </h3>
-                                                <p className="text-gray-700 mb-3">
-                                                    {gameInfo.level === 1
-                                                        ? "Basic Math Achievements"
-                                                        : "Intermediate Achievements"}{" "}
-                                                    Earned:{" "}
-                                                    <span className="font-bold text-green-600">
-                                                        {gameInfo.level === 1
-                                                            ? Math.min(
-                                                                  gameInfo.badges,
-                                                                  10
-                                                              )
-                                                            : Math.max(
-                                                                  0,
-                                                                  gameInfo.badges -
-                                                                      10
-                                                              )}
-                                                    </span>
-                                                    /10
-                                                </p>
-                                                <div className="w-full bg-gray-200 rounded-full h-3">
-                                                    <div
-                                                        className="bg-gradient-to-r from-green-500 to-green-600 h-full rounded-full transition-all duration-300"
-                                                        style={{
-                                                            width: `${
-                                                                gameInfo.level ===
-                                                                1
-                                                                    ? (Math.min(
-                                                                          gameInfo.badges,
-                                                                          10
-                                                                      ) /
-                                                                          10) *
-                                                                      100
-                                                                    : (Math.max(
-                                                                          0,
-                                                                          gameInfo.badges -
-                                                                              10
-                                                                      ) /
-                                                                          10) *
-                                                                      100
-                                                            }%`,
-                                                        }}
-                                                    ></div>
-                                                </div>
-                                                <div className="text-center mt-2 text-sm text-gray-600">
-                                                    {gameInfo.level === 1
-                                                        ? Math.round(
-                                                              (Math.min(
-                                                                  gameInfo.badges,
-                                                                  10
-                                                              ) /
-                                                                  10) *
-                                                                  100
+                                                        ? Math.min(
+                                                              gameInfo.badges,
+                                                              10
                                                           )
-                                                        : Math.round(
-                                                              (Math.max(
-                                                                  0,
-                                                                  gameInfo.badges -
-                                                                      10
-                                                              ) /
-                                                                  10) *
-                                                                  100
+                                                        : Math.max(
+                                                              0,
+                                                              gameInfo.badges -
+                                                                  10
                                                           )}
-                                                    % Complete
-                                                </div>
+                                                </span>
+                                                /10
+                                            </p>
+                                            <div className="w-full bg-gray-200 rounded-full h-3">
+                                                <div
+                                                    className="bg-gradient-to-r from-green-500 to-green-600 h-full rounded-full transition-all duration-300"
+                                                    style={{
+                                                        width: `${
+                                                            gameInfo.level === 1
+                                                                ? (Math.min(
+                                                                      gameInfo.badges,
+                                                                      10
+                                                                  ) /
+                                                                      10) *
+                                                                  100
+                                                                : (Math.max(
+                                                                      0,
+                                                                      gameInfo.badges -
+                                                                          10
+                                                                  ) /
+                                                                      10) *
+                                                                  100
+                                                        }%`,
+                                                    }}
+                                                ></div>
                                             </div>
-                                            <div className="rounded-xl p-4 border-2 border-purple-200 bg-purple-50">
-                                                <h3 className="text-lg font-bold text-gray-800 mb-2 flex items-center space-x-2">
-                                                    <span>🏛️</span>
-                                                    <span>Current Level</span>
-                                                </h3>
-                                                <div className="space-y-2">
-                                                    <div className="flex justify-between items-center">
-                                                        <span className="text-gray-700 font-semibold">
-                                                            {gameInfo.level ===
-                                                            1
-                                                                ? "Barangay Math Zone"
-                                                                : "City Math Zone"}
-                                                        </span>
-                                                        <span className="text-amber-800 font-bold">
-                                                            Level{" "}
-                                                            {gameInfo.level}
-                                                        </span>
-                                                    </div>
-                                                    <div className="text-amber-600 text-xs sm:text-sm">
+                                            <div className="text-center mt-2 text-sm text-gray-600">
+                                                {gameInfo.level === 1
+                                                    ? Math.round(
+                                                          (Math.min(
+                                                              gameInfo.badges,
+                                                              10
+                                                          ) /
+                                                              10) *
+                                                              100
+                                                      )
+                                                    : Math.round(
+                                                          (Math.max(
+                                                              0,
+                                                              gameInfo.badges -
+                                                                  10
+                                                          ) /
+                                                              10) *
+                                                              100
+                                                      )}
+                                                % Complete
+                                            </div>
+                                        </div>
+                                        <div className="rounded-xl p-4 border-2 border-purple-200 bg-purple-50">
+                                            <h3 className="text-lg font-bold text-gray-800 mb-2 flex items-center space-x-2">
+                                                <span>🏛️</span>
+                                                <span>Current Level</span>
+                                            </h3>
+                                            <div className="space-y-2">
+                                                <div className="flex justify-between items-center">
+                                                    <span className="text-gray-700 font-semibold">
                                                         {gameInfo.level === 1
-                                                            ? "Learning basic algebra through real-world market and community problems"
-                                                            : "Mastering intermediate algebra with business and urban planning challenges"}
-                                                    </div>
-                                                    <div className="flex justify-between items-center text-xs sm:text-sm">
-                                                        <span className="text-gray-700">
-                                                            Accuracy:
-                                                        </span>
-                                                        <span className="font-bold text-green-600">
-                                                            {gameInfo.accuracy}
-                                                        </span>
-                                                    </div>
-                                                    <div className="flex justify-between items-center text-xs sm:text-sm">
-                                                        <span className="text-gray-700">
-                                                            Total Score:
-                                                        </span>
-                                                        <span className="font-bold text-blue-600">
-                                                            {
-                                                                gameInfo.totalScore
-                                                            }
-                                                        </span>
-                                                    </div>
+                                                            ? "Barangay Math Zone"
+                                                            : "City Math Zone"}
+                                                    </span>
+                                                    <span className="text-amber-800 font-bold">
+                                                        Level {gameInfo.level}
+                                                    </span>
+                                                </div>
+                                                <div className="text-amber-600 text-xs sm:text-sm">
+                                                    {gameInfo.level === 1
+                                                        ? "Learning basic algebra through real-world market and community problems"
+                                                        : "Mastering intermediate algebra with business and urban planning challenges"}
+                                                </div>
+                                                <div className="flex justify-between items-center text-xs sm:text-sm">
+                                                    <span className="text-gray-700">
+                                                        Accuracy:
+                                                    </span>
+                                                    <span className="font-bold text-green-600">
+                                                        {gameInfo.accuracy}
+                                                    </span>
+                                                </div>
+                                                <div className="flex justify-between items-center text-xs sm:text-sm">
+                                                    <span className="text-gray-700">
+                                                        Total Score:
+                                                    </span>
+                                                    <span className="font-bold text-blue-600">
+                                                        {gameInfo.totalScore}
+                                                    </span>
                                                 </div>
                                             </div>
                                         </div>
+                                    </div>
                                 </div>
                             </div>
                         )}
@@ -1604,121 +1641,116 @@ function App() {
                         {showInventory && (
                             <div className="absolute inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center pointer-events-auto p-4">
                                 <div className="bg-white rounded-3xl shadow-lg p-6 w-full max-w-2xl mx-4 max-h-[90vh] overflow-y-auto custom-scrollbar">
-                                        <button
-                                            onClick={() =>
-                                                setShowInventory(false)
-                                            }
-                                            className="absolute top-4 right-4 w-10 h-10 bg-red-500 hover:bg-red-600 rounded-full flex items-center justify-center text-white shadow-soft transition-all duration-200 hover:scale-110 z-20"
-                                        >
-                                            ✕
-                                        </button>
+                                    <button
+                                        onClick={() => setShowInventory(false)}
+                                        className="absolute top-4 right-4 w-10 h-10 bg-red-500 hover:bg-red-600 rounded-full flex items-center justify-center text-white shadow-soft transition-all duration-200 hover:scale-110 z-20"
+                                    >
+                                        ✕
+                                    </button>
 
-                                        <h2 className="text-2xl font-bold text-gray-800 mb-6 text-center">
-                                            🎒 Inventory
-                                        </h2>
-                                        <div className="grid grid-cols-2 gap-4">
-                                            <div className="rounded-xl p-4 border-2 border-yellow-200 bg-yellow-50 text-center">
-                                                <div className="text-3xl mb-2">
-                                                    💰
+                                    <h2 className="text-2xl font-bold text-gray-800 mb-6 text-center">
+                                        🎒 Inventory
+                                    </h2>
+                                    <div className="grid grid-cols-2 gap-4">
+                                        <div className="rounded-xl p-4 border-2 border-yellow-200 bg-yellow-50 text-center">
+                                            <div className="text-3xl mb-2">
+                                                💰
+                                            </div>
+                                            <div className="text-gray-800 font-bold text-xl">
+                                                {gameInfo.coins}
+                                            </div>
+                                            <div className="text-sm text-gray-600 font-medium">
+                                                Gold Coins
+                                            </div>
+                                        </div>
+                                        <div className="rounded-xl p-4 border-2 border-amber-200 bg-amber-50 text-center">
+                                            <div className="text-3xl mb-2">
+                                                🏆
+                                            </div>
+                                            <div className="text-gray-800 font-bold text-xl">
+                                                {gameInfo.badges}
+                                            </div>
+                                            <div className="text-sm text-gray-600 font-medium">
+                                                {gameInfo.level === 1
+                                                    ? "Math Achievements"
+                                                    : "Total Achievements"}
+                                            </div>
+                                        </div>
+                                        <div className="rounded-xl p-4 border-2 border-purple-200 bg-purple-50 text-center">
+                                            <div className="text-3xl mb-2">
+                                                📜
+                                            </div>
+                                            <div className="text-gray-800 font-bold text-xl">
+                                                0
+                                            </div>
+                                            <div className="text-sm text-gray-600 font-medium">
+                                                Quest Items
+                                            </div>
+                                        </div>
+                                        <div className="rounded-xl p-4 border-2 border-blue-200 bg-blue-50 text-center">
+                                            <div className="text-3xl mb-2">
+                                                ⭐
+                                            </div>
+                                            <div className="text-gray-800 font-bold text-xl">
+                                                {gameInfo.totalScore}
+                                            </div>
+                                            <div className="text-sm text-gray-600 font-medium">
+                                                Experience Points
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="mt-6 p-4 rounded-xl border-2 border-gray-200 bg-gray-50">
+                                        <h3 className="text-lg font-bold text-gray-800 mb-3 text-center">
+                                            📈 Character Stats
+                                        </h3>
+                                        <div className="grid grid-cols-2 gap-2 sm:gap-4 text-xs sm:text-sm">
+                                            <div className="text-center">
+                                                <div className="text-gray-700 font-semibold">
+                                                    Level
                                                 </div>
-                                                <div className="text-gray-800 font-bold text-xl">
-                                                    {gameInfo.coins}
-                                                </div>
-                                                <div className="text-sm text-gray-600 font-medium">
-                                                    Gold Coins
+                                                <div className="text-gray-800 font-bold">
+                                                    {gameInfo.level}
                                                 </div>
                                             </div>
-                                            <div className="rounded-xl p-4 border-2 border-amber-200 bg-amber-50 text-center">
-                                                <div className="text-3xl mb-2">
-                                                    🏆
+                                            <div className="text-center">
+                                                <div className="text-gray-700 font-semibold">
+                                                    Math Rank
                                                 </div>
-                                                <div className="text-gray-800 font-bold text-xl">
-                                                    {gameInfo.badges}
-                                                </div>
-                                                <div className="text-sm text-gray-600 font-medium">
+                                                <div className="text-gray-800 font-bold">
                                                     {gameInfo.level === 1
-                                                        ? "Math Achievements"
-                                                        : "Total Achievements"}
+                                                        ? gameInfo.badges >= 10
+                                                            ? "Math Expert"
+                                                            : gameInfo.badges >=
+                                                              5
+                                                            ? "Problem Solver"
+                                                            : "Beginner"
+                                                        : gameInfo.badges >= 20
+                                                        ? "Algebra Master"
+                                                        : gameInfo.badges >= 15
+                                                        ? "Math Scholar"
+                                                        : "Math Student"}
                                                 </div>
                                             </div>
-                                            <div className="rounded-xl p-4 border-2 border-purple-200 bg-purple-50 text-center">
-                                                <div className="text-3xl mb-2">
-                                                    📜
+                                            <div className="text-center">
+                                                <div className="text-gray-700 font-semibold">
+                                                    Difficulty Level
                                                 </div>
-                                                <div className="text-gray-800 font-bold text-xl">
-                                                    0
-                                                </div>
-                                                <div className="text-sm text-gray-600 font-medium">
-                                                    Quest Items
+                                                <div className="text-gray-800 font-bold">
+                                                    {gameInfo.level === 1
+                                                        ? "Basic"
+                                                        : "Intermediate"}
                                                 </div>
                                             </div>
-                                            <div className="rounded-xl p-4 border-2 border-blue-200 bg-blue-50 text-center">
-                                                <div className="text-3xl mb-2">
-                                                    ⭐
+                                            <div className="text-center">
+                                                <div className="text-gray-700 font-semibold">
+                                                    Quiz Accuracy
                                                 </div>
-                                                <div className="text-gray-800 font-bold text-xl">
-                                                    {gameInfo.totalScore}
-                                                </div>
-                                                <div className="text-sm text-gray-600 font-medium">
-                                                    Experience Points
+                                                <div className="text-gray-800 font-bold">
+                                                    {gameInfo.accuracy}
                                                 </div>
                                             </div>
                                         </div>
-                                        <div className="mt-6 p-4 rounded-xl border-2 border-gray-200 bg-gray-50">
-                                            <h3 className="text-lg font-bold text-gray-800 mb-3 text-center">
-                                                📈 Character Stats
-                                            </h3>
-                                            <div className="grid grid-cols-2 gap-2 sm:gap-4 text-xs sm:text-sm">
-                                                <div className="text-center">
-                                                    <div className="text-gray-700 font-semibold">
-                                                        Level
-                                                    </div>
-                                                    <div className="text-gray-800 font-bold">
-                                                        {gameInfo.level}
-                                                    </div>
-                                                </div>
-                                                <div className="text-center">
-                                                    <div className="text-gray-700 font-semibold">
-                                                        Math Rank
-                                                    </div>
-                                                    <div className="text-gray-800 font-bold">
-                                                        {gameInfo.level === 1
-                                                            ? gameInfo.badges >=
-                                                              10
-                                                                ? "Math Expert"
-                                                                : gameInfo.badges >=
-                                                                  5
-                                                                ? "Problem Solver"
-                                                                : "Beginner"
-                                                            : gameInfo.badges >=
-                                                              20
-                                                            ? "Algebra Master"
-                                                            : gameInfo.badges >=
-                                                              15
-                                                            ? "Math Scholar"
-                                                            : "Math Student"}
-                                                    </div>
-                                                </div>
-                                                <div className="text-center">
-                                                    <div className="text-gray-700 font-semibold">
-                                                        Difficulty Level
-                                                    </div>
-                                                    <div className="text-gray-800 font-bold">
-                                                        {gameInfo.level === 1
-                                                            ? "Basic"
-                                                            : "Intermediate"}
-                                                    </div>
-                                                </div>
-                                                <div className="text-center">
-                                                    <div className="text-gray-700 font-semibold">
-                                                        Quiz Accuracy
-                                                    </div>
-                                                    <div className="text-gray-800 font-bold">
-                                                        {gameInfo.accuracy}
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         )}
