@@ -725,16 +725,16 @@ export class CityMap extends Scene {
 
         // Map city official NPC names to their dedicated Level 2 image keys
         const cityNPCImageMap = {
-            "City Councilor": "city-councilor",
-            "City Treasurer": "city-treasurer",
-            "City Engineer": "city-engineer",
-            "Business Permit Officer": "business-permit-officer",
-            "City Planner": "city-planner",
-            "Environmental Officer": "environmental-officer",
-            "Public Safety Officer": "public-safety-officer",
-            "Tourism Officer": "tourism-officer",
-            "Health Officer": "health-officer",
-            "City Mayor": "city-mayor",
+            "Entrepreneur Carlos": "entrepreneur-carlos",
+            "Accountant Lisa": "accountant-lisa",
+            "Logistics Manager Ben": "logistics-manager-ben",
+            "Sales Director Kim": "sales-director-kim",
+            "Urban Planner Gina": "urban-planner-gina",
+            "Transit Manager Roy": "transit-manager-roy",
+            "Architect Maya": "architect-maya",
+            "City Planner Tom": "city-planner-tom",
+            "Engineer Sarah": "engineer-sarah",
+            "Transport Chief Mike": "transport-chief-mike",
         };
 
         // Check if Level 2 NPC images are loaded, if not load them directly

@@ -1,0 +1,38 @@
+🎨 UNIVERSAL CHIBI TEMPLATE FOR ALL NPCs
+===========================================
+
+Add this section to EVERY NPC prompt (customize CHARACTER DESIGN section only):
+
+---
+
+🎨 CHIBI STYLE REQUIREMENTS (MANDATORY):
+- **Art Style**: Cute chibi/kawaii style with anime proportions
+- **Head-to-Body Ratio**: 1:1 to 1:1.5 (large head, tiny body)
+- **Face**: Large expressive anime-style eyes (30-40% of face), round face, small nose/mouth
+- **Body**: Small chibi body with stubby limbs, legs barely visible
+- **Movement**: Bouncy, adorable walking (body bobs up and down)
+- **Perspective**: Top-down view maintained in all frames
+- **Overall Vibe**: Super cute and non-threatening, reduces math anxiety
+
+ANIMATION SPECIFICATIONS:
+📋 SPRITE SHEET LAYOUT (16 frames total):
+- Row 1: Front facing - [Idle] [Walk 1] [Walk 2] [Walk 3]
+- Row 2: Back facing - [Idle] [Walk 1] [Walk 2] [Walk 3]
+- Row 3: Left side - [Idle] [Walk 1] [Walk 2] [Walk 3]
+- Row 4: Right side - [Idle] [Walk 1] [Walk 2] [Walk 3]
+
+MOVEMENT STYLE:
+- Bouncy chibi walk (waddle-like, legs barely visible)
+- Body bobs up and down cutely with each step
+- Props stay with character in all frames
+- Head stays large and prominent throughout
+- Maintains adorable chibi proportions in every frame
+
+TECHNICAL SPECS:
+- Format: PNG with transparent background
+- Frame size: 64x64 pixels minimum per frame
+- Full sprite sheet: 256x256 pixels minimum
+- Color: [Vibrant but soft, warm tones for Barangay / Cool professional tones for City]
+- Style consistency: Match player character chibi proportions
+
+OUTPUT: Complete 16-frame sprite sheet in kawaii chibi style, ready for game implementation

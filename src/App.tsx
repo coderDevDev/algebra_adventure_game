@@ -558,199 +558,405 @@ function App() {
 
     const getQuizForMission = (missionId: string) => {
         const quizzes = {
-            // Level 1: Barangay Math Challenges (1-10)
+            // Level 1: Barangay Math Challenges (1-10) - Basic to Intermediate Algebra
             "1": {
                 question:
-                    "Mang Pedro sells 1kg of rice for ₱45. If Aling Maria buys 3.5kg, how much should she pay?",
-                options: ["₱140.50", "₱157.50", "₱150.00", "₱135.00"],
-                correctAnswer: 1,
+                    "During a 20% off sale, a shirt costs ₱240. What was its original price?",
+                options: ["₱260", "₱288", "₱300", "₱320"],
+                correctAnswer: 2,
                 explanation:
-                    "Multiply the price per kg by the amount: ₱45 × 3.5 = ₱157.50. This is a basic arithmetic operation used in everyday market transactions.",
+                    "If the shirt is 20% off, it costs 80% of the original price. Let x = original price. Then 0.8x = ₱240. Dividing both sides by 0.8: x = ₱240 ÷ 0.8 = ₱300. This demonstrates using variables to solve real-world problems.",
                 steps: [
-                    "Identify the unit price: ₱45 per kg",
-                    "Identify the quantity: 3.5 kg",
-                    "Multiply: ₱45 × 3.5 = ₱157.50",
+                    "Let x = original price",
+                    "20% off means 80% remains: 0.8x = 240",
+                    "Divide both sides by 0.8: x = 240 ÷ 0.8",
+                    "x = 300",
                 ],
-                formula: "Total Cost = Unit Price × Quantity",
+                formula: "0.8x = 240, so x = 240/0.8",
                 hints: [
-                    "Think about multiplication",
-                    "Remember: Price per kg × Number of kg",
-                    "₱45 × 3.5 = ?",
+                    "Let x represent the unknown original price",
+                    "20% off means you pay 80%, so 0.8x = 240",
+                    "Solve for x by dividing both sides by 0.8",
                 ],
             },
             "2": {
                 question:
-                    "During a 20% off sale, a shirt costs ₱240. What was its original price?",
-                options: ["₱288", "₱300", "₱260", "₱320"],
-                correctAnswer: 1,
+                    "Simplify: 3x + 5x - 2x",
+                options: ["6x", "10x", "8x", "5x"],
+                correctAnswer: 0,
                 explanation:
-                    "If the shirt is 20% off, then ₱240 represents 80% of the original price. Original price = ₱240 ÷ 0.80 = ₱300. Understanding percentages helps with sales and discounts.",
+                    "Combine like terms by adding and subtracting coefficients: 3x + 5x - 2x = (3 + 5 - 2)x = 6x. This is a fundamental skill in algebraic manipulation.",
                 steps: [
-                    "20% off means you pay 80% (100% - 20%)",
-                    "₱240 = 80% of original price",
-                    "Original price = ₱240 ÷ 0.80 = ₱300",
+                    "Identify like terms (all have variable x)",
+                    "Combine coefficients: 3 + 5 - 2 = 6",
+                    "Result: 6x",
                 ],
-                formula: "Original Price = Sale Price ÷ (1 - Discount%)",
+                formula: "ax + bx + cx = (a + b + c)x",
                 hints: [
-                    "Work backwards from the sale price",
-                    "If 80% = ₱240, what is 100%?",
-                    "Divide ₱240 by 0.80",
+                    "All terms have the same variable (x)",
+                    "Just add/subtract the numbers in front",
+                    "3 + 5 - 2 = ?",
                 ],
             },
             "3": {
                 question:
-                    "The basketball court is 28m × 15m. Calculate the perimeter for the fence needed.",
-                options: ["86 meters", "43 meters", "420 meters", "72 meters"],
-                correctAnswer: 0,
+                    "You work H hours at ₱120/hour and earn ₱960 total. How many hours did you work?",
+                options: ["6 hours", "7 hours", "8 hours", "9 hours"],
+                correctAnswer: 2,
                 explanation:
-                    "Perimeter = 2(length + width) = 2(28 + 15) = 2(43) = 86 meters. This formula is essential for community planning and construction projects.",
+                    "Use equation: 120H = 960. Divide both sides by 120: H = 960 ÷ 120 = 8 hours. This demonstrates solving equations for unknown values in salary calculations.",
                 steps: [
-                    "Write the formula: P = 2(l + w)",
-                    "Add length and width: 28 + 15 = 43",
-                    "Multiply by 2: 2 × 43 = 86 meters",
+                    "Set up equation: 120H = 960",
+                    "Divide both sides by 120",
+                    "H = 960 ÷ 120",
+                    "H = 8 hours",
                 ],
-                formula: "Perimeter = 2(Length + Width)",
+                formula: "Rate × Hours = Total, so H = Total/Rate",
                 hints: [
-                    "Remember the perimeter formula for rectangles",
-                    "Add the length and width first",
-                    "Then multiply by 2",
+                    "Total pay = hourly rate × hours",
+                    "Divide total by rate to find hours",
+                    "960 ÷ 120 = ?",
                 ],
             },
             "4": {
-                question: "If 1kg = 2.2lbs, convert 5kg of sugar to pounds.",
-                options: ["7.2 lbs", "11 lbs", "10 lbs", "2.27 lbs"],
+                question: "A delivery truck can carry max 500 kg. It has 180 kg loaded. Each box weighs 40 kg. How many more boxes can fit?",
+                options: ["7 boxes", "8 boxes", "9 boxes", "10 boxes"],
                 correctAnswer: 1,
                 explanation:
-                    "To convert kg to lbs, multiply by 2.2: 5 × 2.2 = 11 lbs. Unit conversion is important for international trade and cooking recipes.",
+                    "Set up inequality: 180 + 40x ≤ 500. Subtract 180: 40x ≤ 320. Divide by 40: x ≤ 8. Maximum is 8 boxes. Inequalities determine capacity constraints for safe transport.",
+                steps: [
+                    "Current load + new boxes ≤ max capacity",
+                    "180 + 40x ≤ 500",
+                    "40x ≤ 320",
+                    "x ≤ 8 boxes",
+                ],
+                formula: "Current + (Weight per box × boxes) ≤ Max",
+                hints: [
+                    "Use inequality for weight limit constraint",
+                    "Subtract current weight from max capacity",
+                    "Divide by weight per box",
+                ],
             },
             "5": {
                 question:
-                    "Your weekly allowance is ₱500. You spent ₱150 on food, ₱75 on transport. How much did you save?",
-                options: ["₱225", "₱275", "₱325", "₱350"],
-                correctAnswer: 1,
+                    "Two investments total ₱50,000. Investment A returns 5%, B returns 8%. Total return is ₱3,400. How much in A?",
+                options: ["₱20,000", "₱25,000", "₱30,000", "₱35,000"],
+                correctAnswer: 0,
                 explanation:
-                    "Savings = Total - Food - Transport = ₱500 - ₱150 - ₱75 = ₱275. Budgeting skills help manage personal finances effectively.",
+                    "Let A and B be amounts. System: A + B = 50,000 and 0.05A + 0.08B = 3,400. From first: B = 50,000 - A. Substitute: 0.05A + 0.08(50,000 - A) = 3,400, giving 0.05A + 4,000 - 0.08A = 3,400, so -0.03A = -600, thus A = 20,000. Systems optimize investment allocation.",
+                steps: [
+                    "A + B = 50,000 and 0.05A + 0.08B = 3,400",
+                    "B = 50,000 - A",
+                    "0.05A + 0.08(50,000 - A) = 3,400",
+                    "-0.03A = -600",
+                    "A = ₱20,000",
+                ],
+                formula: "A + B = 50000, 0.05A + 0.08B = 3400",
+                hints: [
+                    "Two equations: total amount and total return",
+                    "Substitute one equation into the other",
+                    "Solve for one variable first",
+                ],
             },
             "6": {
                 question:
-                    "A circular garden has a radius of 7m. Calculate the area for planting (use π ≈ 22/7).",
-                options: ["154 m²", "44 m²", "22 m²", "308 m²"],
+                    "A rectangular garden has area x² + 7x + 12 m². Factor to find possible dimensions.",
+                options: ["(x + 3) by (x + 4)", "(x + 2) by (x + 6)", "(x + 1) by (x + 12)", "(x - 3) by (x - 4)"],
                 correctAnswer: 0,
                 explanation:
-                    "Area = πr² = (22/7) × 7² = (22/7) × 49 = 154 m². Understanding circular area helps with garden planning and landscaping.",
+                    "Factor x² + 7x + 12: find two numbers that multiply to 12 and add to 7. Those are 3 and 4, giving (x + 3)(x + 4). These represent possible length and width. Factoring helps design spaces with specific areas.",
+                steps: [
+                    "Area = x² + 7x + 12",
+                    "Find factors of 12 that add to 7: 3 and 4",
+                    "Factor: (x + 3)(x + 4)",
+                    "Dimensions: (x + 3) meters by (x + 4) meters",
+                ],
+                formula: "x² + (a+b)x + ab = (x + a)(x + b)",
+                hints: [
+                    "Area = length × width for rectangles",
+                    "Find two numbers: product = 12, sum = 7",
+                    "Factors represent the dimensions",
+                ],
             },
             "7": {
                 question:
-                    "Find the next number in the pattern: 2, 5, 10, 17, __",
-                options: ["24", "26", "28", "30"],
+                    "A basketball's height is h = -5t² + 10t + 2 meters. At what time does it reach maximum height?",
+                options: ["0.5 seconds", "1 second", "1.5 seconds", "2 seconds"],
                 correctAnswer: 1,
                 explanation:
-                    "The differences between consecutive numbers are 3, 5, 7, 9. The next difference is 9, so 17 + 9 = 26. Pattern recognition develops logical thinking.",
+                    "For quadratic h = at² + bt + c, maximum at t = -b/(2a). Here a = -5, b = 10, so t = -10/(2×-5) = -10/-10 = 1 second. Athletes and coaches use quadratics to analyze shot trajectories and optimize performance.",
+                steps: [
+                    "Identify: a = -5, b = 10, c = 2",
+                    "Use vertex formula: t = -b/(2a)",
+                    "t = -10/(2×-5) = -10/-10",
+                    "t = 1 second",
+                ],
+                formula: "t = -b/(2a) for h = at² + bt + c",
+                hints: [
+                    "Parabola's vertex gives maximum height",
+                    "Use t = -b/(2a) for the time",
+                    "a = -5, b = 10",
+                ],
             },
             "8": {
-                question: "If 3 pens cost ₱45, how much would 7 pens cost?",
-                options: ["₱95", "₱105", "₱100", "₱110"],
-                correctAnswer: 1,
+                question: "Stock price function: P(d) = 2d + 50 pesos. What's the price after 7 days?",
+                options: ["₱56", "₱60", "₱64", "₱70"],
+                correctAnswer: 2,
                 explanation:
-                    "Price per pen = ₱45 ÷ 3 = ₱15. For 7 pens: ₱15 × 7 = ₱105. Unit pricing helps compare product values and make smart purchases.",
+                    "Evaluate P(7): substitute d = 7 into P(d) = 2d + 50, giving P(7) = 2(7) + 50 = 14 + 50 = ₱64. Functions help track and predict stock prices, temperatures, and other changing values over time.",
+                steps: [
+                    "Function: P(d) = 2d + 50",
+                    "Find P(7): substitute d = 7",
+                    "P(7) = 2(7) + 50",
+                    "P(7) = 14 + 50 = ₱64",
+                ],
+                formula: "P(d) = 2d + 50",
+                hints: [
+                    "Replace d with 7 in the function",
+                    "Multiply 2 × 7 first",
+                    "Add 50 to the result",
+                ],
             },
             "9": {
                 question:
-                    "A family's monthly income is ₱25,000. They spend 30% on food, 20% on bills. How much do they save?",
-                options: ["₱10,000", "₱12,500", "₱15,000", "₱7,500"],
-                correctAnswer: 1,
+                    "A recipe for 4 people needs 3 cups of flour. How much flour is needed for 10 people?",
+                options: ["6 cups", "6.5 cups", "7 cups", "7.5 cups"],
+                correctAnswer: 3,
                 explanation:
-                    "Food = 30% × ₱25,000 = ₱7,500. Bills = 20% × ₱25,000 = ₱5,000. Savings = ₱25,000 - ₱7,500 - ₱5,000 = ₱12,500. Understanding percentages helps with family budgeting.",
+                    "Set up proportion: 3/4 = x/10. Cross-multiply: 4x = 30. Divide by 4: x = 7.5 cups. Proportions and ratios are essential for scaling recipes and solving similar problems.",
+                steps: [
+                    "Set up proportion: 3/4 = x/10",
+                    "Cross-multiply: 4 × x = 3 × 10",
+                    "4x = 30",
+                    "x = 7.5 cups",
+                ],
+                formula: "3/4 = x/10",
+                hints: [
+                    "Use a proportion to relate the quantities",
+                    "Cross-multiplication solves proportions",
+                    "If 4 people need 3 cups, what do 10 people need?",
+                ],
             },
             "10": {
                 question:
-                    "If you save ₱50 daily, how many weeks to save ₱3,500?",
-                options: ["8 weeks", "10 weeks", "12 weeks", "7 weeks"],
-                correctAnswer: 1,
+                    "Project budget: ₱100,000 for materials at ₱5,000/day and labor at ₱3,000/day. Project needs 8 material-days and 12 labor-days. Total cost?",
+                options: ["₱76,000", "₱80,000", "₱84,000", "₱88,000"],
+                correctAnswer: 0,
                 explanation:
-                    "Days needed = ₱3,500 ÷ ₱50 = 70 days. Weeks = 70 ÷ 7 = 10 weeks. Planning savings goals helps achieve financial objectives.",
+                    "Calculate each cost: Materials = 8 days × ₱5,000/day = ₱40,000. Labor = 12 days × ₱3,000/day = ₱36,000. Total = ₱40,000 + ₱36,000 = ₱76,000. Multi-step problems combine multiple equations for project management.",
+                steps: [
+                    "Material cost = 8 × ₱5,000 = ₱40,000",
+                    "Labor cost = 12 × ₱3,000 = ₱36,000",
+                    "Total = ₱40,000 + ₱36,000",
+                    "Total = ₱76,000",
+                ],
+                formula: "Total = (days₁ × rate₁) + (days₂ × rate₂)",
+                hints: [
+                    "Calculate material cost separately",
+                    "Calculate labor cost separately",
+                    "Add both costs together",
+                ],
             },
 
-            // Level 2: City Math Challenges (11-20) - Intermediate Algebra
+            // Level 2: City Math Challenges (11-20) - Advanced Algebra
             "11": {
                 question:
-                    "You buy items for ₱100 and sell them for 150% of cost. What's your profit per item?",
-                options: ["₱40", "₱50", "₱60", "₱150"],
+                    "A city population grows exponentially at 3% per year. If current population is 50,000, what will it be in 2 years?",
+                options: ["53,000", "53,045", "56,000", "56,180"],
                 correctAnswer: 1,
                 explanation:
-                    "Selling price = ₱100 × 1.5 = ₱150. Profit = ₱150 - ₱100 = ₱50. Understanding markup helps with business pricing strategies.",
+                    "Use exponential growth formula: P(t) = P₀(1 + r)^t = 50,000(1.03)² = 50,000(1.0609) = 53,045. Exponential functions model population, investments, and decay.",
+                steps: [
+                    "Formula: P(t) = P₀(1 + r)^t",
+                    "P₀ = 50,000, r = 0.03, t = 2",
+                    "P(2) = 50,000(1.03)²",
+                    "P(2) = 50,000 × 1.0609 = 53,045",
+                ],
+                formula: "P(t) = P₀(1 + r)^t",
+                hints: [
+                    "Growth rate 3% means multiply by 1.03 each year",
+                    "Apply the growth twice (squared)",
+                    "Don't just add 3% twice - that's compound growth!",
+                ],
             },
             "12": {
                 question:
-                    "With monthly expenses of ₱50,000, what revenue is needed for 20% profit?",
-                options: ["₱55,000", "₱60,000", "₱62,500", "₱70,000"],
+                    "If log₁₀(x) = 3, what is x?",
+                options: ["30", "100", "1,000", "10,000"],
                 correctAnswer: 2,
                 explanation:
-                    "If profit is 20% of revenue, then expenses are 80% of revenue. Revenue = ₱50,000 ÷ 0.80 = ₱62,500. Financial planning requires understanding profit margins.",
+                    "Converting from logarithmic to exponential form: log₁₀(x) = 3 means 10³ = x, so x = 1,000. Logarithms are the inverse of exponentials and used in pH, decibels, and Richter scale.",
+                steps: [
+                    "log₁₀(x) = 3 means 'what power of 10 gives x?'",
+                    "Convert to exponential: 10³ = x",
+                    "Calculate: 10³ = 10 × 10 × 10 = 1,000",
+                ],
+                formula: "log_b(x) = y ↔ b^y = x",
+                hints: [
+                    "Log is asking: 10 to what power equals x?",
+                    "If the answer is 3, then 10³ = x",
+                    "10³ = 1,000",
+                ],
             },
             "13": {
                 question:
-                    "A delivery route covers 5 stops. If each segment is 3km, what's the total minimum distance?",
-                options: ["12 km", "15 km", "18 km", "10 km"],
-                correctAnswer: 0,
+                    "An event organizer sells tickets. Revenue R = -2p² + 80p where p is price. What price maximizes revenue?",
+                options: ["₱15", "₱20", "₱25", "₱30"],
+                correctAnswer: 1,
                 explanation:
-                    "For 5 stops, there are 4 segments between them. Total distance = 4 × 3km = 12km. Route optimization saves time and fuel costs.",
+                    "For quadratic R = -2p² + 80p, maximum occurs at p = -b/(2a) = -80/(2×-2) = -80/-4 = 20. At p = ₱20, maximum revenue is -2(20)² + 80(20) = ₱800. This demonstrates revenue optimization using quadratic vertex formula.",
+                steps: [
+                    "Quadratic: R = -2p² + 80p (a = -2, b = 80)",
+                    "Maximum at vertex: p = -b/(2a)",
+                    "p = -80/(2×-2) = -80/-4 = 20",
+                    "Optimal price: ₱20",
+                ],
+                formula: "p = -b/(2a) for R = ap² + bp + c",
+                hints: [
+                    "Use vertex formula for parabola maximum",
+                    "Coefficient a is negative, so parabola opens down",
+                    "Maximum occurs at p = -b/(2a)",
+                ],
             },
             "14": {
                 question:
-                    "If sales increase 15% monthly and current sales are ₱100,000, what will they be in 2 months?",
-                options: ["₱115,000", "₱130,000", "₱132,250", "₱150,000"],
-                correctAnswer: 2,
+                    "Two workers complete a job in 6 hours together. Worker A alone takes 10 hours. How long for Worker B alone?",
+                options: ["12 hours", "15 hours", "18 hours", "20 hours"],
+                correctAnswer: 1,
                 explanation:
-                    "Month 1: ₱100,000 × 1.15 = ₱115,000. Month 2: ₱115,000 × 1.15 = ₱132,250. Compound growth is key to understanding business projections.",
+                    "Work rates add: 1/A + 1/B = 1/Together. So 1/10 + 1/B = 1/6. Solve: 1/B = 1/6 - 1/10 = (10-6)/60 = 4/60 = 1/15. Therefore B takes 15 hours alone. Rational equations solve work rate problems in project management.",
+                steps: [
+                    "Let B = hours for Worker B alone",
+                    "Rate equation: 1/10 + 1/B = 1/6",
+                    "1/B = 1/6 - 1/10",
+                    "1/B = (10 - 6)/(60) = 4/60 = 1/15",
+                    "B = 15 hours",
+                ],
+                formula: "1/A + 1/B = 1/Together",
+                hints: [
+                    "Work rates are reciprocals of time",
+                    "Add the individual rates to get combined rate",
+                    "Find common denominator",
+                ],
             },
             "15": {
                 question:
-                    "A rectangular park is 80m × 50m. How many 10m × 10m garden plots can fit inside?",
-                options: ["30 plots", "40 plots", "50 plots", "35 plots"],
-                correctAnswer: 1,
+                    "A vehicle depreciates ₱8,000/year starting at ₱120,000. What's its value after 5 years?",
+                options: ["₱80,000", "₱72,000", "₱88,000", "₱76,000"],
+                correctAnswer: 0,
                 explanation:
-                    "Park area = 80m × 50m = 4,000m². Plot area = 10m × 10m = 100m². Number of plots = 4,000 ÷ 100 = 40 plots. Area division is essential for urban planning.",
+                    "This is an arithmetic sequence with a₁ = 120,000 and d = -8,000. After 5 years: Value = 120,000 + 5(-8,000) = 120,000 - 40,000 = 80,000. Arithmetic sequences model depreciation for budget planning.",
+                steps: [
+                    "Initial value: ₱120,000",
+                    "Depreciation per year: ₱8,000",
+                    "After 5 years: 5 × ₱8,000 = ₱40,000 lost",
+                    "Current value: ₱120,000 - ₱40,000 = ₱80,000",
+                ],
+                formula: "Value = Initial + (years × depreciation)",
+                hints: [
+                    "Depreciation means value decreases each year",
+                    "Multiply yearly depreciation by number of years",
+                    "Subtract total depreciation from initial value",
+                ],
             },
             "16": {
                 question:
-                    "A bus travels 60km in 1.5 hours. What's its average speed?",
-                options: ["30 km/h", "40 km/h", "45 km/h", "50 km/h"],
-                correctAnswer: 1,
+                    "Parking: ₱40 for first 2 hours, then ₱30/hour. Cost for 5 hours?",
+                options: ["₱110", "₱120", "₱130", "₱190"],
+                correctAnswer: 2,
                 explanation:
-                    "Speed = Distance ÷ Time = 60km ÷ 1.5 hours = 40 km/h. Understanding speed calculations helps with transportation scheduling.",
+                    "Piecewise function: First 2 hours = ₱40 flat. Remaining 3 hours = 3 × ₱30 = ₱90. Total = ₱40 + ₱90 = ₱130. Piecewise functions model scenarios with different rules for different ranges, like tiered pricing.",
+                steps: [
+                    "First 2 hours: ₱40 flat rate",
+                    "Hours 3, 4, 5: 3 × ₱30 = ₱90",
+                    "Total cost: ₱40 + ₱90 = ₱130",
+                ],
+                formula: "f(x) = {40 if x≤2; 40+30(x-2) if x>2}",
+                hints: [
+                    "Piecewise: different rates for different ranges",
+                    "First 2 hours use flat rate",
+                    "Additional hours charged per hour",
+                ],
             },
             "17": {
                 question:
-                    "A building height restriction is 15m. If each floor is 3m, what's the maximum number of floors?",
-                options: ["4 floors", "5 floors", "6 floors", "7 floors"],
-                correctAnswer: 1,
+                    "City budget matrix: [Education Health Transport] = [40, 30, 30]% totaling ₱500M. Find Education allocation.",
+                options: ["₱150M", "₱175M", "₱200M", "₱225M"],
+                correctAnswer: 2,
                 explanation:
-                    "Maximum floors = 15m ÷ 3m per floor = 5 floors. Zoning laws use division to determine building specifications.",
+                    "Matrix multiplication: Education gets 40% of ₱500M. Calculate: 0.40 × 500 = ₱200M. Matrices organize multi-department budget allocation efficiently.",
+                steps: [
+                    "Total budget: ₱500M",
+                    "Education percentage: 40%",
+                    "Calculate: 40% × ₱500M",
+                    "0.40 × 500 = ₱200M",
+                ],
+                formula: "Allocation = Percentage × Total",
+                hints: [
+                    "Convert percentage to decimal",
+                    "Multiply by total budget",
+                    "40% = 0.40",
+                ],
             },
             "18": {
                 question:
-                    "A city has 200,000 residents. If 35% are students, how many students are there?",
-                options: ["60,000", "65,000", "70,000", "75,000"],
+                    "A surveyor measures building height. From 30m away, angle of elevation is 40°. Find height. (tan 40° ≈ 0.84)",
+                options: ["20.2 m", "22.8 m", "25.2 m", "28.0 m"],
                 correctAnswer: 2,
                 explanation:
-                    "Number of students = 200,000 × 0.35 = 70,000. Demographics help cities plan educational facilities.",
+                    "Use tangent ratio: tan(θ) = opposite/adjacent = height/distance. So height = distance × tan(θ) = 30 × 0.84 = 25.2m. Trigonometry is essential for surveying and construction.",
+                steps: [
+                    "Given: distance = 30m, angle = 40°",
+                    "Use tangent: tan(40°) = height/30",
+                    "height = 30 × tan(40°)",
+                    "height = 30 × 0.84 = 25.2m",
+                ],
+                formula: "tan(θ) = opposite/adjacent",
+                hints: [
+                    "Tangent relates opposite side to adjacent side",
+                    "Height is opposite, distance is adjacent",
+                    "Multiply distance by tan(angle)",
+                ],
             },
             "19": {
                 question:
-                    "If 1 bag of cement covers 4m² and you need to cover a 20m × 8m area, how many bags are needed?",
-                options: ["30 bags", "35 bags", "40 bags", "45 bags"],
-                correctAnswer: 2,
+                    "City disease rates per 1000: Area A=15, B=22, C=18, D=25, E=20. Find mean rate for public health planning.",
+                options: ["18 per 1000", "20 per 1000", "22 per 1000", "25 per 1000"],
+                correctAnswer: 1,
                 explanation:
-                    "Total area = 20m × 8m = 160m². Bags needed = 160m² ÷ 4m² per bag = 40 bags. Construction planning requires accurate material calculations.",
+                    "Mean = (15 + 22 + 18 + 25 + 20) ÷ 5 = 100 ÷ 5 = 20 per 1000. The mean helps identify which areas need more health resources. Statistics guide public health policy.",
+                steps: [
+                    "Add all disease rates: 15 + 22 + 18 + 25 + 20",
+                    "Sum = 100",
+                    "Divide by number of areas: 100 ÷ 5",
+                    "Mean = 20 per 1000 residents",
+                ],
+                formula: "Mean = Σx/n",
+                hints: [
+                    "Add all the rates together",
+                    "Count how many areas there are",
+                    "Divide total by count",
+                ],
             },
             "20": {
                 question:
-                    "A taxi charges ₱40 base fare plus ₱15 per km. What's the fare for a 12km trip?",
-                options: ["₱180", "₱200", "₱220", "₱240"],
+                    "Smart city planning: Budget equation 2E + 3T = 1200 and E + T = 500 (E=Environmental, T=Tech). Find E.",
+                options: ["₱200M", "₱250M", "₱300M", "₱350M"],
                 correctAnswer: 2,
                 explanation:
-                    "Fare = Base + (Rate × Distance) = ₱40 + (₱15 × 12) = ₱40 + ₱180 = ₱220. Linear equations model many real-world pricing systems.",
+                    "System: 2E + 3T = 1200 and E + T = 500. Multiply second by 3: 3E + 3T = 1500. Subtract first equation: (3E + 3T) - (2E + 3T) = 1500 - 1200, giving E = 300. Then T = 500 - 300 = 200. Comprehensive planning uses multiple equations to optimize city resources.",
+                steps: [
+                    "System: 2E + 3T = 1200, E + T = 500",
+                    "Multiply second by 3: 3E + 3T = 1500",
+                    "Subtract first: E = 1500 - 1200 = 300",
+                    "Environmental budget: ₱300M",
+                ],
+                formula: "2E + 3T = 1200, E + T = 500",
+                hints: [
+                    "Use elimination method",
+                    "Multiply to align coefficients",
+                    "Subtract to eliminate T variable",
+                ],
             },
         };
 

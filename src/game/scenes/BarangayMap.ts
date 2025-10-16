@@ -70,8 +70,8 @@ export class BarangayMap extends Scene {
             name: "Market Math",
             npc: "Vendor Mang Pedro",
             missionId: 1,
-            percentX: 87, // Background-relative percentage X
-            percentY: 52, // Background-relative percentage
+            percentX: 66, // Background-relative percentage X
+            percentY: 77, // Background-relative percentage
         },
         {
             x: 12,
@@ -97,8 +97,8 @@ export class BarangayMap extends Scene {
             name: "Unit Conversion",
             npc: "Baker Tess",
             missionId: 4,
-            percentX: 40, // Background-relative percentage X
-            percentY: 22, // Background-relative percentag
+            percentX: 89, // Background-relative percentage X
+            percentY: 14, // Background-relative percentag
         },
         {
             x: 21,
@@ -124,8 +124,8 @@ export class BarangayMap extends Scene {
             name: "Pattern Master",
             npc: "Math Teacher Mrs. Cruz",
             missionId: 7,
-            percentX: 89, // Background-relative percentage X
-            percentY: 13, // Background-relative percentag
+            percentX: 14, // Background-relative percentage X
+            percentY: 15, // Background-relative percentag
         },
         {
             x: 25,
@@ -142,8 +142,8 @@ export class BarangayMap extends Scene {
             name: "Family Budget",
             npc: "Parent Rosa",
             missionId: 9,
-            percentX: 59, // Background-relative percentage X
-            percentY: 54, // Background-relative percentage Y
+            percentX: 72, // Background-relative percentage X
+            percentY: 42, // Background-relative percentage Y
         },
         {
             x: 12,
@@ -1496,16 +1496,16 @@ export class BarangayMap extends Scene {
 
         // Map NPC names to their corresponding image keys
         const npcImageMap = {
-            "Barangay Captain": "barangay-captain",
-            "Barangay Health Worker": "barangay-health-worker",
-            "Barangay Secretary": "barangay-secretary",
-            "Barangay Tanod": "barangay-tanod",
-            "COMELEC Volunteer": "comelec-volunteer",
-            "Construction Foreman": "construction-foreman",
-            "Elderly Resident": "elderly-resident",
-            "High School Student": "high-school-student",
-            Librarian: "librarian",
-            "Mediation Officer": "mediation-officer",
+            "Vendor Mang Pedro": "vendor-mang-pedro",
+            "Store Owner Aling Maria": "store-owner-aling-maria",
+            "Coach Miguel": "coach-miguel",
+            "Baker Tess": "baker-tess",
+            "Student Leader Ana": "student-leader-ana",
+            "Gardener Noel": "gardener-noel",
+            "Math Teacher Mrs. Cruz": "math-teacher-mrs-cruz",
+            "Shop Owner Danny": "shop-owner-danny",
+            "Parent Rosa": "parent-rosa",
+            "Banker Mr. Santos": "banker-mr-santos",
         };
 
         // Check if NPC images are loaded, if not load them directly
@@ -1581,7 +1581,7 @@ export class BarangayMap extends Scene {
             console.log(`Using image: ${finalImageKey} for ${location.npc}`);
 
             const npc = this.physics.add.sprite(worldX, worldY, finalImageKey);
-            npc.setScale(0.2); // Same scale as player for consistent sizing
+            npc.setScale(0.3); // Enlarged NPCs - uniform scale maintains proportions
             npc.setInteractive();
 
             // Set up collision body for NPC - make it static from the start
@@ -1600,9 +1600,9 @@ export class BarangayMap extends Scene {
                 immovable: npc.body.immovable,
             });
 
-            // Add NPC name with better styling
+            // Add NPC name with better styling - adjusted offset for larger NPC
             const npcName = this.add
-                .text(worldX, worldY - 35, location.npc, {
+                .text(worldX, worldY - 50, location.npc, {
                     fontFamily: "Arial Black",
                     fontSize: 11,
                     color: "#FFFFFF",
@@ -3118,12 +3118,13 @@ export class BarangayMap extends Scene {
                 title: "Introduction to Variables",
                 description:
                     "Help the local shopkeeper solve basic algebra problems using variables and simple equations.",
-                quizOverview: "This quiz will test your understanding of variables, constants, and basic algebraic notation. You'll solve simple linear equations and learn how to represent unknown values with letters like x and y.",
+                quizOverview:
+                    "This quiz will test your understanding of variables, constants, and basic algebraic notation. You'll solve simple linear equations and learn how to represent unknown values with letters like x and y.",
                 realLifeTrivia: [
                     "Shopping: Calculate discounts and final prices using variables (e.g., if price is P, discount is 20%, final = P - 0.2P)",
                     "Budgeting: Track expenses where x represents your monthly savings goal",
                     "Recipe Scaling: Use variables to adjust ingredient amounts when cooking for different numbers of people",
-                    "Age Problems: Determine someone's age based on clues using simple equations"
+                    "Age Problems: Determine someone's age based on clues using simple equations",
                 ],
                 npc: "Math Tutor Maya",
                 location: "Community Learning Center",
@@ -3134,12 +3135,13 @@ export class BarangayMap extends Scene {
                 title: "Expressions and Operations",
                 description:
                     "Master algebraic expressions and basic operations to help calculate community project costs.",
-                quizOverview: "Learn to simplify algebraic expressions, combine like terms, and perform operations with variables. This quiz covers addition, subtraction, multiplication, and division of algebraic expressions.",
+                quizOverview:
+                    "Learn to simplify algebraic expressions, combine like terms, and perform operations with variables. This quiz covers addition, subtraction, multiplication, and division of algebraic expressions.",
                 realLifeTrivia: [
                     "Construction: Calculate total material costs (e.g., 3x bags of cement + 2x bags at another store = 5x total)",
                     "Utility Bills: Combine multiple charges into one expression (base fee + usage × rate)",
                     "Carpentry: Calculate lumber needed by combining measurements with similar units",
-                    "Business: Simplify profit expressions by combining revenue and expenses"
+                    "Business: Simplify profit expressions by combining revenue and expenses",
                 ],
                 npc: "Accountant Rico",
                 location: "Community Office",
@@ -3150,12 +3152,13 @@ export class BarangayMap extends Scene {
                 title: "Solving Equations",
                 description:
                     "Help residents solve everyday problems using equation-solving techniques.",
-                quizOverview: "Master one-step and two-step equation solving techniques. Learn to isolate variables and check your solutions. Apply inverse operations to solve for unknown values.",
+                quizOverview:
+                    "Master one-step and two-step equation solving techniques. Learn to isolate variables and check your solutions. Apply inverse operations to solve for unknown values.",
                 realLifeTrivia: [
                     "Salary Calculation: If you earn hourly rate R and work H hours, solve for R when you know total pay",
                     "Distance Problems: Use d = rt (distance = rate × time) to find missing values on trips",
                     "Temperature Conversion: Convert between Celsius and Fahrenheit using equations",
-                    "Banking: Calculate interest rates when you know starting amount and final amount"
+                    "Banking: Calculate interest rates when you know starting amount and final amount",
                 ],
                 npc: "Teacher Ana",
                 location: "School Area",
@@ -3164,13 +3167,15 @@ export class BarangayMap extends Scene {
             4: {
                 id: "4",
                 title: "Understanding Inequalities",
-                description: "Learn to work with inequalities to help plan community resource distribution.",
-                quizOverview: "Solve and graph inequalities on number lines. Understand inequality symbols (<, >, ≤, ≥) and learn when to flip the inequality sign. Apply inequalities to real constraints.",
+                description:
+                    "Learn to work with inequalities to help plan community resource distribution.",
+                quizOverview:
+                    "Solve and graph inequalities on number lines. Understand inequality symbols (<, >, ≤, ≥) and learn when to flip the inequality sign. Apply inequalities to real constraints.",
                 realLifeTrivia: [
                     "Weight Limits: Cargo weight must be ≤ 500 kg to determine what can be transported",
                     "Budget Constraints: Total spending must be < your available money",
                     "Speed Limits: Vehicle speed must be ≤ posted limit for safety",
-                    "Capacity Planning: Number of guests ≤ venue maximum capacity"
+                    "Capacity Planning: Number of guests ≤ venue maximum capacity",
                 ],
                 npc: "Project Coordinator Ben",
                 location: "Community Hall",
@@ -3181,12 +3186,13 @@ export class BarangayMap extends Scene {
                 title: "Systems of Equations",
                 description:
                     "Use systems of equations to help optimize community gardens and resource allocation.",
-                quizOverview: "Solve systems of two equations with two unknowns using substitution and elimination methods. Learn to find the point where two linear relationships intersect.",
+                quizOverview:
+                    "Solve systems of two equations with two unknowns using substitution and elimination methods. Learn to find the point where two linear relationships intersect.",
                 realLifeTrivia: [
                     "Market Pricing: Find equilibrium price where supply equals demand",
                     "Mixture Problems: Determine how much of two ingredients to mix for desired concentration",
                     "Investment Planning: Allocate money between two options with different returns",
-                    "Break-Even Analysis: Find when total revenue equals total costs in business"
+                    "Break-Even Analysis: Find when total revenue equals total costs in business",
                 ],
                 npc: "Garden Coordinator Lisa",
                 location: "Community Garden",
@@ -3197,12 +3203,13 @@ export class BarangayMap extends Scene {
                 title: "Factoring Fundamentals",
                 description:
                     "Learn factoring techniques to help design efficient layouts for community spaces.",
-                quizOverview: "Factor quadratic expressions, identify greatest common factors, and use difference of squares. Learn to break down complex expressions into simpler multiplication forms.",
+                quizOverview:
+                    "Factor quadratic expressions, identify greatest common factors, and use difference of squares. Learn to break down complex expressions into simpler multiplication forms.",
                 realLifeTrivia: [
                     "Area Design: Factor x² + 5x + 6 to find possible dimensions (x+2)(x+3) for rectangular spaces",
                     "Optimization: Factor to find zero points for maximum profit or minimum cost",
                     "Computer Science: Factoring helps in algorithm optimization and cryptography",
-                    "Physics: Factor equations to find time when a projectile hits the ground (height = 0)"
+                    "Physics: Factor equations to find time when a projectile hits the ground (height = 0)",
                 ],
                 npc: "Architect Mike",
                 location: "Planning Office",
@@ -3213,12 +3220,13 @@ export class BarangayMap extends Scene {
                 title: "Quadratic Equations",
                 description:
                     "Master quadratic equations to model trajectories and optimize community projects.",
-                quizOverview: "Solve quadratic equations using the quadratic formula, factoring, and completing the square. Understand parabolas and find maximum/minimum values.",
+                quizOverview:
+                    "Solve quadratic equations using the quadratic formula, factoring, and completing the square. Understand parabolas and find maximum/minimum values.",
                 realLifeTrivia: [
                     "Sports: Calculate the path of a basketball shot or soccer ball trajectory",
                     "Business: Find maximum profit where revenue is modeled by a quadratic function",
                     "Engineering: Design bridges and arches using parabolic curves",
-                    "Photography: Understand lens curvature and light paths using quadratic models"
+                    "Photography: Understand lens curvature and light paths using quadratic models",
                 ],
                 npc: "Engineer Sarah",
                 location: "Engineering Center",
@@ -3229,12 +3237,13 @@ export class BarangayMap extends Scene {
                 title: "Functions and Graphs",
                 description:
                     "Understand functions and graphing to analyze community data and trends.",
-                quizOverview: "Plot and interpret linear and quadratic functions. Understand domain, range, and function notation. Analyze graphs to extract meaningful information.",
+                quizOverview:
+                    "Plot and interpret linear and quadratic functions. Understand domain, range, and function notation. Analyze graphs to extract meaningful information.",
                 realLifeTrivia: [
                     "Stock Market: Graph stock prices over time to identify trends and make decisions",
                     "Weather Analysis: Plot temperature functions to predict seasonal patterns",
                     "Fitness Tracking: Graph workout progress to see improvement over time",
-                    "Economics: Visualize supply and demand curves to understand market behavior"
+                    "Economics: Visualize supply and demand curves to understand market behavior",
                 ],
                 npc: "Data Analyst Carlos",
                 location: "Research Center",
@@ -3243,13 +3252,15 @@ export class BarangayMap extends Scene {
             9: {
                 id: "9",
                 title: "Polynomials and Ratios",
-                description: "Work with polynomials and ratios to help with community measurements and calculations.",
-                quizOverview: "Perform operations with polynomials (add, subtract, multiply, divide). Simplify rational expressions and solve proportion problems.",
+                description:
+                    "Work with polynomials and ratios to help with community measurements and calculations.",
+                quizOverview:
+                    "Perform operations with polynomials (add, subtract, multiply, divide). Simplify rational expressions and solve proportion problems.",
                 realLifeTrivia: [
                     "Map Reading: Use scale ratios to calculate actual distances from maps",
                     "Cooking: Scale recipes proportionally for different serving sizes",
                     "Exchange Rates: Convert currencies using ratio relationships",
-                    "Medical Dosage: Calculate medication amounts based on body weight ratios"
+                    "Medical Dosage: Calculate medication amounts based on body weight ratios",
                 ],
                 npc: "Scientist Dr. Emma",
                 location: "Science Lab",
@@ -3260,12 +3271,13 @@ export class BarangayMap extends Scene {
                 title: "Advanced Problem Solving",
                 description:
                     "Apply all your algebra skills to complex real-world problems and community challenges.",
-                quizOverview: "Integrate multiple algebra concepts to solve complex word problems. Apply equations, inequalities, systems, and functions to real-world scenarios requiring multi-step solutions.",
+                quizOverview:
+                    "Integrate multiple algebra concepts to solve complex word problems. Apply equations, inequalities, systems, and functions to real-world scenarios requiring multi-step solutions.",
                 realLifeTrivia: [
                     "Project Management: Combine cost equations, time constraints, and resource allocation",
                     "Environmental Planning: Model population growth, resource consumption, and sustainability",
                     "Financial Planning: Integrate interest rates, inflation, budgets, and investment returns",
-                    "Engineering Design: Optimize structures using multiple mathematical constraints simultaneously"
+                    "Engineering Design: Optimize structures using multiple mathematical constraints simultaneously",
                 ],
                 npc: "Master Mathematician Prof. Jose",
                 location: "University Hall",
@@ -3278,11 +3290,12 @@ export class BarangayMap extends Scene {
                 id: missionId.toString(),
                 title: "Unknown Mission",
                 description: "A mission to help the community.",
-                quizOverview: "Complete this quiz to test your algebra skills and help the community.",
+                quizOverview:
+                    "Complete this quiz to test your algebra skills and help the community.",
                 realLifeTrivia: [
                     "Math is used in everyday life from shopping to budgeting",
                     "Understanding algebra helps you make better decisions",
-                    "Problem-solving skills transfer to real-world situations"
+                    "Problem-solving skills transfer to real-world situations",
                 ],
                 npc: "Community Member",
                 location: "Barangay",

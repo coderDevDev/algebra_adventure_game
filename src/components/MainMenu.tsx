@@ -32,7 +32,9 @@ export const MainMenu: React.FC<MainMenuProps> = ({
     };
 
     const handleExit = () => {
-        if (window.confirm("Are you sure you want to exit Algebra Adventure?")) {
+        if (
+            window.confirm("Are you sure you want to exit Algebra Adventure?")
+        ) {
             onExit?.();
             // For web, we can close the tab/window or redirect
             window.close();
@@ -44,7 +46,6 @@ export const MainMenu: React.FC<MainMenuProps> = ({
             <div className="w-full max-w-md mx-auto">
                 {/* Simple White Card Container */}
                 <div className="bg-white rounded-3xl shadow-soft p-8 space-y-6">
-                    
                     {/* Header with Logo */}
                     <div className="text-center space-y-4">
                         <div className="flex justify-center">
@@ -88,28 +89,28 @@ export const MainMenu: React.FC<MainMenuProps> = ({
                         </button>
 
                         {/* Leaderboard */}
-                        <button
+                        {/* <button
                             onClick={() => onShowLeaderboard?.()}
                             className="w-full bg-amber-500 text-white py-3 rounded-xl font-medium shadow-soft hover:shadow-lg transition-all duration-200 hover:scale-[1.02]"
                         >
                             🏆 Leaderboard
-                        </button>
+                        </button> */}
 
                         {/* Extras */}
-                        <button
+                        {/* <button
                             onClick={() => onShowExtras?.()}
                             className="w-full bg-green-500 text-white py-3 rounded-xl font-medium shadow-soft hover:shadow-lg transition-all duration-200 hover:scale-[1.02]"
                         >
                             🎨 Extras
-                        </button>
+                        </button> */}
 
                         {/* Credits */}
-                        <button
+                        {/* <button
                             onClick={() => onShowCredits?.()}
                             className="w-full bg-purple-500 text-white py-3 rounded-xl font-medium shadow-soft hover:shadow-lg transition-all duration-200 hover:scale-[1.02]"
                         >
                             👥 Credits
-                        </button>
+                        </button> */}
 
                         {/* Exit */}
                         <button
@@ -119,7 +120,6 @@ export const MainMenu: React.FC<MainMenuProps> = ({
                             🚪 Exit
                         </button>
                     </div>
-
                 </div>
             </div>
         </div>

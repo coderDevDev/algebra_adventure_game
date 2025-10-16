@@ -9,11 +9,13 @@ This document contains detailed prompts for generating all visual assets for the
 ## **📐 TECHNICAL SPECIFICATIONS**
 
 ### **All Assets Requirements:**
-- **Style**: Pixel art / 2D sprite art, colorful, educational game aesthetic
-- **Color Palette**: Vibrant but not overwhelming, family-friendly
+- **Style**: **Cute chibi art style** - adorable, big-headed proportions (head:body ratio 1:1 or 1:1.5)
+- **Character Design**: Round faces, large expressive eyes, simplified features, friendly appearance
+- **Color Palette**: Vibrant but not overwhelming, soft colors, family-friendly pastels with bright accents
 - **Resolution**: High quality (minimum 512x512 for sprites, 1920x1080 for backgrounds)
 - **Format**: PNG with transparent background (for sprites)
 - **Perspective**: Top-down view for sprites, side/isometric for backgrounds
+- **Mood**: Kawaii-inspired, educational, approachable, non-threatening
 
 ---
 
@@ -22,28 +24,43 @@ This document contains detailed prompts for generating all visual assets for the
 ### **Prompt for Google Gemini:**
 
 ```
-Create a pixel art sprite sheet of a Filipino student character for a 2D educational game, viewed from top-down perspective. The character should be gender-neutral and appealing to ages 10-16.
+Create a CUTE CHIBI sprite sheet of a Filipino student character for a 2D educational game, viewed from top-down perspective. The character should be adorable, gender-neutral, and appealing to ages 10-16.
 
-DESIGN REQUIREMENTS:
+CHIBI STYLE REQUIREMENTS:
+- **Proportions**: Large head (almost same size as body), small body, stubby limbs
+- **Head-to-body ratio**: 1:1 or 1:1.5 (very top-heavy, kawaii style)
+- **Face**: Round face, large sparkling eyes (anime-inspired), small nose and mouth
+- **Expression**: Always friendly, cute, approachable with slight smile
+
+CHARACTER DESIGN:
 - Filipino student wearing modern school uniform (white polo shirt, dark blue/black pants or skirt)
-- Carry a backpack with math symbols (π, √, x²) as decorative patches
-- Friendly, approachable appearance
-- Include 4 directional sprites: front view, back view, left side, right side
-- Each direction should have 3 animation frames for walking
-- Additional: idle/standing pose for each direction
+- Oversized backpack with cute math symbols (π, √, x²) as patches/pins
 - Skin tone: Medium tan (representative of Filipino complexion)
-- Hair: Black or dark brown, simple style
-- Accessories: Optional glasses, wristwatch, or school ID
+- Hair: Black or dark brown, simple chibi hairstyle (spiky or with bangs)
+- Accessories: Optional round glasses, wristwatch, or school ID lanyard
+
+ANIMATION REQUIREMENTS:
+- Include 4 directional sprites: front view, back view, left side, right side
+- Each direction: 3 walking frames (showing cute bouncy movement)
+- Each direction: 1 idle/standing pose
+- Total: 16 frames per sprite sheet
+
+CHIBI MOVEMENT STYLE:
+- Bouncy, energetic walking (legs barely visible, body bobs up and down)
+- Arms slightly swinging or held close to body
+- Head stays large and prominent in all frames
+- Cute waddle-like movement
 
 STYLE:
-- Pixel art or clean 2D sprite art
-- Colorful but not overwhelming
-- Clear silhouette that works on various backgrounds
-- Size: Character should be clearly visible at 32x32 to 64x64 pixels when scaled
+- Clean 2D chibi/kawaii art style (NOT pixel art)
+- Soft edges, rounded shapes
+- Bright, cheerful colors with slight cel-shading
+- Clear silhouette despite small size
+- Visible and cute at 64x64 pixels when scaled
 
-MOOD: Energetic, curious, ready to learn and explore
+MOOD: Super cute, energetic, curious, ready to learn and explore!
 
-OUTPUT: Sprite sheet with all animations (12 walking frames + 4 idle frames = 16 total sprites)
+OUTPUT: 16-frame sprite sheet (4x4 grid) with chibi proportions maintained throughout
 ```
 
 **Additional Variations to Request:**
@@ -173,31 +190,73 @@ MOOD: Professional, ambitious, urban Filipino energy, intermediate education lev
 ## **4. 👥 NPC CHARACTER SPRITES - LEVEL 1 (BARANGAY)**
 
 ### **General NPC Guidelines:**
-- **Style**: Consistent with player character (pixel art / 2D sprite)
+- **Style**: **Cute chibi style** - consistent with player character
+- **Proportions**: Large head, small body (head:body ratio 1:1 to 1:1.5)
+- **Face**: Large expressive eyes, round face, friendly expression
 - **Perspective**: Top-down view
-- **Animations**: Standing idle (2-3 frames), front-facing primarily
-- **Size**: Similar to player (32x64 pixels base size)
+- **Animations**: Full sprite sheet with 4 directions (front, back, left, right)
+  - **Walking frames**: 3 frames per direction (12 total walking frames) - bouncy, cute movement
+  - **Idle frames**: 1 frame per direction (4 total idle frames)
+  - **Total**: 16 frames per NPC (same as player character)
+- **Size**: Similar to player (chibi proportions maintained)
 - **Cultural authenticity**: Filipino features, appropriate attire
+- **Age representation**: Use chibi proportions for ALL ages (even adults look cute/chibi)
+- **Output**: Complete sprite sheet layout with all 16 frames in kawaii style
 
 ---
 
 ### **NPC 1: Vendor Mang Pedro** (Mission 1 - Market Math)
 
 ```
-Create a Filipino market vendor character sprite for a 2D educational game, top-down view.
+Create a complete CHIBI sprite sheet for Vendor Mang Pedro, a Filipino market vendor character for a 2D educational game.
 
-CHARACTER DESCRIPTION:
-- Middle-aged Filipino man (40s-50s)
-- Wearing: Sando (white sleeveless shirt) or polo barong, shorts or pants, tsinelas (slippers)
-- Standing behind/beside market stall with fresh produce visible
-- Friendly, welcoming expression
-- Slightly weathered from outdoor work
-- May hold weighing scale or vegetables
-- Cap or towel over shoulder
+🎨 CHIBI STYLE REQUIREMENTS (MANDATORY):
+- **Art Style**: Cute chibi/kawaii style with anime proportions
+- **Head-to-Body Ratio**: 1:1 to 1:1.5 (large head, tiny body)
+- **Face**: Large expressive anime-style eyes (30-40% of face), round face, small nose/mouth
+- **Body**: Small chibi body with stubby limbs, legs barely visible
+- **Movement**: Bouncy, adorable walking (body bobs up and down)
+- **Perspective**: Top-down view maintained in all frames
+- **Overall Vibe**: Super cute and non-threatening, reduces math anxiety
 
-PROPS: Market scale, baskets of produce (tomatoes, vegetables), price signs with ₱ symbol
+CHARACTER DESIGN - MANG PEDRO:
+- Middle-aged Filipino man (represented in adorable chibi style)
+- Skin tone: Medium tan (Filipino complexion)
+- Wearing: Sando (white sleeveless shirt) or polo barong, shorts, tsinelas (slippers)
+- Chibi-sized cap or towel over shoulder
+- Holding: Tiny cute weighing scale or small vegetables
+- Expression: Friendly, welcoming smile with big chibi eyes
 
-MOOD: Hardworking, friendly, approachable community vendor
+PROPS (all chibi-sized and cute):
+- Mini market scale
+- Tiny baskets of produce (tomatoes, vegetables)
+- Small price signs with ₱ symbol
+- All props proportionally small and adorable
+
+ANIMATION SPECIFICATIONS:
+📋 SPRITE SHEET LAYOUT (16 frames total):
+- Row 1: Front facing - [Idle] [Walk 1] [Walk 2] [Walk 3]
+- Row 2: Back facing - [Idle] [Walk 1] [Walk 2] [Walk 3]
+- Row 3: Left side - [Idle] [Walk 1] [Walk 2] [Walk 3]
+- Row 4: Right side - [Idle] [Walk 1] [Walk 2] [Walk 3]
+
+MOVEMENT STYLE:
+- Bouncy chibi walk (waddle-like, legs barely visible)
+- Body bobs up and down cutely with each step
+- Props stay with character in all frames
+- Head stays large and prominent throughout
+- Maintains adorable chibi proportions in every frame
+
+TECHNICAL SPECS:
+- Format: PNG with transparent background
+- Frame size: 64x64 pixels minimum per frame
+- Full sprite sheet: 256x256 pixels minimum
+- Color: Vibrant but soft, warm tones for Barangay level
+- Style consistency: Match player character chibi proportions
+
+MOOD & PERSONALITY: Hardworking, friendly, approachable community vendor (SUPER CHIBI CUTE!)
+
+OUTPUT: Complete 16-frame sprite sheet in kawaii chibi style, ready for game implementation
 ```
 
 ---
@@ -246,7 +305,7 @@ MOOD: Energetic, motivating, sporty coach personality
 ### **NPC 4: Baker Tess** (Mission 4 - Unit Conversion)
 
 ```
-Create a Filipino baker character sprite for a 2D educational game, top-down view.
+Create a complete sprite sheet for a Filipino baker character for a 2D educational game, top-down view.
 
 CHARACTER DESCRIPTION:
 - Filipina woman (30s-40s)
@@ -259,6 +318,13 @@ CHARACTER DESCRIPTION:
 PROPS: Rolling pin, tray of bread (pandesal), weighing scale, measuring cups
 
 MOOD: Warm, skilled artisan, community baker feel
+
+ANIMATION REQUIREMENTS:
+- 4 directions: Front view, back view, left side, right side
+- 3 walking frames per direction (12 walking frames total)
+- 1 idle/standing frame per direction (4 idle frames total)
+- Total output: 16-frame sprite sheet
+- Consistent style with player character animations
 ```
 
 ---
@@ -386,6 +452,20 @@ MOOD: Professional, trustworthy, financial advisor personality
 ---
 
 ## **5. 👥 NPC CHARACTER SPRITES - LEVEL 2 (CITY)**
+
+### **General NPC Guidelines:**
+- **Style**: **Cute chibi style** - consistent with player character
+- **Proportions**: Large head, small body (head:body ratio 1:1 to 1:1.5)
+- **Face**: Large expressive eyes, professional but cute expressions
+- **Perspective**: Top-down view
+- **Animations**: Full sprite sheet with 4 directions (front, back, left, right)
+  - **Walking frames**: 3 frames per direction (12 total walking frames) - bouncy, cute movement
+  - **Idle frames**: 1 frame per direction (4 total idle frames)
+  - **Total**: 16 frames per NPC (same as player character)
+- **Size**: Similar to player (chibi proportions maintained)
+- **Professional attire**: Business/city appropriate clothing (but still chibi-cute)
+- **Age representation**: Even professionals and adults use chibi proportions (kawaii professionals!)
+- **Output**: Complete sprite sheet layout with all 16 frames in kawaii style
 
 ---
 
@@ -709,12 +789,160 @@ When prompting, you can reference these authentic Filipino visual elements:
 
 ---
 
-## **🎯 FINAL NOTES**
+---
 
-- **Consistency is key**: All assets should feel like they belong in the same game
-- **Cultural authenticity matters**: This represents Filipino education and culture
-- **Educational context**: Characters should look trustworthy and approachable
-- **Age-appropriate**: Suitable for 10-16 year old students
-- **Colorful but not chaotic**: Vibrant but maintains clarity
+## **11. 🎨 CHIBI STYLE GUIDE**
 
-**Good luck with your asset generation! Mabuhay! 🇵🇭**
+### **What is Chibi Style?**
+Chibi is a Japanese art style featuring:
+- **Super deformed proportions**: Large heads, tiny bodies
+- **Cute and adorable**: Big eyes, round faces, simplified features
+- **Expressive**: Easy to read emotions even at small sizes
+- **Universal appeal**: Makes all ages look friendly and approachable
+
+### **Why Chibi for Education?**
+✅ **Non-threatening**: Cute characters reduce math anxiety  
+✅ **Appealing**: Students love kawaii aesthetics  
+✅ **Clear**: Simple shapes work well at small game sizes  
+✅ **Inclusive**: Everyone looks equally cute (no age discrimination)  
+✅ **Professional yet playful**: Perfect balance for learning
+
+### **Chibi Proportions Reference:**
+```
+STANDARD HUMAN:        CHIBI CHARACTER:
+    ●                      ●●●
+    |                      ●●●  ← BIG HEAD (1 unit)
+   /|\                     /|\
+    |                       •   ← Small body (1-1.5 units)
+   / \                     / \  ← Stubby legs
+
+Head:Body Ratio:       Head:Body Ratio:
+   1:7                    1:1 to 1:1.5
+```
+
+### **Chibi Features Checklist:**
+For EVERY character (player + all NPCs):
+- [ ] Head is at least 50% of total height
+- [ ] Large expressive eyes (take up 30-40% of face)
+- [ ] Round, soft features (no sharp angles)
+- [ ] Small body with stubby limbs
+- [ ] Minimal detail (simplified clothing/props)
+- [ ] Cute bouncy movement in animations
+- [ ] Always looks friendly and approachable
+
+### **Age Representation in Chibi:**
+- **Children/Students**: Slightly smaller, rounder face, bright eyes
+- **Adults**: Same proportions but add subtle age markers:
+  - Small glasses for professionals
+  - Tiny facial hair for men
+  - Different hairstyles
+  - Professional clothing (still chibi-cute)
+- **Elderly**: Same size, add white/gray hair, maybe tiny glasses
+
+**IMPORTANT**: In chibi style, a 50-year-old looks as cute as a 10-year-old! The proportions stay consistent.
+
+---
+
+## **12. 🎬 UNIVERSAL ANIMATION TEMPLATE FOR ALL NPCs**
+
+### **Add this to EVERY NPC prompt:**
+
+```
+ANIMATION REQUIREMENTS (MANDATORY FOR ALL NPCs - CHIBI STYLE):
+
+SPRITE SHEET LAYOUT:
+- Total frames needed: 16 frames per character
+- 4 directional views: Front, Back, Left, Right
+- Each direction needs:
+  * 3 walking/movement frames (showing leg/body movement cycle)
+  * 1 idle/standing frame (neutral pose)
+
+FRAME BREAKDOWN:
+Row 1 - Front facing: [Idle] [Walk 1] [Walk 2] [Walk 3]
+Row 2 - Back facing: [Idle] [Walk 1] [Walk 2] [Walk 3]
+Row 3 - Left side: [Idle] [Walk 1] [Walk 2] [Walk 3]
+Row 4 - Right side: [Idle] [Walk 1] [Walk 2] [Walk 3]
+
+ANIMATION CYCLE:
+- Walking: Idle → Walk1 → Walk2 → Walk3 → Walk2 → Walk1 → loop
+- Idle: Single frame per direction (standing naturally)
+
+TECHNICAL SPECS:
+- Each frame: Same size (recommend 64x64 pixels minimum)
+- Consistent perspective across all frames (top-down view maintained)
+- Character centered in each frame
+- Transparent background
+- Props/items held consistently across frames
+- Smooth animation when played at 8-12 fps
+
+STYLE CONSISTENCY:
+- Match player character animation style
+- Same level of detail across all frames
+- Maintain character proportions throughout animation
+- Keep clothing/props consistent in all frames
+```
+
+---
+
+## **13. 🎯 FINAL NOTES**
+
+### **Critical Requirements:**
+
+**For ALL Character Sprites (Player + NPCs):**
+- ✅ **CHIBI STYLE MANDATORY** - Large head, small body, kawaii proportions
+- ✅ **16-frame sprite sheet** (not single images!)
+- ✅ **4 directions** with walking animations
+- ✅ **Bouncy, cute movement** across frames
+- ✅ **Consistent chibi style** with player character
+- ✅ **Top-down perspective** maintained throughout
+- ✅ **Big expressive eyes** on all characters
+
+**Quality Standards:**
+- **Chibi consistency is KEY**: All characters use same proportions (head:body 1:1 to 1:1.5)
+- **Cultural authenticity matters**: Filipino features and clothing, but in chibi style
+- **Educational context**: Cute characters make math less intimidating
+- **Age-appropriate**: Perfect for 10-16 year old students (and appealing to all ages!)
+- **Colorful and kawaii**: Bright, cheerful, soft pastel colors with vibrant accents
+- **Animated and bouncy**: NPCs should waddle/bounce cutely like the player
+
+### **Chibi Generation Tips:**
+
+**When using Google Gemini or AI generators:**
+
+1. **Always specify "CHIBI" or "KAWAII" style** explicitly
+2. **Reference anime/manga chibi proportions**: 
+   - "Like Pokémon character style"
+   - "Similar to Animal Crossing characters"
+   - "Kawaii chibi proportions with big head"
+3. **Start with chibi base design first**:
+   ```
+   "Create a cute chibi Filipino student with large head and small body"
+   ```
+4. **Then request angles**:
+   ```
+   "Show this chibi character from front, back, left, right views"
+   ```
+5. **Finally add animations**:
+   ```
+   "Create walking frames showing bouncy chibi movement"
+   ```
+6. **Combine into sprite sheet layout**
+
+### **Example Chibi Prompt Structure:**
+```
+Create a CUTE CHIBI [character name] for educational game:
+
+CHIBI REQUIREMENTS:
+- Large round head (50% of total height)
+- Tiny chibi body and stubby limbs
+- Big sparkling eyes (anime-style)
+- Round soft features
+- [Character-specific details...]
+
+ANIMATION: 16-frame sprite sheet (4 directions × 4 frames)
+STYLE: Kawaii, adorable, top-down view
+CULTURAL: Filipino [clothing/features]
+MOOD: Super cute and friendly!
+```
+
+**Good luck with your CHIBI asset generation! Ang cute! 🇵🇭✨💕**
