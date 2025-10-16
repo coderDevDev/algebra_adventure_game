@@ -190,46 +190,60 @@ export class Preloader extends Scene {
     }
 
     loadLevel2NPCImages() {
-        console.log(
-            "Loading Level 2 city official images from LEVEL2 folder..."
-        );
+        console.log("Loading Level 2 city NPC images from LEVEL2 folder...");
 
-        // Load all city official images from LEVEL2 folder with correct path
-        this.load.image("city-councilor", "assets/LEVEL2/City_Councilor.png");
-        this.load.image("city-treasurer", "assets/LEVEL2/City_Treasurer.png");
-        this.load.image("city-engineer", "assets/LEVEL2/City_Engineer.png");
+        // Load all Level 2 NPC images from LEVEL2 folder with correct path
         this.load.image(
-            "business-permit-officer",
-            "assets/LEVEL2/Business_Permit_Officer.png"
+            "entrepreneur-carlos",
+            "assets/LEVEL2/entrepreneur-carlos.png"
         );
-        this.load.image("city-planner", "assets/LEVEL2/City_Planner.png");
+        this.load.image("accountant-lisa", "assets/LEVEL2/accountant-lisa.png");
         this.load.image(
-            "environmental-officer",
-            "assets/LEVEL2/Environmental_Officer.png"
+            "logistics-manager-ben",
+            "assets/LEVEL2/logistics-manager-ben.png"
         );
         this.load.image(
-            "public-safety-officer",
-            "assets/LEVEL2/Public_Safety_Officer.png"
+            "sales-director-kim",
+            "assets/LEVEL2/sales-director-kim.png"
         );
-        this.load.image("tourism-officer", "assets/LEVEL2/Tourism_Officer.png");
-        this.load.image("health-officer", "assets/LEVEL2/Health_Officer.png");
-        this.load.image("city-mayor", "assets/LEVEL2/City_Mayor.png");
+        this.load.image(
+            "urban-planner-gina",
+            "assets/LEVEL2/urban-planner-gina.png"
+        );
+        this.load.image(
+            "transit-manager-roy",
+            "assets/LEVEL2/transit-manager-roy.png"
+        );
+        this.load.image("architect-maya", "assets/LEVEL2/architect-maya.png");
+        this.load.image(
+            "city-planner-tom",
+            "assets/LEVEL2/city-planner-tom.png"
+        );
+        this.load.image("engineer-sarah", "assets/LEVEL2/engineer-sarah.png");
+        this.load.image(
+            "transport-chief-mike",
+            "assets/LEVEL2/transport-chief-mike.png"
+        );
 
         // Add debugging for Level 2 image loading
         this.load.on("filecomplete", (key: string) => {
             if (
-                key.includes("city-") ||
-                key.includes("business-permit") ||
-                key.includes("environmental") ||
-                key.includes("public-safety") ||
-                key.includes("tourism") ||
-                key.includes("health-officer")
+                key.includes("entrepreneur") ||
+                key.includes("accountant") ||
+                key.includes("logistics") ||
+                key.includes("sales-director") ||
+                key.includes("urban-planner") ||
+                key.includes("transit-manager") ||
+                key.includes("architect") ||
+                key.includes("city-planner") ||
+                key.includes("engineer") ||
+                key.includes("transport-chief")
             ) {
-                console.log(`Level 2 city official image loaded: ${key}`);
+                console.log(`Level 2 NPC image loaded: ${key}`);
             }
         });
 
-        console.log("Level 2 city official images loading started...");
+        console.log("Level 2 NPC images loading started...");
     }
 
     createPlaceholderSprites() {

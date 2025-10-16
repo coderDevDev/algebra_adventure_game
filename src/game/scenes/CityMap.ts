@@ -760,16 +760,16 @@ export class CityMap extends Scene {
             missingImages.forEach((img) => {
                 // Map the image key back to the file name
                 const imageFileMap = {
-                    "city-councilor": "City_Councilor.png",
-                    "city-treasurer": "City_Treasurer.png",
-                    "city-engineer": "City_Engineer.png",
-                    "business-permit-officer": "Business_Permit_Officer.png",
-                    "city-planner": "City_Planner.png",
-                    "environmental-officer": "Environmental_Officer.png",
-                    "public-safety-officer": "Public_Safety_Officer.png",
-                    "tourism-officer": "Tourism_Officer.png",
-                    "health-officer": "Health_Officer.png",
-                    "city-mayor": "City_Mayor.png",
+                    "entrepreneur-carlos": "entrepreneur-carlos.png",
+                    "accountant-lisa": "removebg/accountant-lisa.png",
+                    "logistics-manager-ben": "logistics-manager-ben.png",
+                    "sales-director-kim": "sales-director-kim.png",
+                    "urban-planner-gina": "urban-planner-gina.png",
+                    "transit-manager-roy": "transit-manager-roy.png",
+                    "architect-maya": "architect-maya.png",
+                    "city-planner-tom": "city-planner-tom.png",
+                    "engineer-sarah": "engineer-sarah.png",
+                    "transport-chief-mike": "transport-chief-mike.png",
                 };
                 this.load.image(img, `assets/LEVEL2/${imageFileMap[img]}`);
             });
