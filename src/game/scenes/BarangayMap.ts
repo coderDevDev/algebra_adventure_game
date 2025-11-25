@@ -2295,6 +2295,12 @@ export class BarangayMap extends Scene {
     }
 
     handleResize() {
+        // Safety check: ensure camera is initialized
+        if (!this.cameras || !this.cameras.main) {
+            console.log("Camera not yet initialized, skipping resize");
+            return;
+        }
+
         console.log("Screen resized, updating camera and background...");
         console.log(
             "New screen dimensions:",

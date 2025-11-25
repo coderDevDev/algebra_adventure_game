@@ -4,17 +4,20 @@ import { GameStateManager } from "../../utils/GameStateManager";
 import CollisionService from "../../services/CollisionService";
 
 /**
- * CityMap - Level 2 (Missions 11-20)
+ * NationalMap - Level 5 (Missions 41-50)
  *
  * 🎯 AUTO-LOADED: This scene automatically loads when the player completes
- * all 10 Barangay missions (Level 1). The transition happens automatically
+ * all 40 Regional missions (Levels 1-4). The transition happens automatically
  * after displaying a level-up celebration notification.
  *
- * Contains advanced algebra challenges for intermediate players.
+ * Contains expert-level algebra challenges for top-tier players.
  */
-export class CityMap extends Scene {
+export class NationalMap extends Scene {
     // 🎨 DEBUG MODE: Set to false to hide collision boundaries in production
     private readonly DEBUG_SHOW_COLLISIONS: boolean = false;
+
+    // 🧪 TESTING MODE: Set to true to bypass mission prerequisites for testing
+    private readonly DEBUG_BYPASS_PREREQUISITES: boolean = true;
 
     player: Phaser.Physics.Arcade.Sprite;
     cursors: Phaser.Types.Input.Keyboard.CursorKeys;
@@ -61,217 +64,217 @@ export class CityMap extends Scene {
     minimapNPCDots: GameObjects.Arc[] = [];
     minimapCollectibleDots: GameObjects.Arc[] = [];
 
-    // Level 2 City Mission locations
+    // Level 5 National Mission locations
     missionLocations = [
         {
             x: 8,
             y: 6,
-            name: "Business Profit",
-            npc: "Entrepreneur Carlos",
-            missionId: 11,
-            percentX: 19, // Background-relative percentage X
-            percentY: 46, // Background-relative percentage Y
+            name: "Radical Equations",
+            npc: "DepEd Undersecretary",
+            missionId: 41,
+            percentX: 19,
+            percentY: 46,
         },
         {
             x: 21,
             y: 46,
-            name: "Revenue Goals",
-            npc: "Accountant Lisa",
-            missionId: 12,
-            percentX: 59, // Background-relative percentage X
-            percentY: 23, // Background-relative percentage Y
+            name: "Complex Numbers",
+            npc: "DOST Secretary",
+            missionId: 42,
+            percentX: 59,
+            percentY: 23,
         },
         {
             x: 22,
             y: 10,
-            name: "Route Planning",
-            npc: "Logistics Manager Ben",
-            missionId: 13,
-            percentX: 81, // Background-relative percentage X
-            percentY: 23, // Background-relative percentage Y
+            name: "Polynomial Theorems",
+            npc: "CHED Commissioner",
+            missionId: 43,
+            percentX: 81,
+            percentY: 23,
         },
         {
             x: 10,
             y: 16,
-            name: "Growth Projection",
-            npc: "Sales Director Kim",
-            missionId: 14,
-            percentX: 81, // Background-relative percentage X
-            percentY: 46, // Background-relative percentage Y
+            name: "Advanced Matrices",
+            npc: "NEDA Director General",
+            missionId: 44,
+            percentX: 81,
+            percentY: 46,
         },
         {
             x: 18,
             y: 14,
-            name: "Area Division",
-            npc: "Urban Planner Gina",
-            missionId: 15,
-            percentX: 79, // Background-relative percentage X
-            percentY: 67, // Background-relative percentage Y
+            name: "Conic Sections",
+            npc: "National Scientist",
+            missionId: 45,
+            percentX: 79,
+            percentY: 67,
         },
         {
             x: 5,
             y: 20,
-            name: "Speed & Distance",
-            npc: "Transit Manager Roy",
-            missionId: 16,
-            percentX: 60, // Background-relative percentage X
-            percentY: 90, // Background-relative percentage Y
+            name: "Parametric Equations",
+            npc: "PAGASA Administrator",
+            missionId: 46,
+            percentX: 60,
+            percentY: 90,
         },
         {
             x: 20,
             y: 18,
-            name: "Height Restrictions",
-            npc: "Architect Maya",
-            missionId: 17,
-            percentX: 50, // Background-relative percentage X
-            percentY: 78, // Background-relative percentage Y
+            name: "Advanced Sequences",
+            npc: "PSA Administrator",
+            missionId: 47,
+            percentX: 50,
+            percentY: 78,
         },
         {
             x: 12,
             y: 22,
-            name: "Population Stats",
-            npc: "City Planner Tom",
-            missionId: 18,
-            percentX: 19, // Background-relative percentage X
-            percentY: 89, // Background-relative percentage Y
+            name: "Binomial Theorem",
+            npc: "Senate Education Committee Chair",
+            missionId: 48,
+            percentX: 19,
+            percentY: 89,
         },
         {
             x: 25,
             y: 15,
-            name: "Material Calculation",
-            npc: "Engineer Sarah",
-            missionId: 19,
-            percentX: 27, // Background-relative percentage X
-            percentY: 27, // Background-relative percentage Y
+            name: "Partial Fractions",
+            npc: "DBM Secretary",
+            missionId: 49,
+            percentX: 27,
+            percentY: 27,
         },
         {
             x: 16,
             y: 12,
-            name: "Fare Formula",
-            npc: "Transport Chief Mike",
-            missionId: 20,
-            percentX: 50, // Background-relative percentage X
-            percentY: 56, // Background-relative percentage Y
+            name: "Mathematical Proofs",
+            npc: "DepEd Secretary",
+            missionId: 50,
+            percentX: 50,
+            percentY: 56,
         },
     ];
 
-    // Collectible items for City (Level 2) - Higher value items
+    // Collectible items for National (Level 5) - Expert value items
     collectibleItemsData = [
         {
-            id: "city-coin-1",
+            id: "national-coin-1",
             type: "coin",
-            name: "Math Token",
-            description: "A valuable advanced algebra token",
-            value: 10,
-            points: 20,
+            name: "Gold Math Token",
+            description: "A prestigious national algebra token",
+            value: 15,
+            points: 30,
             rarity: "common",
             percentX: 35,
             percentY: 37,
             icon: "💰",
         },
         {
-            id: "city-coin-2",
+            id: "national-coin-2",
             type: "coin",
-            name: "Math Token",
-            description: "A valuable advanced algebra token",
-            value: 10,
-            points: 20,
+            name: "Gold Math Token",
+            description: "A prestigious national algebra token",
+            value: 15,
+            points: 30,
             rarity: "common",
             percentX: 35,
             percentY: 9,
             icon: "💰",
         },
         {
-            id: "city-coin-3",
+            id: "national-coin-3",
             type: "coin",
-            name: "Math Token",
-            description: "A valuable advanced algebra token",
-            value: 10,
-            points: 20,
+            name: "Gold Math Token",
+            description: "A prestigious national algebra token",
+            value: 15,
+            points: 30,
             rarity: "common",
             percentX: 59,
             percentY: 4,
             icon: "💰",
         },
         {
-            id: "city-badge-1",
+            id: "national-badge-1",
             type: "badge",
-            name: "Trigonometry Badge",
-            description: "A badge for advanced trigonometry mastery",
-            value: 20,
-            points: 40,
+            name: "National Excellence Badge",
+            description: "A badge for national algebra excellence",
+            value: 40,
+            points: 80,
             rarity: "uncommon",
             percentX: 44,
             percentY: 4,
             icon: "🏅",
         },
         {
-            id: "city-badge-2",
+            id: "national-badge-2",
             type: "badge",
-            name: "Calculus Excellence",
-            description: "A badge for advanced mathematical achievement",
-            value: 20,
-            points: 40,
+            name: "Expert Analysis Badge",
+            description: "A badge for expert mathematical analysis",
+            value: 40,
+            points: 80,
             rarity: "uncommon",
             percentX: 5,
             percentY: 42,
             icon: "🏅",
         },
         {
-            id: "city-treasure-1",
+            id: "national-treasure-1",
             type: "treasure",
-            name: "Mathematical Theorem",
-            description: "The legendary Pythagorean theorem crystal",
-            value: 50,
-            points: 100,
+            name: "Complex Numbers Crystal",
+            description: "The legendary complex numbers crystal",
+            value: 90,
+            points: 180,
             rarity: "rare",
             percentX: 11,
             percentY: 67,
             icon: "💎",
         },
         {
-            id: "city-powerup-1",
+            id: "national-powerup-1",
             type: "powerup",
-            name: "Brain Boost",
-            description: "Enhances your problem-solving speed",
-            value: 25,
-            points: 50,
+            name: "Genius Boost",
+            description: "Dramatically enhances problem-solving ability",
+            value: 35,
+            points: 70,
             rarity: "uncommon",
             percentX: 6,
             percentY: 94,
             icon: "⚡",
         },
         {
-            id: "city-powerup-2",
+            id: "national-powerup-2",
             type: "powerup",
-            name: "Brain Boost",
-            description: "Enhances your problem-solving speed",
-            value: 25,
-            points: 50,
+            name: "Genius Boost",
+            description: "Dramatically enhances problem-solving ability",
+            value: 35,
+            points: 70,
             rarity: "uncommon",
             percentX: 30,
             percentY: 95,
             icon: "⚡",
         },
         {
-            id: "city-gem-1",
+            id: "national-gem-1",
             type: "treasure",
-            name: "Golden Equation",
-            description: "Rare quadratic formula artifact",
-            value: 40,
-            points: 80,
+            name: "Radical Equations Gem",
+            description: "Rare radical equations artifact",
+            value: 80,
+            points: 160,
             rarity: "rare",
             percentX: 41,
             percentY: 82,
             icon: "💠",
         },
         {
-            id: "city-gem-2",
+            id: "national-gem-2",
             type: "treasure",
-            name: "Algebra Medal",
-            description: "Prestigious advanced algebra medal",
-            value: 35,
-            points: 70,
+            name: "National Algebra Medal",
+            description: "Prestigious national algebra medal",
+            value: 75,
+            points: 150,
             rarity: "rare",
             percentX: 87,
             percentY: 82,
@@ -280,20 +283,20 @@ export class CityMap extends Scene {
     ];
 
     constructor() {
-        super("CityMap");
+        super("NationalMap");
     }
 
     create() {
-        console.log("=== CREATING CITY MAP (LEVEL 2) ===");
+        console.log("=== CREATING NATIONAL MAP (LEVEL 5) ===");
 
-        // Create city background
-        this.createCityBackground();
+        // Create national background
+        this.createNationalBackground();
 
         // Create player with collision
         this.createPlayer();
 
-        // Create City NPCs
-        this.createCityNPCs();
+        // Create National NPCs
+        this.createNationalNPCs();
 
         // Create UI
         this.createUI();
@@ -315,7 +318,7 @@ export class CityMap extends Scene {
         this.time.delayedCall(100, () => {
             this.cameras.main.startFollow(this.player);
             this.optimizeCameraForOpenWorld();
-            console.log("City Map camera setup complete");
+            console.log("National Map camera setup complete");
         });
 
         // Mobile device detection
@@ -325,7 +328,7 @@ export class CityMap extends Scene {
                 navigator.userAgent
             ) ||
             window.innerWidth <= 768;
-        console.log("Mobile device detected in City:", this.isMobile);
+        console.log("Mobile device detected in National:", this.isMobile);
 
         // Set up input
         this.cursors = this.input.keyboard.createCursorKeys();
@@ -386,7 +389,7 @@ export class CityMap extends Scene {
             }
         });
 
-        console.log("City NPC indicators updated in real-time");
+        console.log("National NPC indicators updated in real-time");
     }
 
     optimizeCameraForOpenWorld() {
@@ -399,46 +402,46 @@ export class CityMap extends Scene {
             );
             this.cameras.main.setLerp(0.08, 0.08);
             this.cameras.main.setDeadzone(25, 25);
-            console.log("City camera optimized for open world");
+            console.log("National camera optimized for open world");
         }
     }
 
-    createCityBackground() {
-        console.log("Creating city background...");
+    createNationalBackground() {
+        console.log("Creating national background...");
         console.log(
-            "City background texture exists:",
-            this.textures.exists("city-bg-root")
+            "National background texture exists:",
+            this.textures.exists("national-bg-root")
         );
 
         // If textures don't exist, load them directly
-        if (!this.textures.exists("city-bg-root")) {
-            console.log("City textures not loaded, loading them now...");
-            this.load.image("city-bg-root", "city-background.png");
+        if (!this.textures.exists("national-bg-root")) {
+            console.log("National textures not loaded, loading them now...");
+            this.load.image("national-bg-root", "national-background.png");
             this.load.start();
 
             this.load.once("complete", () => {
-                console.log("City textures loaded, creating background...");
-                this.createCityBackgroundImage();
+                console.log("National textures loaded, creating background...");
+                this.createNationalBackgroundImage();
             });
         } else {
             // Wait a bit for textures to be fully loaded
             this.time.delayedCall(100, () => {
-                this.createCityBackgroundImage();
+                this.createNationalBackgroundImage();
             });
         }
     }
 
-    createCityBackgroundImage() {
-        console.log("Creating city background image after delay...");
+    createNationalBackgroundImage() {
+        console.log("Creating national background image after delay...");
         console.log(
-            "City background root texture exists now:",
-            this.textures.exists("city-bg-root")
+            "National background root texture exists now:",
+            this.textures.exists("national-bg-root")
         );
 
-        // Create city background image as the main visual element
-        if (this.textures.exists("city-bg-root")) {
-            console.log("Using city background image...");
-            console.log("Texture details:", this.textures.get("city-bg-root"));
+        // Create national background image as the main visual element
+        if (this.textures.exists("national-bg-root")) {
+            console.log("Using national background image...");
+            console.log("Texture details:", this.textures.get("national-bg-root"));
 
             try {
                 // Get Phaser game canvas dimensions for perfect coverage
@@ -450,7 +453,7 @@ export class CityMap extends Scene {
                 const bgImage = this.add.image(
                     gameCenterX,
                     gameCenterY,
-                    "city-bg-root"
+                    "national-bg-root"
                 );
                 bgImage.setOrigin(0.5, 0.5);
                 bgImage.setDepth(-2000); // Much further behind everything
@@ -469,7 +472,7 @@ export class CityMap extends Scene {
                 const finalScaleY = Math.max(scaleY, minScale);
 
                 console.log(
-                    "City background scaling to cover entire Phaser game canvas:"
+                    "National background scaling to cover entire Phaser game canvas:"
                 );
                 console.log(
                     "Game canvas dimensions:",
@@ -500,7 +503,7 @@ export class CityMap extends Scene {
 
                 bgImage.setAlpha(1); // Fully visible
                 bgImage.setVisible(true); // Explicitly set visible
-                console.log("City background image created successfully");
+                console.log("National background image created successfully");
 
                 // Reposition player relative to background if player already exists
                 if (this.player) {
@@ -520,18 +523,18 @@ export class CityMap extends Scene {
                     this.createCollectibles();
                 });
             } catch (error) {
-                console.error("Error creating city background image:", error);
-                // Fallback to steel blue background if image fails
-                this.createFallbackCityBackground();
+                console.error("Error creating national background image:", error);
+                // Fallback to gold background if image fails
+                this.createFallbackNationalBackground();
             }
         } else {
-            console.log("City background texture not found, using fallback");
-            this.createFallbackCityBackground();
+            console.log("National background texture not found, using fallback");
+            this.createFallbackNationalBackground();
         }
     }
 
-    createFallbackCityBackground() {
-        // Create fallback city background with steel blue theme
+    createFallbackNationalBackground() {
+        // Create fallback national background with gold theme
         const gameWidth = this.scale.width;
         const gameHeight = this.scale.height;
 
@@ -540,25 +543,25 @@ export class CityMap extends Scene {
             gameHeight / 2,
             gameWidth * 2,
             gameHeight * 2,
-            0x4682b4, // Steel blue for city theme
+            0xFFD700, // Gold for national theme
             1
         );
         bg.setDepth(-2000);
 
-        // Add some city-like patterns
+        // Add some national-like patterns
         const grid = this.add.graphics();
-        grid.lineStyle(1, 0x708090, 0.3);
+        grid.lineStyle(1, 0xFFA500, 0.3);
 
-        // Draw a grid pattern to simulate city blocks
-        for (let x = 0; x < gameWidth * 2; x += 80) {
+        // Draw a grid pattern to simulate national areas
+        for (let x = 0; x < gameWidth * 2; x += 150) {
             grid.lineBetween(x, 0, x, gameHeight * 2);
         }
-        for (let y = 0; y < gameHeight * 2; y += 80) {
+        for (let y = 0; y < gameHeight * 2; y += 150) {
             grid.lineBetween(0, y, gameWidth * 2, y);
         }
         grid.setDepth(-1000);
 
-        console.log("Fallback city background created successfully");
+        console.log("Fallback national background created successfully");
     }
 
     createPlayer() {
@@ -567,7 +570,7 @@ export class CityMap extends Scene {
             ? "student-front-1"
             : "player";
 
-        console.log("Creating player in City Map with texture:", playerTexture);
+        console.log("Creating player in National Map with texture:", playerTexture);
 
         // Calculate player position relative to background image
         let playerX, playerY;
@@ -579,7 +582,7 @@ export class CityMap extends Scene {
             playerY = coords.y;
 
             console.log(
-                "City player spawning at (30%, 50%):",
+                "National player spawning at (30%, 50%):",
                 playerX,
                 playerY
             );
@@ -588,7 +591,7 @@ export class CityMap extends Scene {
             playerX = 16 * this.tileSize;
             playerY = 12 * this.tileSize;
             console.log(
-                "Using fallback city player position:",
+                "Using fallback national player position:",
                 playerX,
                 playerY
             );
@@ -600,7 +603,7 @@ export class CityMap extends Scene {
         this.player.setCollideWorldBounds(false);
         this.player.setScale(0.2);
 
-        console.log("City player created with unlimited movement");
+        console.log("National player created with unlimited movement");
 
         // Create player animations if not already created
         this.createPlayerAnimations();
@@ -613,7 +616,7 @@ export class CityMap extends Scene {
             return;
         }
 
-        console.log("Creating player animations for City Map...");
+        console.log("Creating player animations for National Map...");
 
         // Create the same animations as Level 1
         const requiredTextures = [
@@ -638,7 +641,7 @@ export class CityMap extends Scene {
         for (const texture of requiredTextures) {
             if (!this.textures.exists(texture)) {
                 console.error(
-                    `Required texture ${texture} not found in City Map!`
+                    `Required texture ${texture} not found in National Map!`
                 );
                 return;
             }
@@ -718,76 +721,76 @@ export class CityMap extends Scene {
             frameRate: 1,
         });
 
-        console.log("City player animations created successfully!");
+        console.log("National player animations created successfully!");
     }
 
-    createCityNPCs() {
+    createNationalNPCs() {
         this.npcs = this.physics.add.group();
 
-        console.log("Creating City NPCs for Level 2...");
+        console.log("Creating National NPCs for Level 5...");
 
         // Debug: List all available textures
         console.log(
-            "Available textures in CityMap:",
+            "Available textures in NationalMap:",
             Object.keys(this.textures.list)
         );
 
-        // Map city official NPC names to their dedicated Level 2 image keys
-        const cityNPCImageMap = {
-            "Entrepreneur Carlos": "entrepreneur-carlos",
-            "Accountant Lisa": "accountant-lisa",
-            "Logistics Manager Ben": "logistics-manager-ben",
-            "Sales Director Kim": "sales-director-kim",
-            "Urban Planner Gina": "urban-planner-gina",
-            "Transit Manager Roy": "transit-manager-roy",
-            "Architect Maya": "architect-maya",
-            "City Planner Tom": "city-planner-tom",
-            "Engineer Sarah": "engineer-sarah",
-            "Transport Chief Mike": "transport-chief-mike",
-        };
-
-        // Check if Level 2 NPC images are loaded, if not load them directly
-        const level2Images = Object.values(cityNPCImageMap);
-        const missingImages = level2Images.filter(
+        // Map national official NPC names to their dedicated Level 5 image keys
+      const nationalNPCImageMap = {
+    // Map the actual NPC names from missionLocations to their corresponding image files
+    "DepEd Undersecretary": "deped-undersecretary",
+    "DOST Secretary": "dost-secretary",
+    "CHED Commissioner": "ched-commissioner",
+    "NEDA Director General": "neda-director-general",
+    "National Scientist": "national-scientist",
+    "PAGASA Administrator": "pagasa-administrator",
+    "PSA Administrator": "psa-administrator",
+    "Senate Education Committee Chair": "senate-education-committee-chair",
+    "DBM Secretary": "dbm-secretary",
+    "DepEd Secretary": "deped-secretary"
+};
+        // Check if Level 5 NPC images are loaded, if not load them directly
+        const level5Images = Object.values(nationalNPCImageMap);
+        const missingImages = level5Images.filter(
             (img) => !this.textures.exists(img)
         );
 
         if (missingImages.length > 0) {
             console.log(
-                "Missing Level 2 city official images, loading them directly:",
+                "Missing Level 5 national official images, loading them directly:",
                 missingImages
             );
             missingImages.forEach((img) => {
                 // Map the image key back to the file name
                 const imageFileMap = {
-                    "entrepreneur-carlos": "entrepreneur-carlos.png",
-                    "accountant-lisa": "removebg/accountant-lisa.png",
-                    "logistics-manager-ben": "logistics-manager-ben.png",
-                    "sales-director-kim": "sales-director-kim.png",
-                    "urban-planner-gina": "urban-planner-gina.png",
-                    "transit-manager-roy": "transit-manager-roy.png",
-                    "architect-maya": "architect-maya.png",
-                    "city-planner-tom": "city-planner-tom.png",
-                    "engineer-sarah": "engineer-sarah.png",
-                    "transport-chief-mike": "transport-chief-mike.png",
+                    "deped-undersecretary": "deped-undersecretary.png",
+                    "dost-secretary": "dost-secretary.png",
+                    "ched-commissioner": "ched-commissioner.png",
+                    "neda-director-general": "neda-director-general.png",
+                    "national-scientist": "national-scientist.png",
+                    "pagasa-administrator": "pagasa-administrator.png",
+                    "psa-administrator": "psa-administrator.png",
+                    "senate-education-chair": "senate-education-chair.png",
+                    "dbm-secretary": "dbm-secretary.png",
+                    "deped-secretary": "deped-secretary.png",
                 };
-                this.load.image(img, `assets/LEVEL2/${imageFileMap[img]}`);
+                this.load.image(img, `assets/LEVEL5/${imageFileMap[img]}`);
             });
             this.load.start();
 
             this.load.once("complete", () => {
                 console.log(
-                    "Level 2 city official images loaded, creating NPCs..."
+                    "Level 5 national official images loaded, creating NPCs..."
                 );
-                this.createCityNPCsAfterLoad(cityNPCImageMap);
+                this.createNationalNPCsAfterLoad(nationalNPCImageMap);
             });
             return;
         }
 
-        this.createCityNPCsAfterLoad(cityNPCImageMap);
+        this.createNationalNPCsAfterLoad(nationalNPCImageMap);
     }
 
-    createCityNPCsAfterLoad(npcImageMap: any) {
+    createNationalNPCsAfterLoad(npcImageMap: any) {
         this.missionLocations.forEach((location, index) => {
             // Use percentage coordinates if available, otherwise fallback to tile coordinates
             let worldX, worldY;
@@ -804,25 +807,25 @@ export class CityMap extends Scene {
                 worldX = coords.x;
                 worldY = coords.y;
                 console.log(
-                    `City NPC ${location.npc} positioned at (${location.percentX}%, ${location.percentY}%) = (${worldX}, ${worldY})`
+                    `National NPC ${location.npc} positioned at (${location.percentX}%, ${location.percentY}%) = (${worldX}, ${worldY})`
                 );
             } else {
                 // Fallback to tile-based coordinates
                 worldX = location.x * this.tileSize + this.tileSize / 2;
                 worldY = location.y * this.tileSize + this.tileSize / 2;
                 console.log(
-                    `City NPC ${location.npc} positioned at tile (${location.x}, ${location.y}) = (${worldX}, ${worldY})`
+                    `National NPC ${location.npc} positioned at tile (${location.x}, ${location.y}) = (${worldX}, ${worldY})`
                 );
             }
 
-            // Get the specific NPC image for this city official
+            // Get the specific NPC image for this national official
             const npcImageKey = npcImageMap[location.npc] || "student-front-1";
 
             console.log(
-                `Creating City NPC: ${location.npc} with image: ${npcImageKey}`
+                `Creating National NPC: ${location.npc} with image: ${npcImageKey}`
             );
             console.log(
-                `Level 2 texture exists for ${npcImageKey}:`,
+                `Level 5 texture exists for ${npcImageKey}:`,
                 this.textures.exists(npcImageKey)
             );
 
@@ -843,13 +846,13 @@ export class CityMap extends Scene {
             npc.body.setVelocity(0, 0);
             npc.body.setAngularVelocity(0);
 
-            // Add NPC name with city styling
+            // Add NPC name with national styling
             const npcName = this.add
                 .text(worldX, worldY - 35, location.npc, {
                     fontFamily: "Arial Black",
                     fontSize: 11,
-                    color: "#F0F8FF", // Alice blue for city theme
-                    stroke: "#000080", // Navy blue stroke
+                    color: "#FFD700", // Gold for national theme
+                    stroke: "#8B4513", // Saddle brown stroke
                     strokeThickness: 2,
                     align: "center",
                     shadow: {
@@ -903,8 +906,8 @@ export class CityMap extends Scene {
                 .text(worldX - 35, worldY - 35, `#${location.missionId}`, {
                     fontFamily: "Arial Black",
                     fontSize: 12,
-                    color: "#87CEEB", // Sky blue for city theme
-                    stroke: "#000080", // Navy blue stroke
+                    color: "#FFA500", // Orange for national theme
+                    stroke: "#8B4513", // Saddle brown stroke
                     strokeThickness: 2,
                     align: "center",
                     backgroundColor: "#2F4F4F", // Dark slate gray
@@ -913,8 +916,8 @@ export class CityMap extends Scene {
                 .setOrigin(0.5)
                 .setDepth(100);
 
-            // Add a city-themed glow effect around NPCs
-            const glow = this.add.circle(worldX, worldY, 25, 0x4169e1, 0.15); // Royal blue glow
+            // Add a national-themed glow effect around NPCs
+            const glow = this.add.circle(worldX, worldY, 25, 0xFFD700, 0.15); // Gold glow
             glow.setDepth(-1);
 
             // Store mission data and original position on NPC
@@ -925,7 +928,7 @@ export class CityMap extends Scene {
         });
 
         console.log(
-            `Created ${this.missionLocations.length} City NPCs for Level 2 with dedicated city official sprites from LEVEL2 folder`
+            `Created ${this.missionLocations.length} National NPCs for Level 5 with dedicated national official sprites from LEVEL5 folder`
         );
 
         // Update indicators after all NPCs are created
@@ -940,7 +943,7 @@ export class CityMap extends Scene {
             player.body.setAngularVelocity(0);
         });
 
-        console.log("City NPC collision detection enabled");
+        console.log("National NPC collision detection enabled");
     }
 
     createUI() {
@@ -953,8 +956,8 @@ export class CityMap extends Scene {
                 {
                     fontFamily: "Arial Black",
                     fontSize: 14,
-                    color: "#87CEEB", // Sky blue for city theme
-                    stroke: "#000080", // Navy blue stroke
+                    color: "#FFA500", // Orange for national theme
+                    stroke: "#8B4513", // Saddle brown stroke
                     strokeThickness: 3,
                     align: "center",
                     backgroundColor: "#2F4F4F", // Dark slate gray
@@ -981,7 +984,7 @@ export class CityMap extends Scene {
                     stroke: "#000000",
                     strokeThickness: 2,
                     align: "center",
-                    backgroundColor: "rgba(70, 130, 180, 0.8)", // Steel blue for city theme
+                    backgroundColor: "rgba(255, 215, 0, 0.8)", // Gold for national theme
                     padding: { x: 8, y: 4 },
                     shadow: {
                         offsetX: 1,
@@ -997,7 +1000,7 @@ export class CityMap extends Scene {
             .setScrollFactor(1) // Follow camera (moves with world)
             .setVisible(true);
 
-        console.log("City location display created above player head");
+        console.log("National location display created above player head");
     }
 
     repositionPlayerRelativeToBackground() {
@@ -1007,12 +1010,12 @@ export class CityMap extends Scene {
             this.player.setPosition(coords.x, coords.y);
 
             console.log(
-                "City player repositioned to (30%, 50%):",
+                "National player repositioned to (30%, 50%):",
                 coords.x,
                 coords.y
             );
             console.log(
-                "City background dimensions:",
+                "National background dimensions:",
                 this.backgroundImage.displayWidth,
                 this.backgroundImage.displayHeight
             );
@@ -1042,20 +1045,29 @@ export class CityMap extends Scene {
     }
 
     async loadCollisions() {
+        // Safety check: ensure physics system is ready
+        if (!this.physics || !this.physics.add) {
+            console.log("Physics system not ready, retrying collision load...");
+            this.time.delayedCall(100, () => {
+                this.loadCollisions();
+            });
+            return;
+        }
+
         const collisionService = CollisionService.getInstance();
 
         // Try localStorage first (for editor testing), then JSON file
-        let collisionData = collisionService.loadCollisionData("CityMap");
+        let collisionData = collisionService.loadCollisionData("NationalMap");
 
         if (!collisionData) {
             // Try loading from public folder JSON file
             collisionData = await collisionService.loadCollisionDataFromFile(
-                "CityMap"
+                "NationalMap"
             );
         }
 
         if (collisionData && this.backgroundImage) {
-            console.log("✅ Loading collision data for CityMap...");
+            console.log("✅ Loading collision data for NationalMap...");
             console.log(
                 `Found ${collisionData.shapes.length} collision shapes`
             );
@@ -1170,7 +1182,7 @@ export class CityMap extends Scene {
                 );
             }
         } else {
-            console.log("⚠️ No collision data found for CityMap");
+            console.log("⚠️ No collision data found for NationalMap");
         }
     }
 
@@ -1195,7 +1207,7 @@ export class CityMap extends Scene {
                 npc.setData("originalPosition", { x: coords.x, y: coords.y });
 
                 console.log(
-                    `Repositioned City NPC ${missionData.npc} to (${missionData.percentX}%, ${missionData.percentY}%) = (${coords.x}, ${coords.y})`
+                    `Repositioned National NPC ${missionData.npc} to (${missionData.percentX}%, ${missionData.percentY}%) = (${coords.x}, ${coords.y})`
                 );
             }
         });
@@ -1206,7 +1218,7 @@ export class CityMap extends Scene {
             // Calculate position relative to background image
             let relativeX = 0,
                 relativeY = 0;
-            let areaName = "City";
+            let areaName = "National";
 
             if (this.backgroundImage) {
                 // Calculate percentage position relative to background image
@@ -1227,7 +1239,7 @@ export class CityMap extends Scene {
                 relativeX = Math.max(0, Math.min(100, relativeX));
                 relativeY = Math.max(0, Math.min(100, relativeY));
 
-                // Determine area based on percentage position (city districts)
+                // Determine area based on percentage position (national districts)
                 if (relativeX < 25 && relativeY < 25) {
                     areaName = "Government District";
                 } else if (relativeX >= 75 && relativeY < 25) {
@@ -1242,7 +1254,7 @@ export class CityMap extends Scene {
                     relativeY >= 37.5 &&
                     relativeY < 62.5
                 ) {
-                    areaName = "City Center";
+                    areaName = "National Center";
                 } else if (
                     relativeX >= 25 &&
                     relativeX < 75 &&
@@ -1272,7 +1284,7 @@ export class CityMap extends Scene {
                 }
 
                 console.log(
-                    `City player position: ${relativeX}%, ${relativeY}% - Area: ${areaName}`
+                    `National player position: ${relativeX}%, ${relativeY}% - Area: ${areaName}`
                 );
             } else {
                 // Fallback to tile-based coordinates if background not available
@@ -1302,11 +1314,11 @@ export class CityMap extends Scene {
             return;
         }
 
-        console.log("City screen resized, updating camera and background...");
+        console.log("National screen resized, updating camera and background...");
         this.optimizeCameraForOpenWorld();
 
         // Update background scaling for new screen size
-        this.updateCityBackgroundForOrientation();
+        this.updateNationalBackgroundForOrientation();
 
         // Re-detect mobile device for new screen size
         this.isMobile =
@@ -1316,15 +1328,15 @@ export class CityMap extends Scene {
             ) ||
             window.innerWidth <= 768;
 
-        console.log("City mobile device detected after resize:", this.isMobile);
+        console.log("National mobile device detected after resize:", this.isMobile);
     }
 
-    // Handle city background scaling for orientation changes
-    updateCityBackgroundForOrientation() {
-        // Find the city background image and update its scale
+    // Handle national background scaling for orientation changes
+    updateNationalBackgroundForOrientation() {
+        // Find the national background image and update its scale
         const children = this.children.list;
         for (let child of children) {
-            if (child.texture && child.texture.key === "city-bg-root") {
+            if (child.texture && child.texture.key === "national-bg-root") {
                 const gameWidth = this.scale.width;
                 const gameHeight = this.scale.height;
 
@@ -1340,7 +1352,7 @@ export class CityMap extends Scene {
                 child.setPosition(gameWidth / 2, gameHeight / 2);
 
                 console.log(
-                    "City background rescaled to cover entire Phaser game canvas:"
+                    "National background rescaled to cover entire Phaser game canvas:"
                 );
                 console.log(
                     "Game canvas dimensions:",
@@ -1603,11 +1615,11 @@ export class CityMap extends Scene {
             EventBus.emit("show-notification", {
                 type: "success",
                 title: "Mission Already Completed! ✅",
-                message: `${location.npc}: "Excellent work on this mission! You've earned your city governance badge and contributed to municipal development. Keep up the outstanding leadership!"`,
+                message: `${location.npc}: "Excellent work on this mission! You've earned your national excellence badge and contributed to national development. Keep up the outstanding leadership!"`,
                 icon: "🏆",
                 actions: [
                     {
-                        label: "Continue City Service",
+                        label: "Continue National Service",
                         action: () => {},
                         style: "primary",
                     },
@@ -1616,8 +1628,8 @@ export class CityMap extends Scene {
             return;
         }
 
-        // Check if mission is accessible
-        if (!gameStateManager.canAccessMission(location.missionId)) {
+        // Check if mission is accessible (skip if debug mode is enabled)
+        if (!this.DEBUG_BYPASS_PREREQUISITES && !gameStateManager.canAccessMission(location.missionId)) {
             const availableMissions = gameStateManager.getAvailableMissions();
             const availableList =
                 availableMissions.length > 0
@@ -1626,8 +1638,8 @@ export class CityMap extends Scene {
 
             EventBus.emit("show-notification", {
                 type: "info",
-                title: "City Mission Prerequisites Required 🏛️",
-                message: `${location.npc}: "Welcome to city government! This advanced mission requires more experience. Available missions: ${availableList}. Master the basics first, then return for municipal leadership challenges!"`,
+                title: "National Mission Prerequisites Required 🏛️",
+                message: `${location.npc}: "Welcome to national government! This expert-level mission requires exceptional experience. Available missions: ${availableList}. Master the fundamentals first, then return for national leadership challenges!"`,
                 icon: "🏛️",
                 actions: [
                     {
@@ -1648,206 +1660,206 @@ export class CityMap extends Scene {
             missionId: location.missionId,
             npcName: location.npc,
             missionName: location.name,
-            mission: this.getCityMissionData(location.missionId),
+            mission: this.getNationalMissionData(location.missionId),
         });
     }
 
-    getCityMissionData(missionId: number) {
-        const cityMissions = {
-            11: {
-                id: "11",
-                title: "Exponential Growth & Decay",
+    getNationalMissionData(missionId: number) {
+        const nationalMissions = {
+            41: {
+                id: "41",
+                title: "Radical Equations & Expressions",
                 description:
-                    "Master exponential functions to model population growth and resource depletion in urban planning.",
+                    "Master radical equations and expressions for national scientific applications.",
                 quizOverview:
-                    "Solve problems involving exponential growth and decay. Learn to work with exponential equations, compound interest, and population modeling using base-e and other exponential functions.",
+                    "Solve radical equations, simplify radical expressions, and rationalize denominators. Apply to physics, engineering, and advanced mathematical modeling.",
                 realLifeTrivia: [
-                    "Population Planning: Model city population growth using P(t) = P₀e^(rt) to plan infrastructure needs",
-                    "Investment Returns: Calculate compound interest for city bonds and municipal investments",
-                    "Radioactive Decay: Model half-life in environmental monitoring and medical waste management",
-                    "Viral Spread: Predict epidemic patterns using exponential models for public health planning",
+                    "Physics: Calculate velocities and distances using radical formulas",
+                    "Engineering: Design structures using radical stress calculations",
+                    "Finance: Model compound growth rates with radical expressions",
+                    "Science: Analyze experimental data with radical transformations",
                 ],
-                npc: "City Statistician Dr. Chen",
-                location: "City Planning Office",
-                reward: "40 coins + Exponential Expert Badge",
+                npc: "DepEd Undersecretary",
+                location: "DepEd Central Office",
+                reward: "120 coins + Radical Equations Master Badge",
             },
-            12: {
-                id: "12",
-                title: "Logarithms & Applications",
+            42: {
+                id: "42",
+                title: "Complex Numbers & Operations",
                 description:
-                    "Use logarithms to solve complex equations in finance, science, and data analysis.",
+                    "Master complex numbers and their operations for national engineering applications.",
                 quizOverview:
-                    "Master logarithmic functions, properties of logs, and solving logarithmic equations. Learn to convert between exponential and logarithmic forms and apply logs to real-world problems.",
+                    "Work with complex numbers in rectangular and polar form. Perform operations, find powers and roots, and apply to electrical engineering and signal processing.",
                 realLifeTrivia: [
-                    "Sound Levels: Measure noise pollution using decibels (logarithmic scale) for city ordinances",
-                    "pH Measurement: Monitor water quality using logarithmic pH scale in environmental testing",
-                    "Earthquake Magnitude: Understand Richter scale (logarithmic) for disaster preparedness",
-                    "Financial Analysis: Calculate time needed for investments to reach goals using log formulas",
+                    "Electrical Engineering: Analyze AC circuits using complex impedance",
+                    "Signal Processing: Transform signals using complex Fourier analysis",
+                    "Quantum Physics: Model quantum states with complex wave functions",
+                    "Aerospace: Calculate flight dynamics using complex number systems",
                 ],
-                npc: "Senior Analyst Maria Santos",
-                location: "Data Analytics Center",
-                reward: "45 coins + Logarithm Master Badge",
+                npc: "DOST Secretary",
+                location: "DOST Main Building",
+                reward: "125 coins + Complex Numbers Expert Badge",
             },
-            13: {
-                id: "13",
-                title: "Advanced Quadratic Applications",
+            43: {
+                id: "43",
+                title: "Polynomial Theorems & Applications",
                 description:
-                    "Apply advanced quadratic modeling to optimize city infrastructure and resource allocation.",
+                    "Apply polynomial theorems including Remainder, Factor, and Rational Root theorems.",
                 quizOverview:
-                    "Solve complex quadratic optimization problems. Find maximum and minimum values, analyze vertex form, and apply quadratics to area, projectile, and profit maximization scenarios.",
+                    "Master the Remainder Theorem, Factor Theorem, Rational Root Theorem, and Fundamental Theorem of Algebra. Apply to solve higher-degree polynomial equations.",
                 realLifeTrivia: [
-                    "Bridge Design: Calculate optimal parabolic arch shapes for maximum strength and efficiency",
-                    "Revenue Optimization: Find ticket prices that maximize city event revenue using quadratic models",
-                    "Traffic Flow: Model vehicle trajectories and optimize traffic light timing",
-                    "Park Design: Calculate optimal fountain spray patterns and landscaping curves",
+                    "Cryptography: Use polynomial algorithms for national security encryption",
+                    "Computer Science: Optimize algorithms using polynomial complexity analysis",
+                    "Economics: Model national GDP growth with polynomial regression",
+                    "Physics: Describe motion trajectories using polynomial equations",
                 ],
-                npc: "Chief Engineer Rodriguez",
-                location: "Infrastructure Planning",
-                reward: "50 coins + Optimization Pro Badge",
+                npc: "CHED Commissioner",
+                location: "CHED Central Office",
+                reward: "130 coins + Polynomial Theorems Badge",
             },
-            14: {
-                id: "14",
-                title: "Rational Expressions & Equations",
+            44: {
+                id: "44",
+                title: "Advanced Matrix Operations",
                 description:
-                    "Master rational expressions to solve rate, work, and mixture problems in city operations.",
+                    "Master advanced matrix operations including determinants, inverses, and eigenvalues.",
                 quizOverview:
-                    "Simplify complex rational expressions, solve rational equations, and work with direct/inverse variation. Apply to rate problems, work problems, and combined operations scenarios.",
+                    "Perform matrix multiplication, find determinants and inverses, solve systems using Cramer's rule, and understand eigenvalues and eigenvectors.",
                 realLifeTrivia: [
-                    "Work Rates: Calculate project completion times when multiple city crews work together",
-                    "Mixture Problems: Determine chemical concentrations for water treatment facilities",
-                    "Speed & Distance: Optimize delivery routes and calculate average speeds for city services",
-                    "Electrical Circuits: Calculate resistance in parallel circuits for city lighting systems",
+                    "Computer Graphics: Transform 3D models using matrix operations",
+                    "Machine Learning: Process data with matrix transformations",
+                    "Economics: Model input-output relationships in national economy",
+                    "Physics: Describe quantum states using matrix mechanics",
                 ],
-                npc: "Operations Manager Lin",
-                location: "City Operations Center",
-                reward: "55 coins + Rational Expert Badge",
+                npc: "NEDA Director General",
+                location: "NEDA Building",
+                reward: "135 coins + Matrix Operations Master Badge",
             },
-            15: {
-                id: "15",
-                title: "Sequences & Series",
+            45: {
+                id: "45",
+                title: "Conic Sections & Applications",
                 description:
-                    "Use arithmetic and geometric sequences to model patterns in urban development and finance.",
+                    "Master conic sections including parabolas, ellipses, and hyperbolas.",
                 quizOverview:
-                    "Work with arithmetic sequences, geometric sequences, and their sums. Calculate terms, find patterns, and apply sequences to savings, depreciation, and growth scenarios.",
+                    "Analyze and graph conic sections, write equations in standard form, and apply to real-world scenarios in astronomy, architecture, and engineering.",
                 realLifeTrivia: [
-                    "Depreciation: Calculate declining value of city vehicles and equipment over time",
-                    "Budget Planning: Model annual budget increases or decreases using arithmetic sequences",
-                    "Loan Payments: Calculate mortgage and bond payments using geometric series",
-                    "Construction Phases: Plan multi-phase projects with sequential timelines and costs",
+                    "Astronomy: Model planetary orbits using elliptical equations",
+                    "Architecture: Design parabolic arches and domes for national monuments",
+                    "Satellite Technology: Calculate hyperbolic trajectories for space missions",
+                    "Optics: Design reflective surfaces using parabolic mirrors",
                 ],
-                npc: "Financial Advisor Thompson",
-                location: "Municipal Finance Office",
-                reward: "60 coins + Series Specialist Badge",
+                npc: "National Scientist",
+                location: "National Academy of Science",
+                reward: "140 coins + Conic Sections Expert Badge",
             },
-            16: {
-                id: "16",
-                title: "Absolute Value & Piecewise Functions",
+            46: {
+                id: "46",
+                title: "Parametric Equations & Curves",
                 description:
-                    "Master absolute value equations and piecewise functions for modeling real-world constraints.",
+                    "Master parametric equations to model motion and curves in national applications.",
                 quizOverview:
-                    "Solve absolute value equations and inequalities. Work with piecewise-defined functions, analyze graphs with breaks, and apply to scenarios with different rules for different ranges.",
+                    "Work with parametric equations, eliminate parameters, and graph parametric curves. Apply to projectile motion, planetary orbits, and engineering design.",
                 realLifeTrivia: [
-                    "Tax Brackets: Model progressive tax rates using piecewise functions",
-                    "Utility Pricing: Calculate tiered electricity costs (different rates for different usage levels)",
-                    "Parking Fees: Model parking charges that vary by time of day using piecewise functions",
-                    "Temperature Control: Maintain acceptable ranges using absolute value constraints",
+                    "Aerospace: Model rocket trajectories using parametric equations",
+                    "Animation: Create smooth motion paths for computer graphics",
+                    "Robotics: Program robotic arm movements with parametric curves",
+                    "Physics: Describe particle motion in electromagnetic fields",
                 ],
-                npc: "Policy Analyst Reyes",
-                location: "Policy Development Office",
-                reward: "50 coins + Function Analysis Badge",
+                npc: "PAGASA Administrator",
+                location: "PAGASA Science Garden",
+                reward: "145 coins + Parametric Equations Badge",
             },
-            17: {
-                id: "17",
-                title: "Matrix Operations & Systems",
+            47: {
+                id: "47",
+                title: "Advanced Sequences & Limits",
                 description:
-                    "Use matrices to solve large systems of equations for resource allocation and network analysis.",
+                    "Master advanced sequences, series, and limits for calculus preparation.",
                 quizOverview:
-                    "Perform matrix operations (addition, multiplication, inverse). Solve systems of equations using matrices, understand determinants, and apply to multi-variable optimization problems.",
+                    "Work with arithmetic and geometric sequences, infinite series, convergence tests, and limits. Apply to financial modeling and scientific analysis.",
                 realLifeTrivia: [
-                    "Supply Chain: Organize and calculate city inventory across multiple warehouses",
-                    "Network Analysis: Model traffic flow through intersections using matrix systems",
-                    "Budget Allocation: Distribute funds across departments with multiple constraints",
-                    "Computer Graphics: Transform and render city planning visualizations using matrices",
+                    "Finance: Calculate present value of annuities using infinite series",
+                    "Computer Science: Analyze algorithm efficiency with sequence limits",
+                    "Physics: Model damped oscillations using convergent sequences",
+                    "Economics: Predict long-term market trends with sequence analysis",
                 ],
-                npc: "Systems Engineer Park",
-                location: "Technology Center",
-                reward: "65 coins + Matrix Master Badge",
+                npc: "PSA Administrator",
+                location: "PSA Complex",
+                reward: "150 coins + Sequences & Limits Master Badge",
             },
-            18: {
-                id: "18",
-                title: "Trigonometry Fundamentals",
+            48: {
+                id: "48",
+                title: "Binomial Theorem & Expansions",
                 description:
-                    "Apply trigonometric ratios and the unit circle to solve measurement and navigation problems.",
+                    "Master the Binomial Theorem and polynomial expansions for advanced applications.",
                 quizOverview:
-                    "Master sine, cosine, tangent and their applications. Work with right triangles, the unit circle, and basic trig identities. Solve problems involving angles, heights, and distances.",
+                    "Apply the Binomial Theorem to expand powers of binomials, calculate binomial coefficients, and use Pascal's Triangle. Apply to probability and combinatorics.",
                 realLifeTrivia: [
-                    "Surveying: Calculate distances and elevations for construction projects using trig ratios",
-                    "Navigation: Determine bearings and distances for city transportation routes",
-                    "Architecture: Calculate roof slopes, ramp angles, and accessible design requirements",
-                    "Solar Panels: Optimize panel angles based on sun position using trigonometry",
+                    "Probability: Calculate outcomes in national lottery systems",
+                    "Statistics: Model binomial distributions for survey analysis",
+                    "Computer Science: Optimize combinatorial algorithms",
+                    "Genetics: Predict inheritance patterns using binomial probabilities",
                 ],
-                npc: "Surveyor Johnson",
-                location: "Land Survey Office",
-                reward: "70 coins + Trigonometry Expert Badge",
+                npc: "Senate Education Committee Chair",
+                location: "Philippine Senate",
+                reward: "155 coins + Binomial Theorem Expert Badge",
             },
-            19: {
-                id: "19",
-                title: "Advanced Statistics & Probability",
+            49: {
+                id: "49",
+                title: "Partial Fractions & Decomposition",
                 description:
-                    "Analyze city data using statistical measures and probability to inform policy decisions.",
+                    "Master partial fraction decomposition for integration and advanced algebra.",
                 quizOverview:
-                    "Calculate mean, median, mode, standard deviation, and variance. Understand probability rules, expected value, and data distributions. Analyze and interpret statistical data.",
+                    "Decompose rational expressions into partial fractions, handle repeated and irreducible factors, and apply to calculus integration problems.",
                 realLifeTrivia: [
-                    "Public Health: Analyze disease rates and vaccination effectiveness using statistics",
-                    "Crime Analysis: Use probability to predict crime hotspots and allocate police resources",
-                    "Quality Control: Test water quality and infrastructure using statistical sampling",
-                    "Election Polling: Analyze survey data and margins of error for civic engagement",
+                    "Engineering: Solve differential equations in control systems",
+                    "Signal Processing: Analyze transfer functions in electrical circuits",
+                    "Physics: Model damped harmonic motion with rational functions",
+                    "Economics: Decompose complex economic models for analysis",
                 ],
-                npc: "Data Scientist Dr. Kim",
-                location: "Research & Analytics Lab",
-                reward: "60 coins + Statistics Pro Badge",
+                npc: "DBM Secretary",
+                location: "DBM Building",
+                reward: "160 coins + Partial Fractions Master Badge",
             },
-            20: {
-                id: "20",
-                title: "Comprehensive Algebra Mastery",
+            50: {
+                id: "50",
+                title: "Mathematical Proofs & Logic",
                 description:
-                    "Integrate all advanced algebra concepts to solve complex city planning challenges.",
+                    "Master mathematical proofs and logical reasoning for advanced mathematics.",
                 quizOverview:
-                    "Apply multiple advanced algebra concepts in comprehensive problems. Combine functions, systems, optimization, and modeling to solve real-world scenarios requiring integrated mathematical thinking.",
+                    "Learn proof techniques including direct proof, proof by contradiction, and mathematical induction. Apply logical reasoning to verify mathematical statements and theorems.",
                 realLifeTrivia: [
-                    "Smart City Planning: Use exponentials, optimization, and statistics to design efficient urban systems",
-                    "Climate Modeling: Integrate multiple functions to predict and plan for environmental changes",
-                    "Economic Development: Combine financial math, statistics, and optimization for growth strategies",
-                    "Infrastructure Investment: Use comprehensive math analysis to prioritize city projects with limited budgets",
+                    "Computer Science: Verify algorithm correctness using formal proofs",
+                    "Cryptography: Prove security of encryption systems mathematically",
+                    "Mathematics: Establish foundations for advanced mathematical theories",
+                    "Law: Apply logical reasoning in legal arguments and policy analysis",
                 ],
-                npc: "City Director Hon. Mayor Garcia",
-                location: "Executive Office",
-                reward: "80 coins + Advanced Algebra Master Badge",
+                npc: "DepEd Secretary",
+                location: "DepEd Main Office",
+                reward: "165 coins + Mathematical Proofs Master Badge",
             },
         };
 
         return (
-            cityMissions[missionId as keyof typeof cityMissions] || {
+            nationalMissions[missionId as keyof typeof nationalMissions] || {
                 id: missionId.toString(),
-                title: "Advanced City Mission",
+                title: "Advanced National Mission",
                 description:
-                    "A challenging mission to help improve city operations.",
+                    "A challenging mission to help improve national operations.",
                 quizOverview:
-                    "Complete this advanced quiz to test your higher-level algebra skills and help the city.",
+                    "Complete this expert-level quiz to test your advanced algebra skills and help the nation.",
                 realLifeTrivia: [
                     "Advanced math helps solve complex real-world problems",
-                    "Cities rely on mathematical analysis for planning and decision-making",
+                    "Nations rely on mathematical analysis for planning and decision-making",
                     "Strong algebra skills open doors to STEM careers",
                 ],
-                npc: "City Official",
-                location: "City Hall",
+                npc: "Philippine Government Official",
+                location: "Government Center",
                 reward: "40 coins",
             }
         );
     }
 
     createCollectibles() {
-        console.log("=== CREATING CITY COLLECTIBLE ITEMS ===");
+        console.log("=== CREATING NATIONAL COLLECTIBLE ITEMS ===");
         console.log(`Background ready: ${!!this.backgroundImage}`);
         console.log(`Player exists: ${!!this.player}`);
         console.log(
@@ -1929,7 +1941,7 @@ export class CityMap extends Scene {
             });
 
             console.log(
-                `✓ Created city collectible ${item.id} at (${item.percentX}%, ${item.percentY}%)`
+                `✓ Created national collectible ${item.id} at (${item.percentX}%, ${item.percentY}%)`
             );
         });
 
@@ -2172,7 +2184,7 @@ export class CityMap extends Scene {
         const minimapBg = this.add.graphics();
         minimapBg.fillStyle(0x000000, 0.6);
         minimapBg.fillRoundedRect(0, 0, minimapSize, minimapSize, 8);
-        minimapBg.lineStyle(2, 0x87ceeb, 1); // City blue border
+        minimapBg.lineStyle(2, 0xFFD700, 1); // National gold border
         minimapBg.strokeRoundedRect(0, 0, minimapSize, minimapSize, 8);
         this.minimap.add(minimapBg);
 
@@ -2239,7 +2251,7 @@ export class CityMap extends Scene {
             });
         });
 
-        console.log("City minimap created with collectible locations");
+        console.log("National minimap created with collectible locations");
     }
 
     updateMinimap() {

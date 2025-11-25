@@ -1,0 +1,623 @@
+================================================================================
+                     ALGEBRA ADVENTURE GAME
+                   COMPLETE NPC & MISSION MAPPING
+                   Philippine Government Structure
+================================================================================
+
+
+Total Missions: 50 (Levels 1-5)
+Government Levels: Barangay → City → Province → Region → National
+
+================================================================================
+                        LEVEL 1: BARANGAY (Missions 1-10)
+                        Community Level - Basic Algebra
+================================================================================
+
+Mission 1:  Market Math
+  NPC:      Vendor Mang Pedro
+  Topic:    Basic arithmetic and market calculations
+  Location: Barangay Market
+
+Mission 2:  Sales & Discounts
+  NPC:      Store Owner Aling Maria
+  Topic:    Percentage calculations and discounts
+  Location: Barangay Store
+
+Mission 3:  Perimeter Challenge
+  NPC:      Coach Miguel
+  Topic:    Perimeter and basic geometry
+  Location: Barangay Sports Court
+
+Mission 4:  Unit Conversion
+  NPC:      Baker Tess
+  Topic:    Unit conversions and measurements
+  Location: Barangay Bakery
+
+Mission 5:  Budget Basics
+  NPC:      Student Leader Ana
+  Topic:    Basic budgeting and financial planning
+  Location: Barangay School
+
+Mission 6:  Garden Geometry
+  NPC:      Gardener Noel
+  Topic:    Area calculations and garden planning
+  Location: Barangay Garden
+
+Mission 7:  Pattern Master
+  NPC:      Math Teacher Mrs. Cruz
+  Topic:    Number patterns and sequences
+  Location: Barangay School
+
+Mission 8:  Unit Price Pro
+  NPC:      Shop Owner Danny
+  Topic:    Unit price comparisons
+  Location: Barangay Shop
+
+Mission 9:  Family Budget
+  NPC:      Parent Rosa
+  Topic:    Family financial planning
+  Location: Barangay Home
+
+Mission 10: Savings Goal
+  NPC:      Banker Mr. Santos
+  Topic:    Savings calculations and interest
+  Location: Barangay Cooperative
+
+================================================================================
+                        LEVEL 2: CITY (Missions 11-20)
+                        Municipal Level - Intermediate Algebra
+================================================================================
+
+Mission 11: Business Profit
+  NPC:      Entrepreneur Carlos
+  Topic:    Profit calculations and business math
+  Location: City Business District
+
+Mission 12: Revenue Goals
+  NPC:      Accountant Lisa
+  Topic:    Revenue projections and accounting
+  Location: City Finance Office
+
+Mission 13: Route Planning
+  NPC:      Logistics Manager Ben
+  Topic:    Distance, time, and route optimization
+  Location: City Logistics Center
+
+Mission 14: Growth Projection
+  NPC:      Sales Director Kim
+  Topic:    Growth rates and projections
+  Location: City Sales Office
+
+Mission 15: Area Division
+  NPC:      Urban Planner Gina
+  Topic:    Area calculations and urban planning
+  Location: City Planning Office
+
+Mission 16: Speed & Distance
+  NPC:      Transit Manager Roy
+  Topic:    Speed, distance, and time problems
+  Location: City Transit Hub
+
+Mission 17: Height Restrictions
+  NPC:      Architect Maya
+  Topic:    Height calculations and building codes
+  Location: City Architecture Firm
+
+Mission 18: Population Stats
+  NPC:      City Planner Tom
+  Topic:    Population statistics and demographics
+  Location: City Planning Department
+
+Mission 19: Material Calculation
+  NPC:      Engineer Sarah
+  Topic:    Material quantities and engineering
+  Location: City Engineering Office
+
+Mission 20: Fare Formula
+  NPC:      Transport Chief Mike
+  Topic:    Transportation fare calculations
+  Location: City Transport Office
+
+================================================================================
+                      LEVEL 3: PROVINCE (Missions 21-30)
+                   Provincial Government - Advanced Algebra
+================================================================================
+
+Mission 21: Budget Allocation
+  NPC:      Provincial Budget Officer
+  Agency:   Provincial Budget Office
+  Topic:    Provincial budget distribution
+  Location: Provincial Capitol
+
+Mission 22: Revenue Modeling
+  NPC:      Provincial Planning Officer
+  Agency:   Provincial Planning Office
+  Topic:    Revenue forecasting and modeling
+  Location: Provincial Planning Office
+
+Mission 23: Infrastructure Planning
+  NPC:      Provincial Engineer
+  Agency:   Provincial Engineering Office
+  Topic:    Infrastructure project planning
+  Location: Provincial Engineering Office
+
+Mission 24: Cost Analysis
+  NPC:      Provincial Treasurer
+  Agency:   Provincial Treasury
+  Topic:    Financial cost analysis
+  Location: Provincial Treasury Office
+
+Mission 25: Policy Coordination
+  NPC:      Provincial Administrator
+  Agency:   Provincial Administrator's Office
+  Topic:    Policy implementation and coordination
+  Location: Provincial Capitol
+
+Mission 26: Operations Optimization
+  NPC:      Provincial Agriculturist
+  Agency:   Provincial Agriculture Office
+  Topic:    Agricultural operations optimization
+  Location: Provincial Agriculture Office
+
+Mission 27: Land Planning
+  NPC:      Provincial Assessor
+  Agency:   Provincial Assessor's Office
+  Topic:    Land assessment and planning
+  Location: Provincial Assessor's Office
+
+Mission 28: Resource Management
+  NPC:      Provincial Health Officer
+  Agency:   Provincial Health Office
+  Topic:    Health resource allocation
+  Location: Provincial Health Office
+
+Mission 29: Investment Analysis
+  NPC:      Provincial Social Welfare Officer
+  Agency:   Provincial Social Welfare Office
+  Topic:    Social program investment analysis
+  Location: Provincial Social Welfare Office
+
+Mission 30: Strategic Planning
+  NPC:      Provincial Governor
+  Agency:   Office of the Provincial Governor
+  Topic:    Provincial strategic development
+  Location: Provincial Capitol - Governor's Office
+
+================================================================================
+                      LEVEL 4: REGION (Missions 31-40)
+                Regional Government - Mastery Level Algebra
+================================================================================
+
+Mission 31: Complex Quadratics
+  NPC:      Regional Development Council Director
+  Agency:   Regional Development Council (RDC)
+  Topic:    Complex quadratic equations
+  Location: RDC Office
+
+Mission 32: Polynomial Division
+  NPC:      NEDA Regional Director
+  Agency:   National Economic and Development Authority
+  Topic:    Polynomial division and remainder theorem
+  Location: NEDA Regional Office
+
+Mission 33: Function Composition
+  NPC:      DepEd Regional Director
+  Agency:   Department of Education
+  Topic:    Function composition and inverses
+  Location: DepEd Regional Office
+
+Mission 34: Advanced Factoring
+  NPC:      DOST Regional Director
+  Agency:   Department of Science and Technology
+  Topic:    Advanced factoring techniques
+  Location: DOST Regional Office
+
+Mission 35: Rational Functions
+  NPC:      DTI Regional Director
+  Agency:   Department of Trade and Industry
+  Topic:    Rational functions and asymptotes
+  Location: DTI Regional Office
+
+Mission 36: Exponential Models
+  NPC:      DA Regional Director
+  Agency:   Department of Agriculture
+  Topic:    Exponential growth and decay models
+  Location: DA Regional Office
+
+Mission 37: Logarithmic Analysis
+  NPC:      DOH Regional Director
+  Agency:   Department of Health
+  Topic:    Logarithmic functions and analysis
+  Location: DOH Regional Office
+
+Mission 38: Matrix Systems
+  NPC:      DPWH Regional Director
+  Agency:   Department of Public Works and Highways
+  Topic:    Matrix systems and determinants
+  Location: DPWH Regional Office
+
+Mission 39: Sequence Patterns
+  NPC:      DSWD Regional Director
+  Agency:   Department of Social Welfare and Development
+  Topic:    Arithmetic and geometric sequences
+  Location: DSWD Regional Office
+
+Mission 40: Advanced Inequalities
+  NPC:      DILG Regional Director
+  Agency:   Department of Interior and Local Government
+  Topic:    Advanced inequality systems
+  Location: DILG Regional Office
+
+================================================================================
+                     LEVEL 5: NATIONAL (Missions 41-50)
+                  National Government - Expert Level Algebra
+================================================================================
+
+Mission 41: Radical Equations
+  NPC:      DepEd Undersecretary
+  Agency:   Department of Education - Central Office
+  Topic:    Radical equations and expressions
+  Location: DepEd Central Office
+
+Mission 42: Complex Numbers
+  NPC:      DOST Secretary
+  Agency:   Department of Science and Technology
+  Topic:    Complex numbers and operations
+  Location: DOST Main Building
+
+Mission 43: Polynomial Theorems
+  NPC:      CHED Commissioner
+  Agency:   Commission on Higher Education
+  Topic:    Polynomial theorems (Remainder, Factor, Rational Root)
+  Location: CHED Central Office
+
+Mission 44: Advanced Matrices
+  NPC:      NEDA Director General
+  Agency:   National Economic and Development Authority
+  Topic:    Advanced matrix operations and eigenvalues
+  Location: NEDA Building
+
+Mission 45: Conic Sections
+  NPC:      National Scientist
+  Agency:   National Academy of Science and Technology
+  Topic:    Conic sections (parabolas, ellipses, hyperbolas)
+  Location: National Academy of Science
+
+Mission 46: Parametric Equations
+  NPC:      PAGASA Administrator
+  Agency:   Philippine Atmospheric, Geophysical and
+            Astronomical Services Administration
+  Topic:    Parametric equations and curves
+  Location: PAGASA Science Garden
+
+Mission 47: Advanced Sequences
+  NPC:      PSA Administrator
+  Agency:   Philippine Statistics Authority
+  Topic:    Advanced sequences, series, and limits
+  Location: PSA Complex
+
+Mission 48: Binomial Theorem
+  NPC:      Senate Education Committee Chair
+  Agency:   Philippine Senate
+  Topic:    Binomial theorem and expansions
+  Location: Philippine Senate
+
+Mission 49: Partial Fractions
+  NPC:      DBM Secretary
+  Agency:   Department of Budget and Management
+  Topic:    Partial fraction decomposition
+  Location: DBM Building
+
+Mission 50: Mathematical Proofs
+  NPC:      DepEd Secretary
+  Agency:   Department of Education
+  Topic:    Mathematical proofs and logical reasoning
+  Location: DepEd Main Office
+
+================================================================================
+                          GOVERNMENT HIERARCHY SUMMARY
+================================================================================
+
+BARANGAY (Level 1):
+  - Community officials and local professionals
+  - Focus: Basic life skills and practical math
+  - 10 missions covering fundamental algebra
+
+CITY (Level 2):
+  - Municipal professionals and business leaders
+  - Focus: Business and urban planning applications
+  - 10 missions covering intermediate algebra
+
+PROVINCE (Level 3):
+  - Provincial government officials
+  - Focus: Provincial governance and resource management
+  - 10 missions covering advanced algebra
+  - Culminates with Provincial Governor
+
+REGION (Level 4):
+  - Regional directors of national agencies
+  - Focus: Multi-province coordination and policy
+  - 10 missions covering mastery-level algebra
+  - Features major Philippine government departments
+
+NATIONAL (Level 5):
+  - National government secretaries and top officials
+  - Focus: National policy and highest-level governance
+  - 10 missions covering expert-level algebra
+  - Culminates with DepEd Secretary
+
+================================================================================
+                        PHILIPPINE GOVERNMENT AGENCIES
+================================================================================
+
+DepEd   - Department of Education
+DOST    - Department of Science and Technology
+CHED    - Commission on Higher Education
+NEDA    - National Economic and Development Authority
+PAGASA  - Philippine Atmospheric, Geophysical and Astronomical
+          Services Administration
+PSA     - Philippine Statistics Authority
+DBM     - Department of Budget and Management
+DTI     - Department of Trade and Industry
+DA      - Department of Agriculture
+DOH     - Department of Health
+DPWH    - Department of Public Works and Highways
+DSWD    - Department of Social Welfare and Development
+DILG    - Department of Interior and Local Government
+
+================================================================================
+                              EDUCATIONAL GOALS
+================================================================================
+
+1. MATHEMATICS MASTERY
+   - Progress from basic arithmetic to advanced algebra
+   - Real-world applications at every level
+   - 50 comprehensive missions
+
+2. CIVIC EDUCATION
+   - Learn Philippine government structure
+   - Understand roles of different agencies
+   - Appreciate public service careers
+
+3. CULTURAL RELEVANCE
+   - Authentic Filipino context
+   - Philippine government positions
+   - Local scenarios and applications
+
+4. CAREER AWARENESS
+   - Exposure to various professions
+   - Government career paths
+   - STEM career opportunities
+
+================================================================================
+                            QUIZ QUESTIONS LOCATION
+================================================================================
+
+QUIZ QUESTIONS ARE STORED IN: src/App.tsx
+
+The quiz questions are stored as an object with mission IDs as keys ("1" through "50").
+Each question object contains:
+  - question: The math problem text
+  - options: Array of 4 multiple choice answers
+  - correctAnswer: Index of correct answer (0-3)
+  - explanation: Detailed explanation of the solution
+  - steps: Step-by-step solution breakdown
+  - formula: Mathematical formula used
+  - hints: Helpful hints for solving
+
+QUESTION-TO-NPC MAPPING:
+
+Mission ID → NPC → Question
+  1 → Vendor Mang Pedro → (Question stored in App.tsx as "1")
+  2 → Store Owner Aling Maria → (Question stored in App.tsx as "2")
+  3 → Coach Miguel → (Question stored in App.tsx as "3")
+  ... and so on through Mission 50
+
+Each mission's quiz question is retrieved from App.tsx using the mission ID.
+The questions are passed to the EnhancedQuizSystem component when a player
+interacts with an NPC.
+
+EXAMPLE QUESTIONS FROM APP.TSX:
+
+Mission 15 (Urban Planner Gina - Area Division):
+  Question: "A vehicle depreciates ₱8,000/year starting at ₱120,000. 
+             What's its value after 5 years?"
+  Answer: ₱80,000
+  Topic: Arithmetic sequences and depreciation
+
+Mission 16 (Transit Manager Roy - Speed & Distance):
+  Question: "Parking: ₱40 for first 2 hours, then ₱30/hour. 
+             Cost for 5 hours?"
+  Answer: ₱130
+  Topic: Piecewise functions
+
+Mission 17 (Architect Maya - Height Restrictions):
+  Question: "City budget matrix: [Education Health Transport] = [40, 30, 30]% 
+             totaling ₱500M. Find Education allocation."
+  Answer: ₱200M
+  Topic: Matrix operations and percentages
+
+TO VIEW ALL QUESTIONS:
+  1. Open: src/App.tsx
+  2. Search for: "question:" or mission IDs like "13": {
+  3. Questions are stored starting around line 400-2000
+  4. Each mission ID (1-50) has a corresponding question object
+
+QUESTION DIFFICULTY PROGRESSION:
+  Missions 1-10 (Barangay): Basic arithmetic, percentages, simple equations
+  Missions 11-20 (City): Intermediate algebra, linear equations, word problems
+  Missions 21-30 (Province): Advanced algebra, systems, quadratics
+  Missions 31-40 (Region): Mastery algebra, polynomials, functions
+  Missions 41-50 (National): Expert algebra, complex numbers, proofs
+
+================================================================================
+                    DETAILED QUESTIONS & ANSWERS (1-30)
+================================================================================
+
+--- LEVEL 1: BARANGAY (Missions 1-10) ---
+
+Q1 (Vendor Mang Pedro): During a 20% off sale, a shirt costs ₱240. What was its original price?
+   Answer: ₱300
+
+Q2 (Store Owner Aling Maria): Simplify: 3x + 5x - 2x
+   Answer: 6x
+
+Q3 (Coach Miguel): You work H hours at ₱120/hour and earn ₱960 total. How many hours?
+   Answer: 8 hours
+
+Q4 (Baker Tess): Truck max 500 kg, has 180 kg. Each box 40 kg. How many more boxes?
+   Answer: 8 boxes
+
+Q5 (Student Leader Ana): Two investments total ₱50,000. A returns 5%, B returns 8%. Total return ₱3,400. How much in A?
+   Answer: ₱20,000
+
+Q6 (Gardener Noel): Garden area x² + 7x + 12 m². Factor to find dimensions.
+   Answer: (x + 3) by (x + 4)
+
+Q7 (Math Teacher Mrs. Cruz): Basketball height h = -5t² + 10t + 2. When is max height?
+   Answer: 1 second
+
+Q8 (Shop Owner Danny): Stock price P(d) = 2d + 50. Price after 7 days?
+   Answer: ₱64
+
+Q9 (Parent Rosa): Recipe for 4 needs 3 cups flour. How much for 10 people?
+   Answer: 7.5 cups
+
+Q10 (Banker Mr. Santos): Materials ₱5,000/day (8 days) + Labor ₱3,000/day (12 days). Total?
+    Answer: ₱76,000
+
+--- LEVEL 2: CITY (Missions 11-20) ---
+
+Q11 (Entrepreneur Carlos): [Exponential growth problem]
+    Answer: [See App.tsx]
+
+Q12 (Accountant Lisa): If log₁₀(x) = 3, what is x?
+    Answer: 1,000
+
+Q13 (Logistics Manager Ben): Revenue R = -2p² + 80p. What price maximizes revenue?
+    Answer: ₱20
+
+Q14 (Sales Director Kim): Two workers finish in 6 hrs together. A alone takes 10 hrs. B alone?
+    Answer: 15 hours
+
+Q15 (Urban Planner Gina): Vehicle depreciates ₱8,000/year from ₱120,000. Value after 5 years?
+    Answer: ₱80,000
+
+Q16 (Transit Manager Roy): Parking ₱40 first 2 hrs, then ₱30/hr. Cost for 5 hours?
+    Answer: ₱130
+
+Q17 (Architect Maya): Budget [40, 30, 30]% of ₱500M. Education allocation?
+    Answer: ₱200M
+
+Q18 (City Planner Tom): From 30m away, angle 40°. Building height? (tan 40° = 0.84)
+    Answer: 25.2 m
+
+Q19 (Engineer Sarah): Disease rates: 15, 22, 18, 25, 20 per 1000. Find mean.
+    Answer: 20 per 1000
+
+Q20 (Transport Chief Mike): 2E + 3T = 1200 and E + T = 500. Find E.
+    Answer: ₱300M
+
+--- LEVEL 3: PROVINCE (Missions 21-30) ---
+
+Q21 (Provincial Budget Officer): B = 2x² + 5x + 3. If B = 60, find x.
+    Answer: x = 5
+
+Q22 (Provincial Planning Officer): T = 0.1x² + 2x. Find T when x = 20.
+    Answer: ₱80M
+
+Q23 (Provincial Engineer): Solve √(2x + 5) = 7
+    Answer: x = 22
+
+Q24 (Provincial Treasurer): Factor C = 3x³ - 15x² + 18x
+    Answer: 3x(x - 2)(x - 3)
+
+Q25 (Provincial Administrator): Find inverse of f(x) = (3x - 2)/5
+    Answer: f⁻¹(x) = (5x + 2)/3
+
+Q26 (Provincial Agriculturist): Simplify (x² - 9)/(x² + 6x + 9)
+    Answer: (x - 3)/(x + 3)
+
+Q27 (Provincial Assessor): Express x² + 10x + 25 as perfect square
+    Answer: (x + 5)²
+
+Q28 (Provincial Health Officer): Solve 2x + y = 8, x - y = 1
+    Answer: x = 3, y = 2
+
+Q29 (Provincial Social Welfare Officer): P(x) = -0.5x² + 40x - 200. Break-even points?
+    Answer: x = 5.86 or x = 74.14
+
+Q30 (Provincial Governor): 2x + 3y ≤ 120 and x + y ≥ 30. If x = 20, max y?
+    Answer: y = 26
+
+================================================================================
+              MISSIONS 31-50 QUESTIONS (Region & National Levels)
+================================================================================
+
+--- LEVEL 4: REGION (Missions 31-40) ---
+
+Q31 (Regional Development Council Director): Solve 3-variable system: x + y + z = 12, 2x - y + z = 5, x + 2y - z = 8. Find x.
+    Answer: x = 3
+
+Q32 (NEDA Regional Director): Simplify: (x²-4)/(x+2) ÷ (x-2)/(x²+4x+4)
+    Answer: x + 2
+
+Q33 (DepEd Regional Director): Sum of arithmetic series: 5 + 9 + 13 + ... + 101
+    Answer: 1378
+
+Q34 (DOST Regional Director): Solve |2x - 5| = |x + 3|
+    Answer: x = 8/3 or x = 2
+
+Q35 (DTI Regional Director): Geometric sequence: ₱10,000, ₱12,000, ₱14,400, ... Find 6th term.
+    Answer: ₱20,736
+
+Q36 (DA Regional Director): Solve compound inequality: -3 < 2x + 5 ≤ 13
+    Answer: -4 < x ≤ 4
+
+Q37 (DOH Regional Director): If f(x) = 2x - 3 and g(x) = x² + 1, find (f ∘ g)(2).
+    Answer: 7
+
+Q38 (DPWH Regional Director): Polynomial division: (3x³ - 2x² + 5x - 4) ÷ (x - 1). Find remainder.
+    Answer: 2
+
+Q39 (DSWD Regional Director): Simplify: √(50x³y⁵)
+    Answer: 5xy²√(2xy)
+
+Q40 (DILG Regional Director): Solve using substitution: y = x² - 2 and y = 2x + 1. Find x.
+    Answer: x = -1 or x = 3
+
+--- LEVEL 5: NATIONAL (Missions 41-50) ---
+
+Q41 (DepEd Undersecretary): Use Rational Root Theorem to find a root of 2x³ - 3x² - 11x + 6 = 0.
+    Answer: x = 2 (or x = 3)
+
+Q42 (DOST Secretary): Simplify complex number: (3 + 2i)(1 - 4i)
+    Answer: 11 - 10i
+
+Q43 (CHED Commissioner): Find determinant of matrix: [[2, 3], [1, 4]]
+    Answer: 5
+
+Q44 (NEDA Director General): Find 10th term of sequence: aₙ = 3n² - 2n + 1
+    Answer: 281
+
+Q45 (National Scientist): Expand using Binomial Theorem: (x + 2)⁴
+    Answer: x⁴ + 8x³ + 24x² + 32x + 16
+
+Q46 (PAGASA Administrator): Solve matrix equation: [[2, 1], [3, 4]] × [[x], [y]] = [[7], [10]]. Find x.
+    Answer: x = 2
+
+Q47 (PSA Administrator): Sum of geometric series: 3 + 6 + 12 + 24 + ... (8 terms)
+    Answer: 765
+
+Q48 (Senate Education Committee Chair): Solve using Cramer's Rule: 3x + 2y = 8, 5x - y = 7. Find y.
+    Answer: y = -1
+
+Q49 (DBM Secretary): Simplify: (x² - y²)/(x - y) when x ≠ y
+    Answer: x + y
+
+Q50 (DepEd Secretary): Formula N = 100(1.05)ᵗ for participants. When does N reach 200?
+    Answer: t ≈ 14 years
+
+================================================================================
+                                END OF DOCUMENT
+================================================================================

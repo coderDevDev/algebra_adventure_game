@@ -4,17 +4,20 @@ import { GameStateManager } from "../../utils/GameStateManager";
 import CollisionService from "../../services/CollisionService";
 
 /**
- * CityMap - Level 2 (Missions 11-20)
+ * ProvinceMap - Level 3 (Missions 21-30)
  *
  * 🎯 AUTO-LOADED: This scene automatically loads when the player completes
- * all 10 Barangay missions (Level 1). The transition happens automatically
+ * all 20 City missions (Levels 1-2). The transition happens automatically
  * after displaying a level-up celebration notification.
  *
- * Contains advanced algebra challenges for intermediate players.
+ * Contains advanced algebra challenges for experienced players.
  */
-export class CityMap extends Scene {
+export class ProvinceMap extends Scene {
     // 🎨 DEBUG MODE: Set to false to hide collision boundaries in production
     private readonly DEBUG_SHOW_COLLISIONS: boolean = false;
+
+    // 🧪 TESTING MODE: Set to true to bypass mission prerequisites for testing
+    private readonly DEBUG_BYPASS_PREREQUISITES: boolean = true;
 
     player: Phaser.Physics.Arcade.Sprite;
     cursors: Phaser.Types.Input.Keyboard.CursorKeys;
@@ -61,104 +64,104 @@ export class CityMap extends Scene {
     minimapNPCDots: GameObjects.Arc[] = [];
     minimapCollectibleDots: GameObjects.Arc[] = [];
 
-    // Level 2 City Mission locations
+    // Level 3 Province Mission locations
     missionLocations = [
         {
             x: 8,
             y: 6,
-            name: "Business Profit",
-            npc: "Entrepreneur Carlos",
-            missionId: 11,
-            percentX: 19, // Background-relative percentage X
-            percentY: 46, // Background-relative percentage Y
+            name: "Budget Allocation",
+            npc: "Provincial Budget Officer",
+            missionId: 21,
+            percentX: 19,
+            percentY: 46,
         },
         {
             x: 21,
             y: 46,
-            name: "Revenue Goals",
-            npc: "Accountant Lisa",
-            missionId: 12,
-            percentX: 59, // Background-relative percentage X
-            percentY: 23, // Background-relative percentage Y
+            name: "Revenue Modeling",
+            npc: "Provincial Planning Officer",
+            missionId: 22,
+            percentX: 59,
+            percentY: 23,
         },
         {
             x: 22,
             y: 10,
-            name: "Route Planning",
-            npc: "Logistics Manager Ben",
-            missionId: 13,
-            percentX: 81, // Background-relative percentage X
-            percentY: 23, // Background-relative percentage Y
+            name: "Infrastructure Planning",
+            npc: "Provincial Engineer",
+            missionId: 23,
+            percentX: 81,
+            percentY: 23,
         },
         {
             x: 10,
             y: 16,
-            name: "Growth Projection",
-            npc: "Sales Director Kim",
-            missionId: 14,
-            percentX: 81, // Background-relative percentage X
-            percentY: 46, // Background-relative percentage Y
+            name: "Cost Analysis",
+            npc: "Provincial Treasurer",
+            missionId: 24,
+            percentX: 81,
+            percentY: 46,
         },
         {
             x: 18,
             y: 14,
-            name: "Area Division",
-            npc: "Urban Planner Gina",
-            missionId: 15,
-            percentX: 79, // Background-relative percentage X
-            percentY: 67, // Background-relative percentage Y
+            name: "Policy Coordination",
+            npc: "Provincial Administrator",
+            missionId: 25,
+            percentX: 79,
+            percentY: 67,
         },
         {
             x: 5,
             y: 20,
-            name: "Speed & Distance",
-            npc: "Transit Manager Roy",
-            missionId: 16,
-            percentX: 60, // Background-relative percentage X
-            percentY: 90, // Background-relative percentage Y
+            name: "Operations Optimization",
+            npc: "Provincial Agriculturist",
+            missionId: 26,
+            percentX: 60,
+            percentY: 90,
         },
         {
             x: 20,
             y: 18,
-            name: "Height Restrictions",
-            npc: "Architect Maya",
-            missionId: 17,
-            percentX: 50, // Background-relative percentage X
-            percentY: 78, // Background-relative percentage Y
+            name: "Land Planning",
+            npc: "Provincial Assessor",
+            missionId: 27,
+            percentX: 50,
+            percentY: 78,
         },
         {
             x: 12,
             y: 22,
-            name: "Population Stats",
-            npc: "City Planner Tom",
-            missionId: 18,
-            percentX: 19, // Background-relative percentage X
-            percentY: 89, // Background-relative percentage Y
+            name: "Resource Management",
+            npc: "Provincial Health Officer",
+            missionId: 28,
+            percentX: 19,
+            percentY: 89,
         },
         {
             x: 25,
             y: 15,
-            name: "Material Calculation",
-            npc: "Engineer Sarah",
-            missionId: 19,
-            percentX: 27, // Background-relative percentage X
-            percentY: 27, // Background-relative percentage Y
+            name: "Investment Analysis",
+            npc: "Provincial Social Welfare Officer",
+            missionId: 29,
+            percentX: 27,
+            percentY: 27,
         },
         {
             x: 16,
             y: 12,
-            name: "Fare Formula",
-            npc: "Transport Chief Mike",
-            missionId: 20,
-            percentX: 50, // Background-relative percentage X
-            percentY: 56, // Background-relative percentage Y
+            name: "Strategic Planning",
+            npc: "Provincial Governor",
+            missionId: 30,
+            percentX: 50,
+            percentY: 56,
         },
     ];
 
-    // Collectible items for City (Level 2) - Higher value items
+    // Collectible items for Province (Level 3) - Advanced value items
     collectibleItemsData = [
         {
-            id: "city-coin-1",
+            id: "province-coin-1",
             type: "coin",
             name: "Math Token",
             description: "A valuable advanced algebra token",
@@ -170,108 +173,108 @@ export class CityMap extends Scene {
             icon: "💰",
         },
         {
-            id: "city-coin-2",
+            id: "province-coin-2",
             type: "coin",
-            name: "Math Token",
-            description: "A valuable advanced algebra token",
-            value: 10,
-            points: 20,
+            name: "Provincial Token",
+            description: "A valuable provincial algebra token",
+            value: 15,
+            points: 25,
             rarity: "common",
             percentX: 35,
             percentY: 9,
             icon: "💰",
         },
         {
-            id: "city-coin-3",
+            id: "province-coin-3",
             type: "coin",
-            name: "Math Token",
-            description: "A valuable advanced algebra token",
-            value: 10,
-            points: 20,
+            name: "Provincial Token",
+            description: "A valuable provincial algebra token",
+            value: 15,
+            points: 25,
             rarity: "common",
             percentX: 59,
             percentY: 4,
             icon: "💰",
         },
         {
-            id: "city-badge-1",
+            id: "province-badge-1",
             type: "badge",
-            name: "Trigonometry Badge",
-            description: "A badge for advanced trigonometry mastery",
-            value: 20,
-            points: 40,
+            name: "Polynomial Master Badge",
+            description: "A badge for advanced polynomial mastery",
+            value: 25,
+            points: 50,
             rarity: "uncommon",
             percentX: 44,
             percentY: 4,
             icon: "🏅",
         },
         {
-            id: "city-badge-2",
+            id: "province-badge-2",
             type: "badge",
-            name: "Calculus Excellence",
-            description: "A badge for advanced mathematical achievement",
-            value: 20,
-            points: 40,
+            name: "Systems Expert Badge",
+            description: "A badge for mastering systems of equations",
+            value: 25,
+            points: 50,
             rarity: "uncommon",
             percentX: 5,
             percentY: 42,
             icon: "🏅",
         },
         {
-            id: "city-treasure-1",
+            id: "province-treasure-1",
             type: "treasure",
-            name: "Mathematical Theorem",
-            description: "The legendary Pythagorean theorem crystal",
-            value: 50,
-            points: 100,
+            name: "Quadratic Formula Crystal",
+            description: "The legendary quadratic formula artifact",
+            value: 60,
+            points: 120,
             rarity: "rare",
             percentX: 11,
             percentY: 67,
             icon: "💎",
         },
         {
-            id: "city-powerup-1",
+            id: "province-powerup-1",
             type: "powerup",
-            name: "Brain Boost",
-            description: "Enhances your problem-solving speed",
-            value: 25,
-            points: 50,
+            name: "Algebra Boost",
+            description: "Enhances your algebraic problem-solving speed",
+            value: 30,
+            points: 60,
             rarity: "uncommon",
             percentX: 6,
             percentY: 94,
             icon: "⚡",
         },
         {
-            id: "city-powerup-2",
+            id: "province-powerup-2",
             type: "powerup",
-            name: "Brain Boost",
-            description: "Enhances your problem-solving speed",
-            value: 25,
-            points: 50,
+            name: "Algebra Boost",
+            description: "Enhances your algebraic problem-solving speed",
+            value: 30,
+            points: 60,
             rarity: "uncommon",
             percentX: 30,
             percentY: 95,
             icon: "⚡",
         },
         {
-            id: "city-gem-1",
+            id: "province-gem-1",
             type: "treasure",
-            name: "Golden Equation",
-            description: "Rare quadratic formula artifact",
-            value: 40,
-            points: 80,
+            name: "Factoring Gem",
+            description: "Rare polynomial factoring artifact",
+            value: 50,
+            points: 100,
             rarity: "rare",
             percentX: 41,
             percentY: 82,
-            icon: "💠",
+            icon: "�",
         },
         {
-            id: "city-gem-2",
+            id: "province-gem-2",
             type: "treasure",
-            name: "Algebra Medal",
-            description: "Prestigious advanced algebra medal",
-            value: 35,
-            points: 70,
+            name: "Provincial Algebra Medal",
+            description: "Prestigious provincial algebra medal",
+            value: 45,
+            points: 90,
             rarity: "rare",
             percentX: 87,
             percentY: 82,
@@ -280,20 +283,20 @@ export class CityMap extends Scene {
     ];
 
     constructor() {
-        super("CityMap");
+        super("ProvinceMap");
     }
 
     create() {
-        console.log("=== CREATING CITY MAP (LEVEL 2) ===");
+        console.log("=== CREATING PROVINCE MAP (LEVEL 3) ===");
 
-        // Create city background
-        this.createCityBackground();
+        // Create province background
+        this.createProvinceBackground();
 
         // Create player with collision
         this.createPlayer();
 
-        // Create City NPCs
-        this.createCityNPCs();
+        // Create Province NPCs
+        this.createProvinceNPCs();
 
         // Create UI
         this.createUI();
@@ -315,7 +318,7 @@ export class CityMap extends Scene {
         this.time.delayedCall(100, () => {
             this.cameras.main.startFollow(this.player);
             this.optimizeCameraForOpenWorld();
-            console.log("City Map camera setup complete");
+            console.log("Province Map camera setup complete");
         });
 
         // Mobile device detection
@@ -325,7 +328,7 @@ export class CityMap extends Scene {
                 navigator.userAgent
             ) ||
             window.innerWidth <= 768;
-        console.log("Mobile device detected in City:", this.isMobile);
+        console.log("Mobile device detected in Province:", this.isMobile);
 
         // Set up input
         this.cursors = this.input.keyboard.createCursorKeys();
@@ -386,7 +389,7 @@ export class CityMap extends Scene {
             }
         });
 
-        console.log("City NPC indicators updated in real-time");
+        console.log("Province NPC indicators updated in real-time");
     }
 
     optimizeCameraForOpenWorld() {
@@ -399,46 +402,46 @@ export class CityMap extends Scene {
             );
             this.cameras.main.setLerp(0.08, 0.08);
             this.cameras.main.setDeadzone(25, 25);
-            console.log("City camera optimized for open world");
+            console.log("Province camera optimized for open world");
         }
     }
 
-    createCityBackground() {
-        console.log("Creating city background...");
+    createProvinceBackground() {
+        console.log("Creating province background...");
         console.log(
-            "City background texture exists:",
-            this.textures.exists("city-bg-root")
+            "Province background texture exists:",
+            this.textures.exists("province-bg-root")
         );
 
         // If textures don't exist, load them directly
-        if (!this.textures.exists("city-bg-root")) {
-            console.log("City textures not loaded, loading them now...");
-            this.load.image("city-bg-root", "city-background.png");
+        if (!this.textures.exists("province-bg-root")) {
+            console.log("Province textures not loaded, loading them now...");
+            this.load.image("province-bg-root", "province-background.png");
             this.load.start();
 
             this.load.once("complete", () => {
-                console.log("City textures loaded, creating background...");
-                this.createCityBackgroundImage();
+                console.log("Province textures loaded, creating background...");
+                this.createProvinceBackgroundImage();
             });
         } else {
             // Wait a bit for textures to be fully loaded
             this.time.delayedCall(100, () => {
-                this.createCityBackgroundImage();
+                this.createProvinceBackgroundImage();
             });
         }
     }
 
-    createCityBackgroundImage() {
-        console.log("Creating city background image after delay...");
+    createProvinceBackgroundImage() {
+        console.log("Creating province background image after delay...");
         console.log(
-            "City background root texture exists now:",
-            this.textures.exists("city-bg-root")
+            "Province background root texture exists now:",
+            this.textures.exists("province-bg-root")
         );
 
-        // Create city background image as the main visual element
-        if (this.textures.exists("city-bg-root")) {
-            console.log("Using city background image...");
-            console.log("Texture details:", this.textures.get("city-bg-root"));
+        // Create province background image as the main visual element
+        if (this.textures.exists("province-bg-root")) {
+            console.log("Using province background image...");
+            console.log("Texture details:", this.textures.get("province-bg-root"));
 
             try {
                 // Get Phaser game canvas dimensions for perfect coverage
@@ -450,7 +453,7 @@ export class CityMap extends Scene {
                 const bgImage = this.add.image(
                     gameCenterX,
                     gameCenterY,
-                    "city-bg-root"
+                    "province-bg-root"
                 );
                 bgImage.setOrigin(0.5, 0.5);
                 bgImage.setDepth(-2000); // Much further behind everything
@@ -469,7 +472,7 @@ export class CityMap extends Scene {
                 const finalScaleY = Math.max(scaleY, minScale);
 
                 console.log(
-                    "City background scaling to cover entire Phaser game canvas:"
+                    "Province background scaling to cover entire Phaser game canvas:"
                 );
                 console.log(
                     "Game canvas dimensions:",
@@ -500,7 +503,7 @@ export class CityMap extends Scene {
 
                 bgImage.setAlpha(1); // Fully visible
                 bgImage.setVisible(true); // Explicitly set visible
-                console.log("City background image created successfully");
+                console.log("Province background image created successfully");
 
                 // Reposition player relative to background if player already exists
                 if (this.player) {
@@ -520,18 +523,18 @@ export class CityMap extends Scene {
                     this.createCollectibles();
                 });
             } catch (error) {
-                console.error("Error creating city background image:", error);
-                // Fallback to steel blue background if image fails
-                this.createFallbackCityBackground();
+                console.error("Error creating province background image:", error);
+                // Fallback to green background if image fails
+                this.createFallbackProvinceBackground();
             }
         } else {
-            console.log("City background texture not found, using fallback");
-            this.createFallbackCityBackground();
+            console.log("Province background texture not found, using fallback");
+            this.createFallbackProvinceBackground();
         }
     }
 
-    createFallbackCityBackground() {
-        // Create fallback city background with steel blue theme
+    createFallbackProvinceBackground() {
+        // Create fallback province background with forest green theme
         const gameWidth = this.scale.width;
         const gameHeight = this.scale.height;
 
@@ -540,25 +543,25 @@ export class CityMap extends Scene {
             gameHeight / 2,
             gameWidth * 2,
             gameHeight * 2,
-            0x4682b4, // Steel blue for city theme
+            0x228B22, // Forest green for province theme
             1
         );
         bg.setDepth(-2000);
 
-        // Add some city-like patterns
+        // Add some province-like patterns
         const grid = this.add.graphics();
-        grid.lineStyle(1, 0x708090, 0.3);
+        grid.lineStyle(1, 0x2F4F2F, 0.3);
 
-        // Draw a grid pattern to simulate city blocks
-        for (let x = 0; x < gameWidth * 2; x += 80) {
+        // Draw a grid pattern to simulate provincial regions
+        for (let x = 0; x < gameWidth * 2; x += 100) {
             grid.lineBetween(x, 0, x, gameHeight * 2);
         }
-        for (let y = 0; y < gameHeight * 2; y += 80) {
+        for (let y = 0; y < gameHeight * 2; y += 100) {
             grid.lineBetween(0, y, gameWidth * 2, y);
         }
         grid.setDepth(-1000);
 
-        console.log("Fallback city background created successfully");
+        console.log("Fallback province background created successfully");
     }
 
     createPlayer() {
@@ -567,7 +570,7 @@ export class CityMap extends Scene {
             ? "student-front-1"
             : "player";
 
-        console.log("Creating player in City Map with texture:", playerTexture);
+        console.log("Creating player in Province Map with texture:", playerTexture);
 
         // Calculate player position relative to background image
         let playerX, playerY;
@@ -579,7 +582,7 @@ export class CityMap extends Scene {
             playerY = coords.y;
 
             console.log(
-                "City player spawning at (30%, 50%):",
+                "Province player spawning at (30%, 50%):",
                 playerX,
                 playerY
             );
@@ -588,7 +591,7 @@ export class CityMap extends Scene {
             playerX = 16 * this.tileSize;
             playerY = 12 * this.tileSize;
             console.log(
-                "Using fallback city player position:",
+                "Using fallback province player position:",
                 playerX,
                 playerY
             );
@@ -600,7 +603,7 @@ export class CityMap extends Scene {
         this.player.setCollideWorldBounds(false);
         this.player.setScale(0.2);
 
-        console.log("City player created with unlimited movement");
+        console.log("Province player created with unlimited movement");
 
         // Create player animations if not already created
         this.createPlayerAnimations();
@@ -613,7 +616,7 @@ export class CityMap extends Scene {
             return;
         }
 
-        console.log("Creating player animations for City Map...");
+        console.log("Creating player animations for Province Map...");
 
         // Create the same animations as Level 1
         const requiredTextures = [
@@ -638,7 +641,7 @@ export class CityMap extends Scene {
         for (const texture of requiredTextures) {
             if (!this.textures.exists(texture)) {
                 console.error(
-                    `Required texture ${texture} not found in City Map!`
+                    `Required texture ${texture} not found in Province Map!`
                 );
                 return;
             }
@@ -718,76 +721,77 @@ export class CityMap extends Scene {
             frameRate: 1,
         });
 
-        console.log("City player animations created successfully!");
+        console.log("Province player animations created successfully!");
     }
 
-    createCityNPCs() {
+    createProvinceNPCs() {
         this.npcs = this.physics.add.group();
 
-        console.log("Creating City NPCs for Level 2...");
+        console.log("Creating Province NPCs for Level 3...");
 
         // Debug: List all available textures
         console.log(
-            "Available textures in CityMap:",
+            "Available textures in ProvinceMap:",
             Object.keys(this.textures.list)
         );
 
-        // Map city official NPC names to their dedicated Level 2 image keys
-        const cityNPCImageMap = {
-            "Entrepreneur Carlos": "entrepreneur-carlos",
-            "Accountant Lisa": "accountant-lisa",
-            "Logistics Manager Ben": "logistics-manager-ben",
-            "Sales Director Kim": "sales-director-kim",
-            "Urban Planner Gina": "urban-planner-gina",
-            "Transit Manager Roy": "transit-manager-roy",
-            "Architect Maya": "architect-maya",
-            "City Planner Tom": "city-planner-tom",
-            "Engineer Sarah": "engineer-sarah",
-            "Transport Chief Mike": "transport-chief-mike",
-        };
+        // Map provincial official NPC names to their dedicated Level 3 image keys
+const provinceNPCImageMap = {
+    // Mapped to existing image files
+    "Provincial Budget Officer": "provincial-budget-director",
+    "Provincial Planning Officer": "provincial-economist",
+    "Provincial Engineer": "provincial-engineer",
+    "Provincial Treasurer": "financial-analyst",
+    "Provincial Administrator": "policy-coordinator",
+    "Provincial Agriculturist": "operations-director",
+    "Provincial Assessor": "land-use-planner",
+    "Provincial Health Officer": "resource-manager",
+    "Provincial Social Welfare Officer": "investment-analyst",
+    "Provincial Governor": "strategic-planner"
+};
 
-        // Check if Level 2 NPC images are loaded, if not load them directly
-        const level2Images = Object.values(cityNPCImageMap);
-        const missingImages = level2Images.filter(
+        // Check if Level 3 NPC images are loaded, if not load them directly
+        const level3Images = Object.values(provinceNPCImageMap);
+        const missingImages = level3Images.filter(
             (img) => !this.textures.exists(img)
         );
 
         if (missingImages.length > 0) {
             console.log(
-                "Missing Level 2 city official images, loading them directly:",
+                "Missing Level 3 provincial official images, loading them directly:",
                 missingImages
             );
             missingImages.forEach((img) => {
                 // Map the image key back to the file name
                 const imageFileMap = {
-                    "entrepreneur-carlos": "entrepreneur-carlos.png",
-                    "accountant-lisa": "removebg/accountant-lisa.png",
-                    "logistics-manager-ben": "logistics-manager-ben.png",
-                    "sales-director-kim": "sales-director-kim.png",
-                    "urban-planner-gina": "urban-planner-gina.png",
-                    "transit-manager-roy": "transit-manager-roy.png",
-                    "architect-maya": "architect-maya.png",
-                    "city-planner-tom": "city-planner-tom.png",
-                    "engineer-sarah": "engineer-sarah.png",
-                    "transport-chief-mike": "transport-chief-mike.png",
+                    "provincial-budget-director": "provincial-budget-director.png",
+                    "provincial-economist": "provincial-economist.png",
+                    "provincial-engineer": "provincial-engineer.png",
+                    "financial-analyst": "financial-analyst.png",
+                    "policy-coordinator": "policy-coordinator.png",
+                    "operations-director": "operations-director.png",
+                    "land-use-planner": "land-use-planner.png",
+                    "resource-manager": "resource-manager.png",
+                    "investment-analyst": "investment-analyst.png",
+                    "strategic-planner": "strategic-planner.png",
                 };
-                this.load.image(img, `assets/LEVEL2/${imageFileMap[img]}`);
+                this.load.image(img, `assets/LEVEL3/${imageFileMap[img]}`);
             });
             this.load.start();
 
             this.load.once("complete", () => {
                 console.log(
-                    "Level 2 city official images loaded, creating NPCs..."
+                    "Level 3 provincial official images loaded, creating NPCs..."
                 );
-                this.createCityNPCsAfterLoad(cityNPCImageMap);
+                this.createProvinceNPCsAfterLoad(provinceNPCImageMap);
             });
             return;
         }
 
-        this.createCityNPCsAfterLoad(cityNPCImageMap);
+        this.createProvinceNPCsAfterLoad(provinceNPCImageMap);
     }
 
-    createCityNPCsAfterLoad(npcImageMap: any) {
+    createProvinceNPCsAfterLoad(npcImageMap: any) {
         this.missionLocations.forEach((location, index) => {
             // Use percentage coordinates if available, otherwise fallback to tile coordinates
             let worldX, worldY;
@@ -804,25 +808,25 @@ export class CityMap extends Scene {
                 worldX = coords.x;
                 worldY = coords.y;
                 console.log(
-                    `City NPC ${location.npc} positioned at (${location.percentX}%, ${location.percentY}%) = (${worldX}, ${worldY})`
+                    `Province NPC ${location.npc} positioned at (${location.percentX}%, ${location.percentY}%) = (${worldX}, ${worldY})`
                 );
             } else {
                 // Fallback to tile-based coordinates
                 worldX = location.x * this.tileSize + this.tileSize / 2;
                 worldY = location.y * this.tileSize + this.tileSize / 2;
                 console.log(
-                    `City NPC ${location.npc} positioned at tile (${location.x}, ${location.y}) = (${worldX}, ${worldY})`
+                    `Province NPC ${location.npc} positioned at tile (${location.x}, ${location.y}) = (${worldX}, ${worldY})`
                 );
             }
 
-            // Get the specific NPC image for this city official
+            // Get the specific NPC image for this provincial official
             const npcImageKey = npcImageMap[location.npc] || "student-front-1";
 
             console.log(
-                `Creating City NPC: ${location.npc} with image: ${npcImageKey}`
+                `Creating Province NPC: ${location.npc} with image: ${npcImageKey}`
             );
             console.log(
-                `Level 2 texture exists for ${npcImageKey}:`,
+                `Level 3 texture exists for ${npcImageKey}:`,
                 this.textures.exists(npcImageKey)
             );
 
@@ -843,19 +847,19 @@ export class CityMap extends Scene {
             npc.body.setVelocity(0, 0);
             npc.body.setAngularVelocity(0);
 
-            // Add NPC name with city styling
+            // Add NPC name with province styling
             const npcName = this.add
                 .text(worldX, worldY - 35, location.npc, {
                     fontFamily: "Arial Black",
                     fontSize: 11,
-                    color: "#F0F8FF", // Alice blue for city theme
-                    stroke: "#000080", // Navy blue stroke
+                    color: "#90EE90", // Light green for province theme
+                    stroke: "#006400", // Dark green stroke
                     strokeThickness: 2,
                     align: "center",
                     shadow: {
                         offsetX: 1,
                         offsetY: 1,
-                        color: "#000080",
+                        color: "#006400",
                         blur: 2,
                         fill: true,
                     },
@@ -903,8 +907,8 @@ export class CityMap extends Scene {
                 .text(worldX - 35, worldY - 35, `#${location.missionId}`, {
                     fontFamily: "Arial Black",
                     fontSize: 12,
-                    color: "#87CEEB", // Sky blue for city theme
-                    stroke: "#000080", // Navy blue stroke
+                    color: "#90EE90", // Light green for province theme
+                    stroke: "#006400", // Dark green stroke
                     strokeThickness: 2,
                     align: "center",
                     backgroundColor: "#2F4F4F", // Dark slate gray
@@ -913,8 +917,8 @@ export class CityMap extends Scene {
                 .setOrigin(0.5)
                 .setDepth(100);
 
-            // Add a city-themed glow effect around NPCs
-            const glow = this.add.circle(worldX, worldY, 25, 0x4169e1, 0.15); // Royal blue glow
+            // Add a province-themed glow effect around NPCs
+            const glow = this.add.circle(worldX, worldY, 25, 0x228B22, 0.15); // Forest green glow
             glow.setDepth(-1);
 
             // Store mission data and original position on NPC
@@ -925,7 +929,7 @@ export class CityMap extends Scene {
         });
 
         console.log(
-            `Created ${this.missionLocations.length} City NPCs for Level 2 with dedicated city official sprites from LEVEL2 folder`
+            `Created ${this.missionLocations.length} Province NPCs for Level 3 with dedicated provincial official sprites from LEVEL3 folder`
         );
 
         // Update indicators after all NPCs are created
@@ -940,7 +944,7 @@ export class CityMap extends Scene {
             player.body.setAngularVelocity(0);
         });
 
-        console.log("City NPC collision detection enabled");
+        console.log("Province NPC collision detection enabled");
     }
 
     createUI() {
@@ -953,8 +957,8 @@ export class CityMap extends Scene {
                 {
                     fontFamily: "Arial Black",
                     fontSize: 14,
-                    color: "#87CEEB", // Sky blue for city theme
-                    stroke: "#000080", // Navy blue stroke
+                    color: "#90EE90", // Light green for province theme
+                    stroke: "#006400", // Dark green stroke
                     strokeThickness: 3,
                     align: "center",
                     backgroundColor: "#2F4F4F", // Dark slate gray
@@ -981,7 +985,7 @@ export class CityMap extends Scene {
                     stroke: "#000000",
                     strokeThickness: 2,
                     align: "center",
-                    backgroundColor: "rgba(70, 130, 180, 0.8)", // Steel blue for city theme
+                    backgroundColor: "rgba(34, 139, 34, 0.8)", // Forest green for province theme
                     padding: { x: 8, y: 4 },
                     shadow: {
                         offsetX: 1,
@@ -997,7 +1001,7 @@ export class CityMap extends Scene {
             .setScrollFactor(1) // Follow camera (moves with world)
             .setVisible(true);
 
-        console.log("City location display created above player head");
+        console.log("Province location display created above player head");
     }
 
     repositionPlayerRelativeToBackground() {
@@ -1007,12 +1011,12 @@ export class CityMap extends Scene {
             this.player.setPosition(coords.x, coords.y);
 
             console.log(
-                "City player repositioned to (30%, 50%):",
+                "Province player repositioned to (30%, 50%):",
                 coords.x,
                 coords.y
             );
             console.log(
-                "City background dimensions:",
+                "Province background dimensions:",
                 this.backgroundImage.displayWidth,
                 this.backgroundImage.displayHeight
             );
@@ -1042,20 +1046,29 @@ export class CityMap extends Scene {
     }
 
     async loadCollisions() {
+        // Safety check: ensure physics system is ready
+        if (!this.physics || !this.physics.add) {
+            console.log("Physics system not ready, retrying collision load...");
+            this.time.delayedCall(100, () => {
+                this.loadCollisions();
+            });
+            return;
+        }
+
         const collisionService = CollisionService.getInstance();
 
         // Try localStorage first (for editor testing), then JSON file
-        let collisionData = collisionService.loadCollisionData("CityMap");
+        let collisionData = collisionService.loadCollisionData("ProvinceMap");
 
         if (!collisionData) {
             // Try loading from public folder JSON file
             collisionData = await collisionService.loadCollisionDataFromFile(
-                "CityMap"
+                "ProvinceMap"
             );
         }
 
         if (collisionData && this.backgroundImage) {
-            console.log("✅ Loading collision data for CityMap...");
+            console.log("✅ Loading collision data for ProvinceMap...");
             console.log(
                 `Found ${collisionData.shapes.length} collision shapes`
             );
@@ -1170,7 +1183,7 @@ export class CityMap extends Scene {
                 );
             }
         } else {
-            console.log("⚠️ No collision data found for CityMap");
+            console.log("⚠️ No collision data found for ProvinceMap");
         }
     }
 
@@ -1195,7 +1208,7 @@ export class CityMap extends Scene {
                 npc.setData("originalPosition", { x: coords.x, y: coords.y });
 
                 console.log(
-                    `Repositioned City NPC ${missionData.npc} to (${missionData.percentX}%, ${missionData.percentY}%) = (${coords.x}, ${coords.y})`
+                    `Repositioned Province NPC ${missionData.npc} to (${missionData.percentX}%, ${missionData.percentY}%) = (${coords.x}, ${coords.y})`
                 );
             }
         });
@@ -1206,7 +1219,7 @@ export class CityMap extends Scene {
             // Calculate position relative to background image
             let relativeX = 0,
                 relativeY = 0;
-            let areaName = "City";
+            let areaName = "Province";
 
             if (this.backgroundImage) {
                 // Calculate percentage position relative to background image
@@ -1227,7 +1240,7 @@ export class CityMap extends Scene {
                 relativeX = Math.max(0, Math.min(100, relativeX));
                 relativeY = Math.max(0, Math.min(100, relativeY));
 
-                // Determine area based on percentage position (city districts)
+                // Determine area based on percentage position (provincial districts)
                 if (relativeX < 25 && relativeY < 25) {
                     areaName = "Government District";
                 } else if (relativeX >= 75 && relativeY < 25) {
@@ -1242,7 +1255,7 @@ export class CityMap extends Scene {
                     relativeY >= 37.5 &&
                     relativeY < 62.5
                 ) {
-                    areaName = "City Center";
+                    areaName = "Province Center";
                 } else if (
                     relativeX >= 25 &&
                     relativeX < 75 &&
@@ -1271,9 +1284,9 @@ export class CityMap extends Scene {
                     areaName = "Municipal Area";
                 }
 
-                console.log(
-                    `City player position: ${relativeX}%, ${relativeY}% - Area: ${areaName}`
-                );
+                // console.log(
+                //     `Province player position: ${relativeX}%, ${relativeY}% - Area: ${areaName}`
+                // );
             } else {
                 // Fallback to tile-based coordinates if background not available
                 const mapX = Math.round(this.player.x / this.tileSize);
@@ -1302,11 +1315,11 @@ export class CityMap extends Scene {
             return;
         }
 
-        console.log("City screen resized, updating camera and background...");
+        console.log("Province screen resized, updating camera and background...");
         this.optimizeCameraForOpenWorld();
 
         // Update background scaling for new screen size
-        this.updateCityBackgroundForOrientation();
+        this.updateProvinceBackgroundForOrientation();
 
         // Re-detect mobile device for new screen size
         this.isMobile =
@@ -1316,15 +1329,15 @@ export class CityMap extends Scene {
             ) ||
             window.innerWidth <= 768;
 
-        console.log("City mobile device detected after resize:", this.isMobile);
+        console.log("Province mobile device detected after resize:", this.isMobile);
     }
 
-    // Handle city background scaling for orientation changes
-    updateCityBackgroundForOrientation() {
-        // Find the city background image and update its scale
+    // Handle province background scaling for orientation changes
+    updateProvinceBackgroundForOrientation() {
+        // Find the province background image and update its scale
         const children = this.children.list;
         for (let child of children) {
-            if (child.texture && child.texture.key === "city-bg-root") {
+            if (child.texture && child.texture.key === "province-bg-root") {
                 const gameWidth = this.scale.width;
                 const gameHeight = this.scale.height;
 
@@ -1340,7 +1353,7 @@ export class CityMap extends Scene {
                 child.setPosition(gameWidth / 2, gameHeight / 2);
 
                 console.log(
-                    "City background rescaled to cover entire Phaser game canvas:"
+                    "Province background rescaled to cover entire Phaser game canvas:"
                 );
                 console.log(
                     "Game canvas dimensions:",
@@ -1603,11 +1616,11 @@ export class CityMap extends Scene {
             EventBus.emit("show-notification", {
                 type: "success",
                 title: "Mission Already Completed! ✅",
-                message: `${location.npc}: "Excellent work on this mission! You've earned your city governance badge and contributed to municipal development. Keep up the outstanding leadership!"`,
+                message: `${location.npc}: "Excellent work on this mission! You've earned your provincial governance badge and contributed to regional development. Keep up the outstanding leadership!"`,
                 icon: "🏆",
                 actions: [
                     {
-                        label: "Continue City Service",
+                        label: "Continue Provincial Service",
                         action: () => {},
                         style: "primary",
                     },
@@ -1616,8 +1629,8 @@ export class CityMap extends Scene {
             return;
         }
 
-        // Check if mission is accessible
-        if (!gameStateManager.canAccessMission(location.missionId)) {
+        // Check if mission is accessible (skip if debug mode is enabled)
+        if (!this.DEBUG_BYPASS_PREREQUISITES && !gameStateManager.canAccessMission(location.missionId)) {
             const availableMissions = gameStateManager.getAvailableMissions();
             const availableList =
                 availableMissions.length > 0
@@ -1626,8 +1639,8 @@ export class CityMap extends Scene {
 
             EventBus.emit("show-notification", {
                 type: "info",
-                title: "City Mission Prerequisites Required 🏛️",
-                message: `${location.npc}: "Welcome to city government! This advanced mission requires more experience. Available missions: ${availableList}. Master the basics first, then return for municipal leadership challenges!"`,
+                title: "Province Mission Prerequisites Required 🏛️",
+                message: `${location.npc}: "Welcome to provincial government! This advanced mission requires more experience. Available missions: ${availableList}. Master the basics first, then return for provincial leadership challenges!"`,
                 icon: "🏛️",
                 actions: [
                     {
@@ -1648,199 +1661,199 @@ export class CityMap extends Scene {
             missionId: location.missionId,
             npcName: location.npc,
             missionName: location.name,
-            mission: this.getCityMissionData(location.missionId),
+            mission: this.getProvinceMissionData(location.missionId),
         });
     }
 
-    getCityMissionData(missionId: number) {
-        const cityMissions = {
-            11: {
-                id: "11",
-                title: "Exponential Growth & Decay",
+    getProvinceMissionData(missionId: number) {
+        const provinceMissions = {
+            21: {
+                id: "21",
+                title: "Advanced Quadratic Budgeting",
                 description:
-                    "Master exponential functions to model population growth and resource depletion in urban planning.",
+                    "Use complex quadratic equations to optimize provincial budget allocation and resource planning.",
                 quizOverview:
-                    "Solve problems involving exponential growth and decay. Learn to work with exponential equations, compound interest, and population modeling using base-e and other exponential functions.",
+                    "Master advanced quadratic equations with real coefficients. Apply the quadratic formula to solve budget optimization problems and understand how provincial finances follow quadratic growth patterns.",
                 realLifeTrivia: [
-                    "Population Planning: Model city population growth using P(t) = P₀e^(rt) to plan infrastructure needs",
-                    "Investment Returns: Calculate compound interest for city bonds and municipal investments",
-                    "Radioactive Decay: Model half-life in environmental monitoring and medical waste management",
-                    "Viral Spread: Predict epidemic patterns using exponential models for public health planning",
+                    "Budget Planning: Provincial budgets often follow quadratic models B = ax² + bx + c where x represents fiscal quarters",
+                    "Infrastructure Investment: Calculate optimal spending levels using quadratic optimization",
+                    "Revenue Forecasting: Model tax revenue growth using polynomial functions",
+                    "Cost Analysis: Determine break-even points for provincial projects using quadratic equations",
                 ],
-                npc: "City Statistician Dr. Chen",
-                location: "City Planning Office",
-                reward: "40 coins + Exponential Expert Badge",
+                npc: "Provincial Budget Director",
+                location: "Provincial Capitol",
+                reward: "70 coins + Advanced Algebra Badge"
             },
-            12: {
-                id: "12",
-                title: "Logarithms & Applications",
+            22: {
+                id: "22",
+                title: "Polynomial Revenue Modeling",
                 description:
-                    "Use logarithms to solve complex equations in finance, science, and data analysis.",
+                    "Evaluate polynomial functions to model provincial tax revenue and economic forecasting.",
                 quizOverview:
-                    "Master logarithmic functions, properties of logs, and solving logarithmic equations. Learn to convert between exponential and logarithmic forms and apply logs to real-world problems.",
+                    "Master polynomial evaluation and understand how quadratic and cubic functions model real-world revenue patterns. Apply order of operations to complex polynomial expressions.",
                 realLifeTrivia: [
-                    "Sound Levels: Measure noise pollution using decibels (logarithmic scale) for city ordinances",
-                    "pH Measurement: Monitor water quality using logarithmic pH scale in environmental testing",
-                    "Earthquake Magnitude: Understand Richter scale (logarithmic) for disaster preparedness",
-                    "Financial Analysis: Calculate time needed for investments to reach goals using log formulas",
+                    "Tax Revenue: Provincial tax collection follows polynomial growth T = ax² + bx where x is income level",
+                    "Economic Forecasting: Polynomial models predict provincial GDP growth over multiple quarters",
+                    "Resource Allocation: Evaluate polynomial functions to distribute funds across municipalities",
+                    "Investment Returns: Calculate compound returns using polynomial expressions",
                 ],
-                npc: "Senior Analyst Maria Santos",
-                location: "Data Analytics Center",
-                reward: "45 coins + Logarithm Master Badge",
+                npc: "Provincial Economist",
+                location: "Economic Planning Office",
+                reward: "75 coins + Polynomial Pro Badge",
             },
-            13: {
-                id: "13",
-                title: "Advanced Quadratic Applications",
+            23: {
+                id: "23",
+                title: "Radical Equations in Engineering",
                 description:
-                    "Apply advanced quadratic modeling to optimize city infrastructure and resource allocation.",
+                    "Solve radical equations to optimize provincial infrastructure and engineering projects.",
                 quizOverview:
-                    "Solve complex quadratic optimization problems. Find maximum and minimum values, analyze vertex form, and apply quadratics to area, projectile, and profit maximization scenarios.",
+                    "Master techniques for solving equations with square roots and radicals. Apply to distance formulas, engineering calculations, and optimization problems in provincial development.",
                 realLifeTrivia: [
-                    "Bridge Design: Calculate optimal parabolic arch shapes for maximum strength and efficiency",
-                    "Revenue Optimization: Find ticket prices that maximize city event revenue using quadratic models",
-                    "Traffic Flow: Model vehicle trajectories and optimize traffic light timing",
-                    "Park Design: Calculate optimal fountain spray patterns and landscaping curves",
+                    "Bridge Construction: Use radical equations to calculate cable lengths and support structures",
+                    "Water Systems: Model pipe flow rates using square root relationships",
+                    "Road Planning: Calculate optimal curve radii for provincial highways",
+                    "Energy Distribution: Determine transmission line distances using radical formulas",
                 ],
-                npc: "Chief Engineer Rodriguez",
-                location: "Infrastructure Planning",
-                reward: "50 coins + Optimization Pro Badge",
+                npc: "Provincial Engineer",
+                location: "Infrastructure Department",
+                reward: "80 coins + Radical Master Badge",
             },
-            14: {
-                id: "14",
-                title: "Rational Expressions & Equations",
+            24: {
+                id: "24",
+                title: "Polynomial Factoring & Analysis",
                 description:
-                    "Master rational expressions to solve rate, work, and mixture problems in city operations.",
+                    "Factor complex polynomials to analyze provincial cost structures and break-even points.",
                 quizOverview:
-                    "Simplify complex rational expressions, solve rational equations, and work with direct/inverse variation. Apply to rate problems, work problems, and combined operations scenarios.",
+                    "Master advanced factoring techniques including cubic polynomials. Apply factoring to find zeros, analyze cost functions, and optimize provincial resource allocation.",
                 realLifeTrivia: [
-                    "Work Rates: Calculate project completion times when multiple city crews work together",
-                    "Mixture Problems: Determine chemical concentrations for water treatment facilities",
-                    "Speed & Distance: Optimize delivery routes and calculate average speeds for city services",
-                    "Electrical Circuits: Calculate resistance in parallel circuits for city lighting systems",
+                    "Cost Analysis: Factor polynomial cost functions C = 3x³ - 15x² + 18x to find break-even points",
+                    "Production Optimization: Identify critical points in manufacturing using factored forms",
+                    "Budget Planning: Analyze spending patterns by factoring polynomial budget models",
+                    "Resource Management: Find optimal allocation points through polynomial factorization",
                 ],
-                npc: "Operations Manager Lin",
-                location: "City Operations Center",
-                reward: "55 coins + Rational Expert Badge",
+                npc: "Financial Analyst",
+                location: "Provincial Treasury",
+                reward: "85 coins + Factoring Expert Badge",
             },
-            15: {
-                id: "15",
-                title: "Sequences & Series",
+            25: {
+                id: "25",
+                title: "Inverse Functions & Operations",
                 description:
-                    "Use arithmetic and geometric sequences to model patterns in urban development and finance.",
+                    "Master inverse functions to reverse-engineer provincial planning and resource calculations.",
                 quizOverview:
-                    "Work with arithmetic sequences, geometric sequences, and their sums. Calculate terms, find patterns, and apply sequences to savings, depreciation, and growth scenarios.",
+                    "Understand inverse operations and how to find inverse functions. Apply to reverse calculations in taxation, resource distribution, and policy analysis.",
                 realLifeTrivia: [
-                    "Depreciation: Calculate declining value of city vehicles and equipment over time",
-                    "Budget Planning: Model annual budget increases or decreases using arithmetic sequences",
-                    "Loan Payments: Calculate mortgage and bond payments using geometric series",
-                    "Construction Phases: Plan multi-phase projects with sequential timelines and costs",
+                    "Tax Calculation: Use inverse functions to determine pre-tax amounts from after-tax values",
+                    "Resource Recovery: Calculate original quantities from distributed amounts",
+                    "Policy Analysis: Reverse-engineer outcomes to find required input parameters",
+                    "Budget Reconstruction: Determine original allocations from final spending reports",
                 ],
-                npc: "Financial Advisor Thompson",
-                location: "Municipal Finance Office",
-                reward: "60 coins + Series Specialist Badge",
+                npc: "Policy Coordinator",
+                location: "Provincial Policy Center",
+                reward: "75 coins + Inverse Operations Badge",
             },
-            16: {
-                id: "16",
-                title: "Absolute Value & Piecewise Functions",
+            26: {
+                id: "26",
+                title: "Rational Expression Optimization",
                 description:
-                    "Master absolute value equations and piecewise functions for modeling real-world constraints.",
+                    "Simplify complex rational expressions to optimize provincial efficiency ratios and resource allocation.",
                 quizOverview:
-                    "Solve absolute value equations and inequalities. Work with piecewise-defined functions, analyze graphs with breaks, and apply to scenarios with different rules for different ranges.",
+                    "Master simplification of rational expressions with polynomial numerators and denominators. Apply to efficiency calculations, rate problems, and optimization scenarios.",
                 realLifeTrivia: [
-                    "Tax Brackets: Model progressive tax rates using piecewise functions",
-                    "Utility Pricing: Calculate tiered electricity costs (different rates for different usage levels)",
-                    "Parking Fees: Model parking charges that vary by time of day using piecewise functions",
-                    "Temperature Control: Maintain acceptable ranges using absolute value constraints",
+                    "Efficiency Ratios: Calculate provincial service efficiency using rational expressions",
+                    "Resource Distribution: Optimize allocation using simplified rational functions",
+                    "Cost-Benefit Analysis: Compare project values using rational expression ratios",
+                    "Performance Metrics: Evaluate departmental productivity with rational functions",
                 ],
-                npc: "Policy Analyst Reyes",
-                location: "Policy Development Office",
-                reward: "50 coins + Function Analysis Badge",
+                npc: "Operations Director",
+                location: "Provincial Operations Center",
+                reward: "80 coins + Rational Expressions Badge",
             },
-            17: {
-                id: "17",
-                title: "Matrix Operations & Systems",
+            27: {
+                id: "27",
+                title: "Perfect Square Factoring",
                 description:
-                    "Use matrices to solve large systems of equations for resource allocation and network analysis.",
+                    "Recognize and factor perfect square trinomials for provincial area calculations and optimization.",
                 quizOverview:
-                    "Perform matrix operations (addition, multiplication, inverse). Solve systems of equations using matrices, understand determinants, and apply to multi-variable optimization problems.",
+                    "Master the pattern a² + 2ab + b² = (a + b)². Apply perfect square factoring to simplify area formulas, optimize land use, and solve provincial planning problems.",
                 realLifeTrivia: [
-                    "Supply Chain: Organize and calculate city inventory across multiple warehouses",
-                    "Network Analysis: Model traffic flow through intersections using matrix systems",
-                    "Budget Allocation: Distribute funds across departments with multiple constraints",
-                    "Computer Graphics: Transform and render city planning visualizations using matrices",
+                    "Land Planning: Provincial land area formulas often factor as perfect squares for easy calculation",
+                    "Agricultural Zones: Optimize farm plot dimensions using perfect square relationships",
+                    "Urban Development: Calculate building footprints using perfect square factorization",
+                    "Park Design: Design square and rectangular spaces using algebraic perfect squares",
                 ],
-                npc: "Systems Engineer Park",
-                location: "Technology Center",
-                reward: "65 coins + Matrix Master Badge",
+                npc: "Land Use Planner",
+                location: "Provincial Planning Office",
+                reward: "75 coins + Perfect Square Badge",
             },
-            18: {
-                id: "18",
-                title: "Trigonometry Fundamentals",
+            28: {
+                id: "28",
+                title: "Systems of Equations in Resource Management",
                 description:
-                    "Apply trigonometric ratios and the unit circle to solve measurement and navigation problems.",
+                    "Solve multi-variable systems to balance provincial budgets and resource distribution across municipalities.",
                 quizOverview:
-                    "Master sine, cosine, tangent and their applications. Work with right triangles, the unit circle, and basic trig identities. Solve problems involving angles, heights, and distances.",
+                    "Master solving 2-variable and 3-variable systems using elimination and substitution. Apply to budget allocation, resource distribution, and multi-constraint optimization problems.",
                 realLifeTrivia: [
-                    "Surveying: Calculate distances and elevations for construction projects using trig ratios",
-                    "Navigation: Determine bearings and distances for city transportation routes",
-                    "Architecture: Calculate roof slopes, ramp angles, and accessible design requirements",
-                    "Solar Panels: Optimize panel angles based on sun position using trigonometry",
+                    "Budget Balancing: Solve systems to allocate funds across education, health, and infrastructure",
+                    "Resource Distribution: Balance water, power, and transportation across provincial regions",
+                    "Multi-Department Planning: Coordinate budgets with multiple constraints using systems",
+                    "Supply Chain: Optimize provincial supply distribution using multi-variable systems",
                 ],
-                npc: "Surveyor Johnson",
-                location: "Land Survey Office",
-                reward: "70 coins + Trigonometry Expert Badge",
+                npc: "Resource Manager",
+                location: "Provincial Resource Center",
+                reward: "85 coins + Systems Expert Badge",
             },
-            19: {
-                id: "19",
-                title: "Advanced Statistics & Probability",
+            29: {
+                id: "29",
+                title: "Break-Even Analysis",
                 description:
-                    "Analyze city data using statistical measures and probability to inform policy decisions.",
+                    "Use algebraic equations to determine break-even points for provincial projects and investments.",
                 quizOverview:
-                    "Calculate mean, median, mode, standard deviation, and variance. Understand probability rules, expected value, and data distributions. Analyze and interpret statistical data.",
+                    "Master break-even analysis by setting revenue equal to cost. Solve for critical points where provincial projects become profitable or sustainable.",
                 realLifeTrivia: [
-                    "Public Health: Analyze disease rates and vaccination effectiveness using statistics",
-                    "Crime Analysis: Use probability to predict crime hotspots and allocate police resources",
-                    "Quality Control: Test water quality and infrastructure using statistical sampling",
-                    "Election Polling: Analyze survey data and margins of error for civic engagement",
+                    "Project Viability: Determine minimum scale for provincial projects to be cost-effective",
+                    "Investment Decisions: Calculate break-even points for infrastructure investments",
+                    "Service Pricing: Find optimal pricing for provincial services to cover costs",
+                    "Program Sustainability: Analyze when social programs become self-sustaining",
                 ],
-                npc: "Data Scientist Dr. Kim",
-                location: "Research & Analytics Lab",
-                reward: "60 coins + Statistics Pro Badge",
+                npc: "Investment Analyst",
+                location: "Provincial Investment Office",
+                reward: "80 coins + Break-Even Analysis Badge",
             },
-            20: {
-                id: "20",
-                title: "Comprehensive Algebra Mastery",
+            30: {
+                id: "30",
+                title: "Systems of Inequalities",
                 description:
-                    "Integrate all advanced algebra concepts to solve complex city planning challenges.",
+                    "Master systems of inequalities to optimize provincial resource allocation with multiple constraints.",
                 quizOverview:
-                    "Apply multiple advanced algebra concepts in comprehensive problems. Combine functions, systems, optimization, and modeling to solve real-world scenarios requiring integrated mathematical thinking.",
+                    "Solve systems of linear inequalities and find feasible regions. Apply to budget constraints, resource limits, and multi-objective optimization in provincial planning.",
                 realLifeTrivia: [
-                    "Smart City Planning: Use exponentials, optimization, and statistics to design efficient urban systems",
-                    "Climate Modeling: Integrate multiple functions to predict and plan for environmental changes",
-                    "Economic Development: Combine financial math, statistics, and optimization for growth strategies",
-                    "Infrastructure Investment: Use comprehensive math analysis to prioritize city projects with limited budgets",
+                    "Budget Constraints: Model provincial spending limits using systems of inequalities",
+                    "Resource Limits: Ensure allocations stay within available resources using inequality systems",
+                    "Multi-Objective Planning: Balance competing goals with inequality constraints",
+                    "Feasibility Analysis: Determine viable solutions for complex provincial projects",
                 ],
-                npc: "City Director Hon. Mayor Garcia",
-                location: "Executive Office",
-                reward: "80 coins + Advanced Algebra Master Badge",
+                npc: "Strategic Planner",
+                location: "Provincial Strategy Office",
+                reward: "90 coins + Advanced Planning Badge",
             },
         };
 
         return (
-            cityMissions[missionId as keyof typeof cityMissions] || {
+            provinceMissions[missionId as keyof typeof provinceMissions] || {
                 id: missionId.toString(),
-                title: "Advanced City Mission",
+                title: "Advanced Province Mission",
                 description:
-                    "A challenging mission to help improve city operations.",
+                    "A challenging mission to help improve provincial operations.",
                 quizOverview:
-                    "Complete this advanced quiz to test your higher-level algebra skills and help the city.",
+                    "Complete this advanced quiz to test your higher-level algebra skills and help the province.",
                 realLifeTrivia: [
                     "Advanced math helps solve complex real-world problems",
-                    "Cities rely on mathematical analysis for planning and decision-making",
+                    "Provinces rely on mathematical analysis for planning and decision-making",
                     "Strong algebra skills open doors to STEM careers",
                 ],
-                npc: "City Official",
-                location: "City Hall",
+                npc: "Provincial Official",
+                location: "Provincial Hall",
                 reward: "40 coins",
             }
         );
@@ -1929,7 +1942,7 @@ export class CityMap extends Scene {
             });
 
             console.log(
-                `✓ Created city collectible ${item.id} at (${item.percentX}%, ${item.percentY}%)`
+                `✓ Created province collectible ${item.id} at (${item.percentX}%, ${item.percentY}%)`
             );
         });
 
@@ -2130,15 +2143,15 @@ export class CityMap extends Scene {
         const gameStateManager = GameStateManager.getInstance();
         const totalItems = this.collectibleItemsData.length;
 
-        const allCityItemsCollected = this.collectibleItemsData.every((item) =>
+        const allProvinceItemsCollected = this.collectibleItemsData.every((item) =>
             gameStateManager.isItemCollected(item.id)
         );
 
-        if (allCityItemsCollected) {
+        if (allProvinceItemsCollected) {
             EventBus.emit("show-notification", {
                 type: "success",
-                title: "🏆 City Master Collector! 🏆",
-                message: `Incredible! You've collected all ${totalItems} items in the City! You've earned the "Municipal Treasure Hunter" badge and a bonus of 100 coins + 200 points!`,
+                title: "🏆 Province Master Collector! 🏆",
+                message: `Incredible! You've collected all ${totalItems} items in the Province! You've earned the "Provincial Treasure Hunter" badge and a bonus of 100 coins + 200 points!`,
                 icon: "🎖️",
                 actions: [
                     {
@@ -2149,14 +2162,14 @@ export class CityMap extends Scene {
                 ],
             });
 
-            gameStateManager.addCoins(100, "City Master Collector Achievement");
+            gameStateManager.addCoins(100, "Province Master Collector Achievement");
             const progress = gameStateManager.getProgress();
             if (progress) {
                 progress.totalScore += 200;
                 gameStateManager.updatePlaytime(0);
             }
 
-            console.log("🏆 City Master Collector Achievement unlocked!");
+            console.log("🏆 Province Master Collector Achievement unlocked!");
         }
     }
 
@@ -2172,7 +2185,7 @@ export class CityMap extends Scene {
         const minimapBg = this.add.graphics();
         minimapBg.fillStyle(0x000000, 0.6);
         minimapBg.fillRoundedRect(0, 0, minimapSize, minimapSize, 8);
-        minimapBg.lineStyle(2, 0x87ceeb, 1); // City blue border
+        minimapBg.lineStyle(2, 0x228B22, 1); // Province green border
         minimapBg.strokeRoundedRect(0, 0, minimapSize, minimapSize, 8);
         this.minimap.add(minimapBg);
 
@@ -2239,7 +2252,7 @@ export class CityMap extends Scene {
             });
         });
 
-        console.log("City minimap created with collectible locations");
+        console.log("Province minimap created with collectible locations");
     }
 
     updateMinimap() {

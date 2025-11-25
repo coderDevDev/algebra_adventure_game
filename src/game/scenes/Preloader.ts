@@ -71,6 +71,24 @@ export class Preloader extends Scene {
         );
         this.load.image("city-bg-root", "city-background.png");
 
+        // Load province background for Level 3
+        console.log(
+            "Attempting to load province-bg-root from: province-background.png"
+        );
+        this.load.image("province-bg-root", "province-background.png");
+
+        // Load region background for Level 4
+        console.log(
+            "Attempting to load region-bg-root from: region-background.png"
+        );
+        this.load.image("region-bg-root", "region-background.png");
+
+        // Load national background for Level 5
+        console.log(
+            "Attempting to load national-bg-root from: national-background.png"
+        );
+        this.load.image("national-bg-root", "national-background.png");
+
         // Load student sprite assets
         this.loadStudentSprites();
     }
@@ -121,6 +139,15 @@ export class Preloader extends Scene {
 
         // Load Level 2 city officials from LEVEL2 folder
         this.loadLevel2NPCImages();
+
+        // Load Level 3 province officials from LEVEL3 folder
+        this.loadLevel3NPCImages();
+
+        // Load Level 4 region officials from LEVEL4 folder
+        this.loadLevel4NPCImages();
+
+        // Load Level 5 national officials from LEVEL5 folder
+        this.loadLevel5NPCImages();
 
         // Create placeholder sprites for NPCs (keep simple for now)
         this.createPlaceholderSprites();
@@ -244,6 +271,149 @@ export class Preloader extends Scene {
         });
 
         console.log("Level 2 NPC images loading started...");
+    }
+
+ loadLevel3NPCImages() {
+    console.log("Loading Level 3 province NPC images from LEVEL3 folder...");
+
+    // Define the NPC images
+    const npcImages = [
+        "provincial-budget-director",
+        "provincial-economist",
+        "provincial-engineer",
+        "financial-analyst",
+        "policy-coordinator",
+        "operations-director",
+        "land-use-planner",
+        "resource-manager",
+        "investment-analyst",
+        "strategic-planner"
+    ];
+
+    // Check which images are already loaded
+    const missingImages = npcImages.filter(img => !this.textures.exists(img));
+
+    if (missingImages.length > 0) {
+        console.log("Loading missing NPC images:", missingImages);
+        
+        // Add load complete handler
+        this.load.once('complete', () => {
+            console.log('All Level 3 NPC images loaded successfully');
+            // Verify which textures were loaded
+            npcImages.forEach(key => {
+                console.log(`${key} texture exists:`, this.textures.exists(key));
+            });
+        });
+
+        // Add file load error handler
+        this.load.on('loaderror', (file: Phaser.Loader.File) => {
+            console.error('Error loading file:', file.key, file.src);
+        });
+
+        // Load missing images
+        missingImages.forEach(key => {
+            console.log(`Loading image: ${key}`);
+            this.load.image(key, `assets/LEVEL3/${key}.png`);
+        });
+
+        // Start the loader
+        this.load.start();
+    } else {
+        console.log('All Level 3 NPC images are already loaded');
+    }
+}
+
+  loadLevel4NPCImages() {
+    console.log("Loading Level 4 region NPC images from LEVEL4 folder...");
+
+    // Load all Level 4 NPC images - Regional directors
+    this.load.image(
+        "regional-math-director",
+        "assets/LEVEL4/regional-development-council-director.png"
+    );
+    this.load.image(
+        "regional-analyst",
+        "assets/LEVEL4/neda-regional-director.png"
+    );
+    this.load.image(
+        "regional-coordinator",
+        "assets/LEVEL4/deped-regional-director.png"
+    );
+    this.load.image(
+        "regional-strategist",
+        "assets/LEVEL4/dost-regional-director.png"
+    );
+    this.load.image(
+        "regional-planner",
+        "assets/LEVEL4/dti-regional-director.png"
+    );
+    this.load.image(
+        "regional-economist",
+        "assets/LEVEL4/da-regional-director.png"
+    );
+    this.load.image(
+        "regional-researcher",
+        "assets/LEVEL4/doh-regional-director.png"
+    );
+    this.load.image(
+        "regional-systems-expert",
+        "assets/LEVEL4/dpwh-regional-director.png"
+    );
+    this.load.image(
+        "regional-data-scientist",
+        "assets/LEVEL4/dswd-regional-director.png"
+    );
+    this.load.image(
+        "regional-policy-advisor",
+        "assets/LEVEL4/dilg-regional-director.png"
+    );
+}
+    loadLevel5NPCImages() {
+        console.log("Loading Level 5 national NPC images from LEVEL5 folder...");
+
+        // Load all Level 5 NPC images - National officials
+        this.load.image(
+            "deped-undersecretary",
+            "assets/LEVEL5/deped-undersecretary.png"
+        );
+        this.load.image(
+            "dost-secretary",
+            "assets/LEVEL5/dost-secretary.png"
+        );
+        this.load.image(
+            "ched-commissioner",
+            "assets/LEVEL5/ched-commissioner.png"
+        );
+        this.load.image(
+            "neda-director-general",
+            "assets/LEVEL5/neda-director-general.png"
+        );
+        this.load.image(
+            "national-scientist",
+            "assets/LEVEL5/national-scientist.png"
+        );
+        this.load.image(
+            "pagasa-administrator",
+            "assets/LEVEL5/pagasa-administrator.png"
+        );
+        this.load.image(
+            "psa-administrator",
+            "assets/LEVEL5/psa-administrator.png"
+        );
+        this.load.image(
+            "senate-education-committee-chair",
+            "assets/LEVEL5/senate-education-committee-chair.png"
+        );
+        this.load.image(
+            "dbm-secretary",
+            "assets/LEVEL5/dbm-secretary.png"
+        );
+        this.load.image(
+            "deped-secretary",
+            "assets/LEVEL5/deped-secretary.png"
+        );
+
+        console.log("Level 5 NPC images loading started...");
     }
 
     createPlaceholderSprites() {
