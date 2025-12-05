@@ -13,6 +13,7 @@ import { Settings } from "./components/Settings";
 import { Extras } from "./components/Extras";
 import { Credits } from "./components/Credits";
 import { Leaderboard } from "./components/Leaderboard";
+import { Tutorial } from "./components/Tutorial";
 import { Shop } from "./components/Shop";
 import { DailyChallenges } from "./components/DailyChallenges";
 import { SecretQuests } from "./components/SecretQuests";
@@ -65,6 +66,7 @@ function App() {
     const [showExtras, setShowExtras] = useState(false);
     const [showCredits, setShowCredits] = useState(false);
     const [showLeaderboard, setShowLeaderboard] = useState(false);
+    const [showTutorial, setShowTutorial] = useState(false);
     const [showShop, setShowShop] = useState(false);
     const [showDailyChallenges, setShowDailyChallenges] = useState(false);
     const [showSecretQuests, setShowSecretQuests] = useState(false);
@@ -209,6 +211,11 @@ function App() {
     const handleShowLeaderboard = () => {
         audioManager.playEffect("menu-open");
         setShowLeaderboard(true);
+    };
+
+    const handleShowTutorial = () => {
+        audioManager.playEffect("menu-open");
+        setShowTutorial(true);
     };
 
     const handleExit = () => {
@@ -1787,6 +1794,7 @@ function App() {
                     onShowExtras={handleShowExtras}
                     onShowCredits={handleShowCredits}
                     onShowLeaderboard={handleShowLeaderboard}
+                    onShowTutorial={handleShowTutorial}
                     onExit={handleExit}
                 />
             )}
@@ -2490,6 +2498,15 @@ function App() {
                     setShowLeaderboard(false);
                 }}
                 isVisible={showLeaderboard}
+            />
+
+            {/* Tutorial Modal */}
+            <Tutorial
+                onClose={() => {
+                    audioManager.playEffect("menu-close");
+                    setShowTutorial(false);
+                }}
+                isVisible={showTutorial}
             />
 
             {/* Shop Modal */}

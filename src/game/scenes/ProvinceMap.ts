@@ -1281,7 +1281,7 @@ const provinceNPCImageMap = {
                 ) {
                     areaName = "Commercial Zone";
                 } else {
-                    areaName = "Municipal Area";
+                    areaName = "Provincial Area";
                 }
 
                 // console.log(

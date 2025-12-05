@@ -7,6 +7,7 @@ interface MainMenuProps {
     onShowExtras?: () => void;
     onShowCredits?: () => void;
     onShowLeaderboard?: () => void;
+    onShowTutorial?: () => void;
     onExit?: () => void;
 }
 
@@ -17,6 +18,7 @@ export const MainMenu: React.FC<MainMenuProps> = ({
     onShowExtras,
     onShowCredits,
     onShowLeaderboard,
+    onShowTutorial,
     onExit,
 }) => {
     const [showSubMenu, setShowSubMenu] = useState<string | null>(null);
@@ -94,6 +96,14 @@ export const MainMenu: React.FC<MainMenuProps> = ({
                             className="w-full bg-amber-500 text-white py-3 rounded-xl font-medium shadow-soft hover:shadow-lg transition-all duration-200 hover:scale-[1.02]"
                         >
                             🏆 Leaderboard
+                        </button>
+
+                        {/* How to Play / Tutorial */}
+                        <button
+                            onClick={() => onShowTutorial?.()}
+                            className="w-full bg-green-500 text-white py-3 rounded-xl font-medium shadow-soft hover:shadow-lg transition-all duration-200 hover:scale-[1.02]"
+                        >
+                            📚 How to Play
                         </button>
 
                         {/* Extras */}

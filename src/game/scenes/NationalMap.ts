@@ -364,33 +364,46 @@ export class NationalMap extends Scene {
     }
 
     // Method to update NPC indicators in real-time
-    updateNPCIndicators() {
-        const gameStateManager = GameStateManager.getInstance();
+ updateNPCIndicators() {
+    const gameStateManager = GameStateManager.getInstance();
+    
+    this.missionLocations.forEach((location) => {
+        const indicator = this.missionIndicators.get(location.missionId);
 
-        this.missionLocations.forEach((location) => {
-            const indicator = this.missionIndicators.get(location.missionId);
-
-            if (indicator) {
-                let indicatorText = `Mission #${location.missionId}`;
-                let indicatorColor = "#FFD700"; // Gold for available
-
-                if (gameStateManager.isMissionCompleted(location.missionId)) {
-                    indicatorText = "✓";
-                    indicatorColor = "#32CD32"; // Lime green for completed
-                } else if (
-                    !gameStateManager.canAccessMission(location.missionId)
-                ) {
-                    indicatorText = "🔒";
-                    indicatorColor = "#DC143C"; // Crimson red for locked
-                }
-
-                indicator.setText(indicatorText);
-                indicator.setColor(indicatorColor);
+        if (indicator) {
+            // Calculate world coordinates using the same logic as in createNationalNPCsAfterLoad
+            let worldX, worldY;
+            if (location.percentX !== undefined && location.percentY !== undefined) {
+                const coords = this.percentageToWorldCoordinates(
+                    location.percentX,
+                    location.percentY
+                );
+                worldX = coords.x;
+                worldY = coords.y;
+            } else {
+                worldX = location.x * this.tileSize + this.tileSize / 2;
+                worldY = location.y * this.tileSize + this.tileSize / 2;
             }
-        });
 
-        console.log("National NPC indicators updated in real-time");
-    }
+            let indicatorText = `Mission #${location.missionId}`;
+            let indicatorColor = "#FFD700"; // Gold for available
+
+            if (gameStateManager.isMissionCompleted(location.missionId)) {
+                indicatorText = "✓";
+                indicatorColor = "#32CD32"; // Lime green for completed
+            } else if (!gameStateManager.canAccessMission(location.missionId)) {
+                indicatorText = "🔒";
+                indicatorColor = "#DC143C"; // Crimson red for locked
+            }
+
+            indicator.setText(indicatorText);
+            indicator.setColor(indicatorColor);
+            indicator.setPosition(worldX + 30, worldY - 100);  // Position adjusted
+        }
+    });
+
+    console.log("National NPC indicators updated in real-time");
+}
 
     optimizeCameraForOpenWorld() {
         if (this.player) {
@@ -1280,7 +1293,7 @@ export class NationalMap extends Scene {
                 ) {
                     areaName = "Commercial Zone";
                 } else {
-                    areaName = "Municipal Area";
+                    areaName = "National Area";
                 }
 
                 console.log(

@@ -1281,7 +1281,7 @@ export class RegionMap extends Scene {
                 ) {
                     areaName = "Commercial Zone";
                 } else {
-                    areaName = "Municipal Area";
+                    areaName = "Regional Area";
                 }
 
                 console.log(
